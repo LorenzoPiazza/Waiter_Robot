@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="171"/>
+		<item key="DIALOG_Y_ORIGIN" value="357"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="rest"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="rest"/>
+			<item value="ClientI"/>
+			<item value="ClientSimula"/>
+			<item value="readyTo"/>
+			<item value="TotalClient"/>
+			<item value="order"/>
+			<item value="delay 3000"/>
+			<item value="delay 2000"/>
+			<item value="delay"/>
+			<item value="&amp;&amp;&amp;&amp;&amp;"/>
+			<item value="waiterResponse"/>
+			<item value="readLine"/>
+			<item value="nTableAvailable"/>
+			<item value="time"/>
+			<item value="currentBodyTemperature"/>
+		</list>
+		<list key="replacehistory">
+			<item value="delay 6000"/>
+			<item value="NTableAvailable"/>
+			<item value="CurrentClientID"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="136"/>
+		<item key="DIALOG_Y_ORIGIN" value="348"/>
+		<item key="DIALOG_WIDTH" value="336"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>
