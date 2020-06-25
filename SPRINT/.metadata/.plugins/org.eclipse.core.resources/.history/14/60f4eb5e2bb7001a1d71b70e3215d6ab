@@ -9,27 +9,27 @@
  
  /*--------waiter <-> smartbell -------- */
  Request enterRequest : enterRequest(CID)
- Reply 	 answer 	  : answer(TIME)	// TIME = 0 significa che la richiesta del cliente viene accettata e il waiter sta arrivando ad accoglierlo altrimenti TIME rappresenta il maxWaitingTime da aspettare perchè la sala è piena
+ Reply 	 answer 	  : answer(TIME)	/* TIME = 0 significa che la richiesta del cliente viene accettata e il waiter sta arrivando ad accoglierlo
+  										 * altrimenti TIME rappresenta il maxWaitingTime da aspettare perchè la sala è piena
+  										 */
  
  /*--------waiter <-> barman ----------- */
  Dispatch order 	 : order(CID, TEA)
  Dispatch orderReady : orderReady(CID, TEA)
  
- /* Ulteriori messaggi UTILI AI FINI DELLA SIMULAZIONE */
- 
- /*--------waiter <-> client ----------- */ 
+ /*--------waiter <-> client ----------- */ /* UTILI AI FINI DELLA SIMULAZIONE */
  Request readyToOrder : readyToOrder(CID)
  Reply 	 imHere 	  : imhere(N)
  Request readyToPay   : readyToPay(CID)
  Reply   amountToPay  : amountToPay(AMOUNT)
 
- /*--------client <-> smartbell -------- */
+ /*--------client <-> smartbell -------- */	/* UTILI AI FINI DELLA SIMULAZIONE */
  Request ring 		  : ring(N)
  Reply waiterResponse : waiterResponse(CID, TIME)
  Reply refused 		  : refused(CAUSE)
  
  /*--------situationObserver <-> browser -------- */
- Request askForSituation  : askForSituation(N)	//Messaggio proveniente dall'esterno
+ Request askForSituation  : askForSituation(N)
  Reply 	 currentSituation : currentSituation(SITUATION)
  
  Context ctxTearoom		ip 	[ host='localhost' port=9000 ]
@@ -317,7 +317,7 @@
  	}
  	Transition t0 whenRequest askForSituation -> observeSituation
  	
- 	State observeSituation{	
+ 	State observeSituation{
  		//TODO: Collect informations about current situation of the TeaRoom
  		replyTo askForSituation with currentSituation : currentSituation(SITUATION)
  	}
