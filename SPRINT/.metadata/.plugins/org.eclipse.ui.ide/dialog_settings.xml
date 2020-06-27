@@ -5,8 +5,21 @@
 		<item key="DIALOG_Y_ORIGIN" value="226"/>
 		<item key="DIALOG_WIDTH" value="662"/>
 		<item key="DIALOG_HEIGHT" value="529"/>
-		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="TOGGLE_SELECTED" value="true"/>
 		<item key="BUILD_NOW" value="true"/>
 		<item key="BUILD_ALL" value="true"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Lorenzo\Documents\LORI\UNIVERSITA&apos;\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\ISS2020_Natali\it.unibo.virtualRobot2020"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
 	</section>
 </section>
