@@ -5,45 +5,50 @@
 		<item key="DIALOG_Y_ORIGIN" value="357"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="memo"/>
 		<item key="wrap" value="true"/>
-		<item key="casesensitive" value="false"/>
+		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="upda"/>
-			<item value="exist"/>
-			<item value="exists"/>
-			<item value="(2,4)"/>
-			<item value="cell(2,4)"/>
-			<item value="doPlan"/>
-			<item value="testReqAtCellFree"/>
-			<item value="testMoveToFreeCell"/>
-			<item value="initDelayTime"/>
-			<item value="walk"/>
-			<item value="plan"/>
-			<item value="testReqCmd"/>
-			<item value="robot"/>
-			<item value="testBasicrobot"/>
-			<item value="sendSuccessAnswer"/>
+			<item value="memo"/>
+			<item value="show"/>
+			<item value="maxStayTime"/>
+			<item value="println"/>
+			<item value="Time"/>
+			<item value="Duration"/>
+			<item value="maxstaytime"/>
+			<item value="CurrentTime"/>
+			<item value="solveOk"/>
+			<item value="local_consultingPhase"/>
+			<item value="local_consumingPhase"/>
+			<item value="local_preparationPhase"/>
+			<item value="local_preparationphase"/>
+			<item value="local_consumingphase"/>
+			<item value="local_consultingphase"/>
 		</list>
 		<list key="replacehistory">
-			<item value="(4,2)"/>
-			<item value="cell(4,2)"/>
-			<item value="testMoveToFreeCell"/>
-			<item value="plan"/>
-			<item value="testReqAtCell"/>
-			<item value="waiterWalker"/>
-			<item value="testWaiterWalker"/>
-			<item value="delay 6000"/>
-			<item value="NTableAvailable"/>
-			<item value="CurrentClientID"/>
+			<item value="//println"/>
+			<item value="maxStayTime"/>
+			<item value="local_consulting"/>
+			<item value="local_consuming"/>
+			<item value="local_preparation"/>
+			<item value="local_preparationPhase"/>
+			<item value="local_consumingPhase"/>
+			<item value="local_consultingPhase"/>
+			<item value="reachTableToOrder"/>
+			<item value="updateResource [# WaiterState #]"/>
+			<item value="CurrentClientId"/>
+			<item value="var CurrentClientId&#x09;&#x09; = 0"/>
+			<item value="ctxtearoom"/>
+			<item value="WaiterState"/>
+			<item value="waiterLogic"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="67"/>
-		<item key="DIALOG_Y_ORIGIN" value="290"/>
+		<item key="DIALOG_X_ORIGIN" value="9"/>
+		<item key="DIALOG_Y_ORIGIN" value="193"/>
 		<item key="DIALOG_WIDTH" value="336"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

@@ -3,7 +3,7 @@
  * Modello derivante dall'analisi del Problema fatta nell'overview iniziale (sprint0).
  */
 
- System tearoom_covid19
+ System tearoom_covid19_sprint0
 
  /* Messaggi */
 
@@ -32,7 +32,8 @@
  Request askForSituation  : askForSituation(N)	//Messaggio proveniente dall'esterno del sistema.
  Reply 	 currentSituation : currentSituation(SITUATION)
 
- Context ctxTearoom		ip 	[ host='localhost' port=9000 ]
+ Context ctxTearoom		ip [ host='localhost' port=9000 ]
+
 // Context ctxWaiter 		ip 	[ host='somehost1' port=9001 ]
 // Context ctxSmartbell 	ip	[ host='somehost2' port=9002 ]
 // Context ctxServiceDesk	ip	[ host='somehost3' port=9003 ]

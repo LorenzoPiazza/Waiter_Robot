@@ -7,7 +7,7 @@
  * 	"mqtt.eclipse.org:  mosquitto.org mqtt.fluux.io  broker.hivemq.com
  * ================================================================================
  */ 
-System   domainssubsys 
+System   tearoom_covid19_sprint1
 //mqttBroker "mqtt.eclipse.org" : 1883 eventTopic "unibo/polar"  //see watermind
 
 Event    walkerstarted   : walkerstarted(X)
@@ -21,17 +21,17 @@ Request step       : step( TIME )
 Reply   stepdone   : stepdone(V)  
 Reply   stepfail   : stepfail(DURATION, CAUSE)
 
-Context ctxwaiter		        ip [host="localhost"      port=8050]     
+Context ctxwaiterwalker	        ip [host="localhost"      port=8050]     
 Context ctxbasicrobot     		ip [host="127.0.0.1"   	  port=8020]    
 
 ExternalQActor basicrobot    context ctxbasicrobot
  
-QActor waiterwalker context ctxwaiter{  
+QActor waiterwalker context ctxwaiterwalker{  
 [#
 	var XT = "0"
 	var YT = "0"
 	var CurrentPlannedMove = ""
-	var StepTime    	   = 355L
+	var StepTime    	   = 350L
 	val PauseTime          = 250L
 	val BackTime           = 2 * StepTime / 3
 	var obstacleFound      = false 

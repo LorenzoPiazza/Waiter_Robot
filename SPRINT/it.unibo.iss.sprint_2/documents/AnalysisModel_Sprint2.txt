@@ -1,0 +1,386 @@
+/*
+ * SPRINT_2: "GESTIONE DI UN SOLO CLIENTE"
+ * Modello derivante dall'analisi del Problema fatta nello Sprint2.
+ */
+
+ System tearoom_covid19_sprint2
+ mqttBroker "localhost" : 1883 eventTopic "unibo/polar" 
+ 
+ /* Messaggi */
+
+ /*--------waiterlogic <-> smartbell -------- */
+ Request enterRequest : enterRequest(CID)
+ Reply 	 answer 	  : answer(TIME)	// TIME = 0 significa che la richiesta del cliente viene accettata e il waiter sta arrivando ad accoglierlo altrimenti TIME rappresenta il maxWaitingTime da aspettare perchï¿½ la sala ï¿½ piena
+
+ /*--------waiterlogic <-> barman ----------- */
+ Dispatch order 	 : order(CID, TEA)
+ Dispatch orderReady : orderReady(CID, TEA)
+ 
+ /*--------waiterlogic <-> waiterwalker ----- */
+ Request movetoCell : movetoCell(X,Y)
+ Reply   atcell     : atcell(X,Y)
+ Reply	 walkbreak  : walkbreak(X,Y) 
+ 
+ /*-----------------timeout------------------ */
+ Dispatch maxStayTime : maxStayTime(CID, CSTATE)
+ 
+ /* ULTERIORI MESSAGGI UTILI AI FINI DELLA SIMULAZIONE */
+
+ /*--------waiter <-> client ----------- */
+ Dispatch table_reached : table_reached(CID)
+ Dispatch readyToOrder  : readyToOrder(CID)
+ Dispatch tea_served	: tea_served(CID) 
+ Dispatch readyToPay    : readyToPay(CID)
+
+ /*--------Auto-msg smartbell --------- */
+ Dispatch ring 		  : ring(TEMPERATURE)
+
+ Context ctxwaiter		ip [ host="localhost"  port=8050 ]   
+// Context ctxsmartbell 	ip	[ host='localhost' port=8051 ]
+// Context ctxservicedesk	ip	[ host='somehost3' port=8052 ]
+
+ /* Attori */
+ 
+ CodedQActor waiterwalker context ctxwaiter className "it.unibo.waiterwalker.Waiterwalker"
+ 
+ /* WAITER */
+ QActor waiterlogic context ctxwaiter {
+ 	[#
+ 		var NTableAvailable 	 = 2
+ 		var CurrentClientId		 = 0
+		var CurrentSelectedTable = 0
+		var CurMoveX 			 = 0
+		var CurMoveY			 = 0
+		var CurX				 = 0
+		var CurY				 = 0
+ 	 	val MaxStayTime = 30000L
+ 	 	val TimeToRest  = 20000L
+ 	 	var WaiterState = "rest(0,0)"
+ 	 	val inmapname 	= "teaRoomExplored"
+ 	 #]
+
+ 	State s0 initial{
+ 		discardMsg Off
+ 		println("&&&&& waiter | starts")
+ 		run itunibo.planner.plannerUtil.initAI()
+		run itunibo.planner.plannerUtil.loadRoomMap( inmapname )
+ 		//SETTIAMO LE VARIABILI CONSULTANDO LA KB
+ 	}
+ 	Goto waitForRequest
+
+ 	State waitForRequest{
+ 		//RESETTIAMO LE VARIABILI
+ 		[#	
+ 			CurrentClientId 	 = 0
+ 			CurrentSelectedTable = 0
+			CurMoveX 			 = 0
+			CurMoveY			 = 0
+			CurX             	 = itunibo.planner.plannerUtil.getPosX()
+			CurY             	 = itunibo.planner.plannerUtil.getPosY()
+			WaiterState 	 	 = "rest($CurX, $CurY)"
+		#]
+ 		println("&&&&& waiter | waiting for any kind of requests...")
+ 		
+ 	}
+ 	Transition t0 	whenTimeVar  TimeToRest   -> rest
+ 					whenRequest  enterRequest -> evaluateEntrance
+ 					whenMsg		 readyToOrder -> reachTable	
+ 					whenMsg		 orderReady	  -> reachServiceDesk
+ 					whenMsg		 readyToPay   -> collectPayment
+ 					whenMsg 	 maxStayTime  -> collectPayment
+
+ 	State evaluateEntrance{
+ 		onMsg( enterRequest : enterRequest(CID) ){
+ 			[#	CurrentClientId = payloadArg(0).toString().toInt()
+ 				WaiterState 	= "serving_client($CurrentClientId)"
+ 			#]
+ 			println("&&&&& waiter | evaluating the enterRequest of the client ID = ${payloadArg(0)} ")
+ 			//TODO: Consult the KB to check the availability of the teatable in state tableclean
+ 		}
+ 		delay 1000
+ 	}
+ 	Goto accept if [# NTableAvailable >= 1 #] else inform
+
+ 	State accept{
+ 		println("&&&&& waiter | EnterRequest accepted.")
+ 		//TODO: Update the table state: busy(CID)
+ 		replyTo enterRequest with answer : answer(0)
+ 	}
+ 	Goto reachEntranceDoor
+
+ 	State reachEntranceDoor{
+ 		println("&&&&& waiter | I'm going to the entrance door...")
+ 		//TODO: Consult KB to extract CurMoveX and CurMoveY
+ 		//MOVE TO THE ENTRANCE DOOR
+ 		request waiterwalker -m movetoCell : movetoCell(1, 4)
+ 	}
+ 	Transition t0 whenReply atcell 	  -> convoyToTable
+ 				  whenReply walkbreak -> unexpected
+
+ 	State convoyToTable{
+ 		println("&&&&& waiter | Follow me to the table...")
+ 		//TODO: Consult KB to extract CurMoveX and CurMoveY
+ 		//MOVE TO TABLE
+ 		request waiterwalker -m movetoCell : movetoCell(2, 2)
+ 	}
+ 	Transition t0 whenReply atcell	  -> startCountdown 
+ 				  whenReply walkbreak -> unexpected
+ 	
+ 	State startCountdown{
+ 		forward client_simulator -m table_reached : table_reached($CurrentClientId)
+ 		//TODO: Start the maxStayTime countdown for the CurrentClientId
+ 	}
+ 	Goto waitForRequest
+
+ 	State inform{
+ 		println("&&&&& waiter | Sorry, at the moment the TeaRoom is full. Retry in ${MaxStayTime/1000} seconds.")
+ 		replyTo enterRequest with answer : answer($MaxStayTime)
+ 		delay 4000
+ 	}
+ 	Goto waitForRequest
+ 	
+ 	State reachTable{
+ 		onMsg(readyToOrder : readyToOrder (CID)){
+ 			[#	CurrentClientId = payloadArg(0).toString().toInt()
+ 				WaiterState 	= "serving_client($CurrentClientId)"
+ 			#]
+ 			println("&&&&& waiter | I'm reaching the table to take the order of client ${payloadArg(0)}.")
+ 			//TODO: locate the table of the current CID and move to it
+ 			request waiterwalker -m movetoCell : movetoCell(2, 2)
+ 		}
+ 	}
+ 	Transition t0 whenReply atcell 	  -> takeOrder 
+ 				  whenReply walkbreak -> unexpected
+
+ 	State takeOrder{
+ 		println("&&&&& waiter | Taking the order of client $CurrentClientId and transmitting it to barman.")
+		delay 2000
+ 		forward barman -m order : order( $payloadArg(0), LemonTea)
+ 		//TODO: Interrupt the maxStayTime countdown for the CurrentClientId
+ 	}
+ 	Goto waitForRequest
+ 	
+	State reachServiceDesk{
+		onMsg(orderReady : orderReady (CID, TEA)){
+			[#	CurrentClientId = payloadArg(0).toString().toInt()
+ 				WaiterState 	= "serving_client($CurrentClientId)"
+ 			#]
+			println("&&&&& waiter | The order for Client $CurrentClientId is ready! I'm going to service desk")
+			//TODO: consult KB to extract CurMoveX and CurMoveY
+	 		//MOVE TO SERVICE DESK
+	 		request waiterwalker -m movetoCell : movetoCell(4, 0)			
+		}
+	}
+	Transition t0 whenReply atcell 	  -> reachTableToServe 
+ 				  whenReply walkbreak -> unexpected
+ 				  
+
+ 	State reachTableToServe{
+ 		println("&&&&& waiter | I'm serving the order of the client $CurrentClientId.")
+ 		//TODO: locate the table of the current CID and move to it
+ 		//MOVE TO TABLE
+ 		request waiterwalker -m movetoCell : movetoCell(2, 2)
+ 	}
+ 	Transition t0 whenReply atcell 	  -> serveClient 
+ 				  whenReply walkbreak -> unexpected
+
+	State serveClient{
+		forward client_simulator -m tea_served : tea_served($CurrentClientId)
+	}
+    Goto waitForRequest
+ 				  
+ 	State collectPayment{
+ 		onMsg(readyToPay : readyToPay(CID)){
+ 			[#	CurrentClientId = payloadArg(0).toString().toInt()
+ 				WaiterState 	= "serving_client($CurrentClientId)"
+ 			#]
+ 			println("&&&&& waiter | I'm going to the table of client $CurrentClientId and collect the payment.")
+ 		}
+ 		onMsg(maxStayTime : maxStayTime(CID)){
+ 			[#	CurrentClientId = payloadArg(0).toString().toInt()
+ 				WaiterState 	= "serving_client($CurrentClientId)"
+ 			#]
+ 			println("&&&&& waiter | MAX STAY TIME FOR CLIENT $CurrentClientId is OVER! I'm going to collect the payment.")
+ 		}
+ 		//TODO: locate the table of the current CID and move to it
+	 	//MOVE TO TABLE
+	 	request waiterwalker -m movetoCell : movetoCell(2, 2)	
+ 	}
+ 	Transition t0 whenReply atcell 	  -> convoyToExit 
+ 				  whenReply walkbreak -> unexpected
+
+ 	State convoyToExit{
+ 		delay 2000
+ 		println("&&&&& waiter | Thank you! Follow me to the exit door...Bye,Bye!")
+ 		//TODO: update the table state: dirty
+ 		//MOVE TO EXIT DOOR
+ 		request waiterwalker -m movetoCell : movetoCell(5, 4)
+ 	}
+ 	 Transition t0 whenReply atcell 	-> reachTableToClean 
+ 	 			   whenReply walkbreak 	-> unexpected
+	
+	State reachTableToClean{
+		//TODO: locate the table to clean
+		[#	WaiterState = "cleaning(table($CurrentSelectedTable))"	#]
+		//MOVE TO TABLE
+		request waiterwalker -m movetoCell : movetoCell(2, 2)	
+	}
+	Transition t0 whenReply atcell 	  -> clean 
+ 	 			  whenReply walkbreak -> unexpected
+ 	State clean{
+ 		println("&&&&& waiter | I'm cleaning the table!")
+ 		delay 3000
+ 		//TODO: update the table state: tableclean
+ 	}
+ 	Goto waitForRequest
+
+ 	State rest{
+ 		
+ 		println("&&&&& waiter | I'm going to return to home and relax.")
+ 		//MOVE TO HOME
+ 		request waiterwalker -m movetoCell : movetoCell(0, 0)
+ 	}
+ 	Transition t0 	whenReply atcell 	  -> waitForRequest 
+	     			whenReply walkbreak   -> unexpected
+ 	 
+ 	 State unexpected{
+ 		println("Sorry, there is something wrong ...")
+		printCurrentMessage
+	}
+ }
+
+ /* SMARTBELL */
+ QActor smartbell context ctxwaiter{
+ 	[#
+ 		var CurrentBodyTemperature = 36.0
+ 		var CurrentClientId = 0
+ 	#]
+ 	 State s0 initial{
+ 		println("&&&&& smartbell | starts")
+ 		println("PRESS ENTER TO SIMULATE THE ARRIVE OF A CLIENT")
+		[# readLine() #]
+ 		//TODO: generate a TemperatureValue
+ 		forward smartbell -m ring : ring($CurrentBodyTemperature)
+ 	}
+ 	Goto listening
+
+ 	State listening{
+ 		println("&&&&& smartbell | listening to ringing...")
+ 		delay 2000
+ 	}
+ 	Transition t0 	whenMsg ring -> checkClient
+
+ 	State checkClient{
+ 		onMsg(ring : ring(TEMPERATURE) ){
+ 			println("&&&&& smartbell | DRIIN !! Let's control the body temperature...")
+ 			delay 5000
+ 			[# CurrentBodyTemperature = payloadArg(0).toString().toDouble() #]
+ 		}
+ 	}
+ 	Goto doEnterReq if [# CurrentBodyTemperature < 37.5 #] else refuseClient
+
+ 	State doEnterReq{
+ 		[# CurrentClientId ++ #]
+ 		println("&&&&& smartbell | Forward the entranceRequest for client $CurrentClientId.")
+ 		request waiterlogic -m enterRequest : enterRequest($CurrentClientId)
+ 		delay 5000
+ 	}
+	Transition t0 whenReply answer -> checkAnswer
+	
+	State checkAnswer{
+		onMsg(answer : answer(TIME)){
+			if [# payloadArg(0).toString().toInt() == 0 #]{
+				println("WELCOME! You're the Client $CurrentClientId. The waiter is coming to you. ")
+			}else{
+				println("The Room is full. Retry in ${payloadArg(0)} millisec")
+			}
+		}
+	} Goto listening
+
+ 	State refuseClient{
+ 		println("&&&&& smartbell | I'm sorry! You're not allowed to enter cause your body temperature is too high.")
+ 	}
+ 	Goto listening
+ }
+
+ /* BARMAN */
+ QActor barman context ctxwaiter {
+	[# val PreparationTime = 5000L #]
+	
+	 State s0 initial{
+ 		println("&&&&& barman | starts")
+ 	}
+ 	Goto waitForOrder
+
+ 	State waitForOrder{
+ 		println("&&&&& barman | waiting for orders...")
+ 	}
+ 	Transition t0 whenMsg order -> prepare
+
+ 	State prepare{
+ 		onMsg(order : order(CID, TEA)){
+ 			[#
+ 				var CurrentClientId 	= payloadArg(0).toInt()
+ 				var CurrentTeaOrdered 	= payloadArg(1)
+ 			#]
+ 			println("&&&&& barman | preparing the order of ${payloadArg(1)} for client ${payloadArg(0)}.")
+ 			delayVar PreparationTime 	//WARNING: Blocking: not suitable to simulate multiple order preparations
+ 			forward waiterlogic -m orderReady : orderReady($CurrentClientId, $CurrentTeaOrdered)
+ 		}
+ 	}
+ 	Goto waitForOrder
+ }
+
+  /* CLIENT SIMULATOR */
+ 
+/*
+  * Un client_simulator molto semplice:
+  * Questo attore non fa altro che stare in ascolto di messaggi provenienti dal waiterlogic dove viene detto:
+  * -table_reached(CID): quando lo riceve, dopo tot manda un messaggio readyToOrder(CID).
+  * -tea_served(CID): quando lo riceve, dopo tot manda un messaggio readyToPay(CID).
+  * 
+  * ATTENZIONE1: Non viene controllato che il cliente non sia già stato cacciato per aver superato maxstaytime, e readyToPay viene mandato in ogni caso. 
+  * ATTENZIONE2: Non è adatto a simulare più clienti contemporaneamente.
+*/
+
+
+ QActor client_simulator context ctxwaiter{
+ 	[#
+		var CurrentClientId		 = 0
+ 	#]
+ 	State s0 initial{
+ 		println("&&&&& CLIENT SIMULATOR | starts")
+ 		delay 1000
+ 	}
+ 	Goto listening
+
+ 	State listening{
+ 		
+ 	}
+ 	Transition t0 whenMsg table_reached	   	   ->  	consultMenu
+ 				  whenMsg tea_served       ->	consume
+
+ 	State consultMenu{
+ 		onMsg(table_reached : table_reached(CID)){
+ 			[#
+				CurrentClientId	 = payloadArg(0).toInt()
+ 			#]
+ 			println("&&&&& CLIENT | I consult the menù...")
+ 			delay 5000 		//WARNING: Blocking: not suitable to simulate multiple client
+ 			forward waiterlogic -m readyToOrder : readyToOrder($CurrentClientId)
+ 		}
+ 	}
+ 	Goto listening
+
+ 	State consume{
+ 		onMsg(tea_served : tea_served(CID)){
+ 			[#
+				CurrentClientId	 = payloadArg(0).toInt()
+ 			#]
+ 			println("&&&&& CLIENT | I drink the tea...")
+ 			delay 10000		//WARNING: Blocking: not suitable to simulate multiple client
+ 			forward waiterlogic -m readyToPay : readyToPay($CurrentClientId) //WARNING: Se il cliente è già stato 'cacciato' questo messaggio non va inviato
+ 		}
+ 	}
+ 	Goto listening
+ }

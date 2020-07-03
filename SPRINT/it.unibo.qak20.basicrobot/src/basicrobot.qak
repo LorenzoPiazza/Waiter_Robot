@@ -16,7 +16,7 @@
  */ 
   
 System -msglog basicrobot 
-//mqttBroker "localhost" : 1883 eventTopic "unibo/polar"   
+mqttBroker "localhost" : 1883 eventTopic "unibo/polar"   
 
 Dispatch cmd       	: cmd(MOVE)    
 Dispatch end       	: end(ARG)  

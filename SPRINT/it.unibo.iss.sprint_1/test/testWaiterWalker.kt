@@ -17,8 +17,6 @@ import it.unibo.kactor.ActorBasic
 import it.unibo.kactor.MsgUtil
 import it.unibo.kactor.MqttUtils
  
- 
-
 class testWaiterWalker {
 	
 var waiterWalker      : ActorBasic? = null
@@ -115,6 +113,23 @@ val mqttbrokerAddr    = "tcp://broker.hivemq.com"
 				delay(1500)			
 		checkResource("at( cell(4,0) )")
 	}
+
+@kotlinx.coroutines.ObsoleteCoroutinesApi
+@kotlinx.coroutines.ExperimentalCoroutinesApi
+	suspend fun testStayInTheSameCell(){
+		println("=========== testStayInTheSameCell =========== ")
+ 		requestToWaiter( "movetoCell", "movetoCell(1,4)" )		//REACH THE ENTRANCE DOOR
+		delay(1000)
+		checkResource("movingTo( cell(1,4) )")
+		delay(5000)		//let basic robot phisically move towards the goal
+			while(! itunibo.planner.plannerUtil.atPos(1,4))
+				delay(1500)			
+		checkResource("at( cell(1,4) )")
+	 	
+		requestToWaiter( "movetoCell", "movetoCell(1,4)" )		//REACH THE CURRENT CELL IN WHICH IT IS		
+		delay(1000)
+		checkResource("at( cell(1,4) )")
+	}
 	
 @kotlinx.coroutines.ObsoleteCoroutinesApi
 @kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -127,6 +142,7 @@ val mqttbrokerAddr    = "tcp://broker.hivemq.com"
 			}
 			testMovetoDifferentCells()
 			testMoveToFreeCell()
+			//testStayInTheSameCell()
 		}
 	 	println("testWaiterWalker BYE  ")  
 	}
