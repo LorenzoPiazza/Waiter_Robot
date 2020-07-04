@@ -16,6 +16,7 @@ import kotlinx.coroutines.delay
 import it.unibo.kactor.ActorBasic
 import it.unibo.kactor.MsgUtil
 import it.unibo.kactor.MqttUtils
+import itunibo.planner.*
  
 class testWaiterLogic {
 	
@@ -31,9 +32,8 @@ val mqttbrokerAddr    = "tcp://localhost"
 @kotlinx.coroutines.ExperimentalCoroutinesApi
 	@Before
 	fun systemSetUp() { 
-		
    		kotlin.concurrent.thread(start = true) {
-			it.unibo.ctxwaiter.main() // MainCtxWaiter()
+   			it.unibo.ctxwaiter.main()
 			println("testwaiterLogic systemSetUp done")
    			if( useMqttInTest ){
 				 while( ! mqttTest.connectDone() ){
@@ -42,7 +42,8 @@ val mqttbrokerAddr    = "tcp://localhost"
 					  mqttTest.connect("test_nat", mqttbrokerAddr )					 
 				 }
  			}	
- 	} 
+ 	}
+
 }	
 @kotlinx.coroutines.ObsoleteCoroutinesApi
 @kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -74,10 +75,10 @@ val mqttbrokerAddr    = "tcp://localhost"
 		}  
 	}
 	
-	fun checkResourceWaiterWalker(value: String){		
+	fun checkResourceWaiterLogic(value: String){		
 		if( waiterLogic != null ){
 			println(" --- checkResource --- ${waiterLogic!!.geResourceRep()} value=$value")
-			assertTrue( waiterWalker!!.geResourceRep() == value)
+			assertTrue( waiterLogic!!.geResourceRep() == value)
 		}  
 	}
 	
@@ -85,18 +86,57 @@ val mqttbrokerAddr    = "tcp://localhost"
 @kotlinx.coroutines.ExperimentalCoroutinesApi
 	suspend fun testAccept(){
 		println("=========== testAccept =========== ")
+		var N = 0
+		var S = ""
+		delay(5000)		//Time to set up
+		waiterLogic!!.solve("numfreetables(N)","")
+		N = waiterLogic!!.getCurSol("N").toString().toInt()
+		assertTrue(N==2)
+		delay(2000)
+		//MANDO UNA RICHIESTA DI INGRESSO AL WAITERLOGIC
+		requestToWaiterLogic("enterRequest", "enterRequest(1)")	
+		delay(3000)
+	
+		//CONTROLLO LO STATO DEL WAITERLOGIC
+		checkResourceWaiterLogic("serving_client(1)")
+		while(!S.equals("busy(1)")){
+			waiterLogic!!.solve("teatable(1, S)", "")
+			S = waiterLogic!!.getCurSol("S").toString()
+			delay(1000)
+		}
+	
+		//CONTROLLO CHE UN TAVOLO SIA OCCUPATO CON L'ID DEL CLIENTE
+		assertTrue( S.equals("busy(1)") )
+		//CONTROLLO CHE I TAVOLI DISPONIBILI ORA SIANO 1
+		waiterLogic!!.solve("numfreetables(N)","")								
+		N = waiterLogic!!.getCurSol("N").toString().toInt()
+		assertTrue(N==1)										
 	}
 
 
 @kotlinx.coroutines.ObsoleteCoroutinesApi
 @kotlinx.coroutines.ExperimentalCoroutinesApi
-	suspend fun testReach(){
-		println("=========== testReach =========== ")
-
-	}
+suspend fun testReachEntranceDoor(){
+		println("=========== testReachEntranceDoor =========== ")
+		while(!itunibo.planner.plannerUtil.atPos(1,4) ){
+			delay(1000)
+		}
+		checkResourceWaiterLogic("serving_client(1)")
+}
+	
+@kotlinx.coroutines.ObsoleteCoroutinesApi
+@kotlinx.coroutines.ExperimentalCoroutinesApi
+suspend fun testConvoyToTable(){
+		println("=========== testConvoyToTable =========== ")
+		while(!itunibo.planner.plannerUtil.atPos(2,2) ){
+			delay(1000)
+		}
+		delay(500)
+		checkResourceWaiterLogic("rest(2,2)")
+}	
 	
 	
-suspend fun simulateRegularClient(waiterLogic : ActorBasic){
+suspend fun simulateRegularClient(){
 	//"HIT THE SMARTBELL" to simulate a client enter-request
 	forwardToSmartbell("ring", "ring(36.8)" )
 }
@@ -111,25 +151,25 @@ suspend fun simulateSickClient(){
 @Test
 	fun testwaiterLogic(){
 	 	runBlocking{
-			while( waiterLogic == null ){
+			while( waiterLogic == null || waiterWalker == null || smartbell == null){
+				println("Trying to start the actors...")	
 				delay(initDelayTime)  //time for system to start
 				waiterWalker = it.unibo.kactor.sysUtil.getActor("waiterwalker")				
 				waiterLogic  = it.unibo.kactor.sysUtil.getActor("waiterlogic")
-				smartbell    = it.unibo.kactor.sysUtil.getActor("smartbell")				
+				smartbell    = it.unibo.kactor.sysUtil.getActor("smartbell")						
 			}
-			
-			
- 
-			/*testAccept()
-			testReach()
+			 
+			testAccept()
+			testReachEntranceDoor()
 			testConvoyToTable()
-			testTake()
-			testServe()
-			testCollect()
-			testConvoyToExit()
-			testClean()
-			testRest()	*/		 	
+//			testTake()
+//			testServe()
+//			testCollect()
+//			testConvoyToExit()
+//			testClean()
+//			testRest()	
 		}
-	 	println("testWaiterLogic BYE  ")  
+	 	
+	 	println("testWaiterLogic BYE  ")
 	}
 }

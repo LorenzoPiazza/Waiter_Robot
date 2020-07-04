@@ -43,14 +43,14 @@
  Event local_startMaxstaytimeObserver : local_startMaxstaytimeObserver(MAXSTAYTIME)
  
  
- Context ctxwaiter			ip [ host="localhost"  port=8050 ]   
- Context ctxwaiterwalker	ip [ host= "127.0.0.1" port=8060 ]
+ Context ctxwaiter			ip [ host="localhost"  port=8050 ]   // Non considero i ctxsmartbell e ctxbarman per semplicità
+//Context ctxwaiterwalker	ip [ host= "127.0.0.1" port=8060 ]
 // Context ctxsmartbell 	ip	[ host='localhost' port=8051 ]
 // Context ctxservicedesk	ip	[ host='somehost3' port=8052 ]
 
  /* Attori */
  
- CodedQActor waiterwalker 		 context ctxwaiterwalker className "it.unibo.waiterwalker.Waiterwalker"
+ CodedQActor waiterwalker 		 context ctxwaiter		 className "it.unibo.waiterwalker.Waiterwalker"
  CodedQActor maxstaytimeobserver context ctxwaiter 		 className "it.unibo.maxstaytimeobserver.Maxstaytimeobserver"
  
  /* WAITER */
@@ -79,9 +79,11 @@
 		var X_teatable2     = "0"
 		var Y_teatable2     = "0"
 		
- 	 	val MaxStayTime = 20000L
- 	 	val TimeToRest  = 20000L
- 	 	var CurrentTime = 0L
+ 	 	val MaxStayTime 	= 20000L
+ 	 	val TimeToRest  	= 20000L
+ 	 	val MaxWaitingTime 	= MaxStayTime + 5000L 	//Assuming PreparationTime = 5000L
+ 	 	var CurrentTime 	= 0L
+ 	 	
  	 	var CSituationAtTimeout = ""
  	 	var WaiterState = "rest(0,0)"
  	 #]
@@ -124,10 +126,11 @@
  			CurrentSelectedTable = 0
 			CurX             	 = itunibo.planner.plannerUtil.getPosX()
 			CurY             	 = itunibo.planner.plannerUtil.getPosY()
-			WaiterState 	 	 = "rest($CurX, $CurY)"
+			WaiterState 	 	 = "rest($CurX,$CurY)"
 		#]
 		println("---------------------------------------")
  		println("&&&&& waiter | waiting for any kind of requests...")
+ 		println("$WaiterState")
 		solve( replaceRule( waiter(S), waiter($WaiterState)) )
 		solve ( waiter(SW) )
 		[# SW = getCurSol("SW").toString(); #]
@@ -157,7 +160,7 @@
  			ifSolved { [# NTableAvailable = getCurSol("N").toString().toInt() #] }
  			println("&&&&& waiter | There are $NTableAvailable table available.")
  		}
- 		delay 5000
+ 		delay 3000
  	}
  	Goto accept if [# NTableAvailable >= 1 #] else inform
 
@@ -211,7 +214,7 @@
  	State inform{
  		println("---------------------------------------")
  		println("&&&&& waiter | Sorry, at the moment the TeaRoom is full. Retry in ${MaxStayTime/1000} seconds.")
- 		replyTo enterRequest with answer : answer($MaxStayTime)
+ 		replyTo enterRequest with answer : answer($MaxWaitingTime)
  		delay 4000
  	}
  	Goto waitForRequest
@@ -395,9 +398,9 @@
  	 State s0 initial{
  		println("&&&&& smartbell | starts")
  		println("PRESS ENTER TO SIMULATE THE ARRIVE OF A CLIENT")
-		[# readLine() #]
+//		[# readLine() #]
  		//TODO: generate a TemperatureValue
- 		forward smartbell -m ring : ring($CurrentBodyTemperature)
+ 		//forward smartbell -m ring : ring($CurrentBodyTemperature)
 		//forward smartbell -m ring : ring(38)
  	}
  	Goto listening

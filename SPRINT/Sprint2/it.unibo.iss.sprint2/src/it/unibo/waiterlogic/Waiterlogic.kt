@@ -40,9 +40,11 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				var X_teatable2     = "0"
 				var Y_teatable2     = "0"
 				
-		 	 	val MaxStayTime = 20000L
-		 	 	val TimeToRest  = 20000L
-		 	 	var CurrentTime = 0L
+		 	 	val MaxStayTime 	= 20000L
+		 	 	val TimeToRest  	= 20000L
+		 	 	val MaxWaitingTime 	= MaxStayTime + 5000L 	//Assuming PreparationTime = 5000L
+		 	 	var CurrentTime 	= 0L
+		 	 	
 		 	 	var CSituationAtTimeout = ""
 		 	 	var WaiterState = "rest(0,0)"
 		return { //this:ActionBasciFsm
@@ -94,9 +96,10 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 						 			CurrentSelectedTable = 0
 									CurX             	 = itunibo.planner.plannerUtil.getPosX()
 									CurY             	 = itunibo.planner.plannerUtil.getPosY()
-									WaiterState 	 	 = "rest($CurX, $CurY)"
+									WaiterState 	 	 = "rest($CurX,$CurY)"
 						println("---------------------------------------")
 						println("&&&&& waiter | waiting for any kind of requests...")
+						println("$WaiterState")
 						solve("replaceRule(waiter(S),waiter($WaiterState))","") //set resVar	
 						solve("waiter(SW)","") //set resVar	
 						 SW = getCurSol("SW").toString();  
@@ -133,7 +136,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 								{}
 								println("&&&&& waiter | There are $NTableAvailable table available.")
 						}
-						delay(5000) 
+						delay(3000) 
 					}
 					 transition( edgeName="goto",targetState="accept", cond=doswitchGuarded({ NTableAvailable >= 1  
 					}) )
@@ -198,7 +201,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 					action { //it:State
 						println("---------------------------------------")
 						println("&&&&& waiter | Sorry, at the moment the TeaRoom is full. Retry in ${MaxStayTime/1000} seconds.")
-						answer("enterRequest", "answer", "answer($MaxStayTime)"   )  
+						answer("enterRequest", "answer", "answer($MaxWaitingTime)"   )  
 						delay(4000) 
 					}
 					 transition( edgeName="goto",targetState="waitForRequest", cond=doswitch() )

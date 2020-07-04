@@ -41,6 +41,7 @@ class Waiterwalker ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( nam
 				}	 
 				state("waitCmd") { //this:State
 					action { //it:State
+						println("&&&  waiterwalker waits for a command 'movetoCell'")
 					}
 					 transition(edgeName="t00",targetState="plan",cond=whenRequest("movetoCell"))
 				}	 

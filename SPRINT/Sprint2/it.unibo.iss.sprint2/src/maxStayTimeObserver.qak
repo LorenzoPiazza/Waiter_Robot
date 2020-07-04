@@ -15,6 +15,7 @@ mqttBroker "localhost" : 1883 eventTopic "unibo/polar"
  Dispatch maxStayTime    : maxStayTime(CID, STATE)
 
  Context ctxwaiter	ip [ host="localhost"  port=8050 ]
+ 
  CodedQActor waiterlogic context ctxwaiter className "it.unibo.Waiterlogic"    
 
 QActor maxstaytimeobserver context ctxwaiter{

@@ -21,7 +21,7 @@ Request step       : step( TIME )
 Reply   stepdone   : stepdone(V)  
 Reply   stepfail   : stepfail(DURATION, CAUSE)
 
-Context ctxwaiterwalker			ip [ host= "127.0.0.1" 	port=8060 ]
+//Context ctxwaiterwalker			ip [ host= "127.0.0.1" 	 port=8060 ]
 Context ctxwaiter		        ip [ host= "localhost"   port=8050 ]     
 Context ctxbasicrobot     		ip [ host= "127.0.0.1"   port=8020 ]    
 
@@ -53,7 +53,7 @@ QActor waiterwalker context ctxwaiter{
 	Goto waitCmd   
 	 
 	State waitCmd {	     
- 		//println("&&&  waiterwalker waits for a command 'movetoCell'")
+ 		println("&&&  waiterwalker waits for a command 'movetoCell'")
 	}	
 	Transition t0 whenRequest movetoCell -> plan
  	

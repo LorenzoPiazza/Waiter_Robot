@@ -9,7 +9,7 @@
 
  /*--------waiter <-> smartbell -------- */
  Request enterRequest : enterRequest(CID)
- Reply 	 answer 	  : answer(TIME)	// TIME = 0 significa che la richiesta del cliente viene accettata e il waiter sta arrivando ad accoglierlo altrimenti TIME rappresenta il maxWaitingTime da aspettare perch� la sala � piena
+ Reply 	 answer 	    : answer(TIME)	// TIME = 0 significa che la richiesta del cliente viene accettata e il waiter sta arrivando ad accoglierlo altrimenti TIME rappresenta il maxWaitingTime da aspettare perch� la sala � piena
 
  /*--------waiter <-> barman ----------- */
  Dispatch order 	 : order(CID, TEA)
@@ -19,14 +19,14 @@
 
  /*--------waiter <-> client ----------- */
  Request readyToOrder : readyToOrder(CID)
- Reply 	 imHere 	  : imhere(N)
+ Reply 	 imHere 	    : imhere(N)
  Request readyToPay   : readyToPay(CID)
  Reply   amountToPay  : amountToPay(AMOUNT)
 
  /*--------client <-> smartbell -------- */
- Request ring 		  : ring(N)
- Reply waiterResponse : waiterResponse(CID, TIME)
- Reply refused 		  : refused(CAUSE)
+ Request ring 		     : ring(N)
+ Reply waiterResponse  : waiterResponse(CID, TIME)
+ Reply refused 		     : refused(CAUSE)
 
  /*--------situationObserver <-> browser -------- */
  Request askForSituation  : askForSituation(N)	//Messaggio proveniente dall'esterno del sistema.
@@ -34,7 +34,7 @@
 
  Context ctxTearoom		ip [ host='localhost' port=9000 ]
 
-// Context ctxWaiter 		ip 	[ host='somehost1' port=9001 ]
+// Context ctxWaiter 		  ip 	[ host='somehost1' port=9001 ]
 // Context ctxSmartbell 	ip	[ host='somehost2' port=9002 ]
 // Context ctxServiceDesk	ip	[ host='somehost3' port=9003 ]
 
@@ -59,10 +59,10 @@
  		println("&&&&& waiter | waiting for any kind of requests...")
  	}
  	Transition t0 	whenTimeVar  TimeToRest   -> rest
- 					whenRequest  enterRequest -> evaluateEntrance
- 					whenRequest	 readyToOrder -> takeOrder
- 					whenMsg		 orderReady	  -> serveClient
- 					whenRequest	 readyToPay   -> collectPayment
+ 					        whenRequest  enterRequest -> evaluateEntrance
+ 					        whenRequest	 readyToOrder -> takeOrder
+ 					        whenMsg		   orderReady	  -> serveClient
+ 					        whenRequest	 readyToPay   -> collectPayment
 
  	State evaluateEntrance{
  		onMsg( enterRequest : enterRequest(CID) ){

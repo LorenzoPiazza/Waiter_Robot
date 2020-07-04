@@ -16,7 +16,7 @@ pos( exitdoor,     5, 4 ).
 %% Teatables
 %% ------------------------------------------ 
 %% busy(CID)		(occupied by client CID)
-%% dirty	  		(free but not clean)
+%% dirty	  	(free but not clean)
 %% tableclean 		(free and clean)	
 
 teatable( 1, tableclean ).
@@ -25,7 +25,7 @@ teatable( 2, tableclean ).
 
 numfreetables(N) :-
 	findall( N,teatable( N,tableclean ), NList),
-	stdout <- println( tearoomkb_numfreetables(NList) ),
+	%% stdout <- println( tearoomkb_numfreetables(NList) ),
 	length(NList,N).
 
 stateOfTeatables( [teatable1(V1),teatable2(V2)] ) :-

@@ -24,8 +24,6 @@ class Smartbell ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, 
 					action { //it:State
 						println("&&&&& smartbell | starts")
 						println("PRESS ENTER TO SIMULATE THE ARRIVE OF A CLIENT")
-						 readLine()  
-						forward("ring", "ring($CurrentBodyTemperature)" ,"smartbell" ) 
 					}
 					 transition( edgeName="goto",targetState="listening", cond=doswitch() )
 				}	 
