@@ -398,9 +398,9 @@
  	 State s0 initial{
  		println("&&&&& smartbell | starts")
  		println("PRESS ENTER TO SIMULATE THE ARRIVE OF A CLIENT")
-//		[# readLine() #]
+		[# readLine() #]
  		//TODO: generate a TemperatureValue
- 		//forward smartbell -m ring : ring($CurrentBodyTemperature)
+ 		forward smartbell -m ring : ring($CurrentBodyTemperature)
 		//forward smartbell -m ring : ring(38)
  	}
  	Goto listening
