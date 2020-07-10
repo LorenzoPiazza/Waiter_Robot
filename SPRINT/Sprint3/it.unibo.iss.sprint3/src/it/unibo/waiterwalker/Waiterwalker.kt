@@ -20,7 +20,7 @@ class Waiterwalker ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( nam
 			var XT = "0"
 			var YT = "0"
 			var CurrentPlannedMove = ""
-			var StepTime    	   = 355L
+			var StepTime    	   = 356L	//was 355L
 			val PauseTime          = 250L
 			val BackTime           = 2 * StepTime / 3
 			var obstacleFound      = false 
@@ -41,7 +41,6 @@ class Waiterwalker ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( nam
 				}	 
 				state("waitCmd") { //this:State
 					action { //it:State
-						println("&&&  waiterwalker waits for a command 'movetoCell'")
 					}
 					 transition(edgeName="t00",targetState="plan",cond=whenRequest("movetoCell"))
 				}	 

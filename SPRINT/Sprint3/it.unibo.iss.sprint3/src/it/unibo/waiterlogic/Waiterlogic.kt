@@ -41,9 +41,9 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				var X_teatable2     = "0"
 				var Y_teatable2     = "0"
 				
-		 	 	val MaxStayTime 	= 20000L
+		 	 	val MaxStayTime 	= 40000L
 		 	 	val TimeToRest  	= 20000L
-		 	 	val TimeToClean		= 5000L
+		 	 	val TimeToClean		= 2000L
 		 	 	val MaxWaitingTime 	= MaxStayTime + 5000L 	//Assuming PreparationTime = 5000L
 		 	 	var CurrentTime 	= 0L
 		 	 	
@@ -52,6 +52,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 		 	 	var TotalCleanRequired 	= false
 		 	 	var CurrentDirtyLevel   = 0
 		 	 	var NewDirtyLevel 		= 0
+		 	 	var maxst				= false
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
@@ -108,7 +109,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 						solve("replaceRule(waiter(S),waiter($WaiterState))","") //set resVar	
 						solve("stateOfTeatables(ST)","") //set resVar	
 						 ST = getCurSol("ST").toString()  
-						println("__ROOM STATE__ waiter: $SW $ST")
+						println("__ROOM STATE__ waiter: $WaiterState $ST")
 						updateResourceRep( WaiterState  
 						)
 						stateTimer = TimerActor("timer_waitForRequest", 
@@ -118,13 +119,13 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 					transition(edgeName="t01",targetState="evaluateEntrance",cond=whenRequest("enterRequest"))
 					transition(edgeName="t02",targetState="reachTableToOrder",cond=whenDispatch("readyToOrder"))
 					transition(edgeName="t03",targetState="reachServiceDesk",cond=whenDispatch("orderReady"))
-					transition(edgeName="t04",targetState="collectPayment",cond=whenDispatch("readyToPay"))
-					transition(edgeName="t05",targetState="collectPayment",cond=whenDispatch("maxStayTime"))
+					transition(edgeName="t04",targetState="reachTableToCollect",cond=whenDispatch("readyToPay"))
+					transition(edgeName="t05",targetState="reachTableToCollect",cond=whenDispatch("maxStayTime"))
 				}	 
 				state("checkClean") { //this:State
 					action { //it:State
 						solve("teatable(N,dirty(LV))","") //set resVar	
-						if( currentSolution.isSuccess() ) { CurrentSelectedTable = getCurSol("N"); CurrentDirtyLevel = getCurSol("LV")  
+						if( currentSolution.isSuccess() ) { CurrentSelectedTable = getCurSol("N").toString().toInt(); CurrentDirtyLevel = getCurSol("LV").toString().toInt()  
 						println("&&&&& waiter | The teatable $CurrentSelectedTable is dirty($CurrentDirtyLevel)!")
 							WaiterState = "cleaning(table($CurrentSelectedTable))"	 
 						solve("replaceRule(waiter(S),waiter($WaiterState))","") //set resVar	
@@ -141,6 +142,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				}	 
 				state("waitForRequestNoCleanNeeded") { //this:State
 					action { //it:State
+						println("---------------------------------------")
 						println("&&&&& waiter | NO need of cleaning tables. Waiting for any kind of requests...")
 						stateTimer = TimerActor("timer_waitForRequestNoCleanNeeded", 
 							scope, context!!, "local_tout_waiterlogic_waitForRequestNoCleanNeeded", TimeToRest )
@@ -149,8 +151,8 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 					transition(edgeName="t07",targetState="evaluateEntrance",cond=whenRequest("enterRequest"))
 					transition(edgeName="t08",targetState="reachTableToOrder",cond=whenDispatch("readyToOrder"))
 					transition(edgeName="t09",targetState="reachServiceDesk",cond=whenDispatch("orderReady"))
-					transition(edgeName="t010",targetState="collectPayment",cond=whenDispatch("readyToPay"))
-					transition(edgeName="t011",targetState="collectPayment",cond=whenDispatch("maxStayTime"))
+					transition(edgeName="t010",targetState="reachTableToCollect",cond=whenDispatch("readyToPay"))
+					transition(edgeName="t011",targetState="reachTableToCollect",cond=whenDispatch("maxStayTime"))
 				}	 
 				state("evaluateEntrance") { //this:State
 					action { //it:State
@@ -180,6 +182,12 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				}	 
 				state("maybeInform") { //this:State
 					action { //it:State
+						solve("numbusytables(N)","") //set resVar	
+						if( currentSolution.isSuccess() ) { NTableBusy = getCurSol("N").toString().toInt()  
+						}
+						else
+						{}
+						println("&&&&& waiter | There are $NTableBusy table busy.")
 					}
 					 transition( edgeName="goto",targetState="inform", cond=doswitchGuarded({ NTableBusy == 2  
 					}) )
@@ -189,7 +197,12 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				state("acceptButCleanFirst") { //this:State
 					action { //it:State
 						answer("enterRequest", "answer", "cleanFirst(0)"   )  
-						println("&&&&& waiter | Enter Request accepted! Before reaching the client I have to totally clean the table $CurrentSelectedTable")
+						solve("getMostCleanTable(T,L)","") //set resVar	
+						if( currentSolution.isSuccess() ) {	CurrentSelectedTable = getCurSol("T").toString().toInt()  
+						}
+						else
+						{}
+						println("&&&&& waiter | Enter Request accepted! But before reaching the client I have to totally clean the table $CurrentSelectedTable")
 						if(  CurrentSelectedTable == 1  
 						 ){request("movetoCell", "movetoCell($X_teatable1,$Y_teatable1)" ,"waiterwalker" )  
 						}
@@ -204,7 +217,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				state("inform") { //this:State
 					action { //it:State
 						println("---------------------------------------")
-						println("&&&&& waiter | Sorry, at the moment the TeaRoom is full. Retry in ${MaxStayTime/1000} seconds.")
+						println("&&&&& waiter | Sorry, at the moment the TeaRoom is full. Retry in ${MaxWaitingTime/1000} seconds.")
 						answer("enterRequest", "answer", "answer($MaxWaitingTime)"   )  
 					}
 					 transition( edgeName="goto",targetState="waitForRequest", cond=doswitch() )
@@ -212,16 +225,13 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				state("accept") { //this:State
 					action { //it:State
 						println("---------------------------------------")
-						if(  !TotalCleanRequired  
-						 ){println("&&&&& waiter | Enter Request Accepted.")
+						println("&&&&& waiter | Enter Request Accepted.")
 						answer("enterRequest", "answer", "answer(0)"   )  
 						solve("teatable(N,tableclean)","") //set resVar	
 						if( currentSolution.isSuccess() ) { CurrentSelectedTable = getCurSol("N").toString().toInt()  
 						}
 						else
 						{}
-						}
-						 TotalCleanRequired = false  
 						println("&&&&& waiter | Occupy the table $CurrentSelectedTable for client $CurrentClientId.")
 						solve("replaceRule(teatable($CurrentSelectedTable,tableclean),teatable($CurrentSelectedTable,busy($CurrentClientId)))","") //set resVar	
 						solve("stateOfTeatables(ST)","") //set resVar	
@@ -235,6 +245,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				}	 
 				state("reachEntranceDoor") { //this:State
 					action { //it:State
+						 TotalCleanRequired = false  
 						println("---------------------------------------")
 						delay(3000) 
 						println("&&&&& waiter | I'm going to the entrance door...")
@@ -248,6 +259,8 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 						println("---------------------------------------")
 						delay(4000) 
 						println("&&&&& waiter | Follow me to the table $CurrentSelectedTable...")
+						println("PRESS ENTER TO CONTINUE AND REACH THE TABLE")
+						 readLine()  
 						if(  CurrentSelectedTable == 1  
 						 ){request("movetoCell", "movetoCell($X_teatable1,$Y_teatable1)" ,"waiterwalker" )  
 						}
@@ -261,7 +274,12 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				state("startCountdown") { //this:State
 					action { //it:State
 						println("---------------------------------------")
-						forward("table_reached", "table_reached($CurrentClientId)" ,"client_simulator" ) 
+						if(  CurrentSelectedTable == 1  
+						 ){forward("table_reached", "table_reached($CurrentClientId)" ,"client_simulator1" ) 
+						}
+						else
+						 {forward("table_reached", "table_reached($CurrentClientId)" ,"client_simulator2" ) 
+						 }
 						CurrentTime = getCurrentTime()
 						emit("local_consulting", "local_consulting($CurrentClientId,$CurrentTime)" ) 
 					}
@@ -299,11 +317,9 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 					action { //it:State
 						println("---------------------------------------")
 						println("&&&&& waiter | Taking the order of client $CurrentClientId and transmitting it to barman.")
-						delay(2000) 
+						println("PRESS ENTER TO CONTINUE AND TRASMIT THE ORDER TO THE BARMAN")
+						 readLine()  
 						forward("order", "order(${payloadArg(0)},LemonTea)" ,"barman" ) 
-						CurrentTime = getCurrentTime()
-						emit("local_preparation", "local_preparation($CurrentClientId,$CurrentTime)" ) 
-						delay(4000) 
 					}
 					 transition( edgeName="goto",targetState="waitForRequest", cond=doswitch() )
 				}	 
@@ -318,7 +334,8 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 								updateResourceRep( WaiterState  
 								)
 								println("&&&&& waiter | The order for Client $CurrentClientId is ready! I'm going to service desk")
-								delay(3000) 
+								println("PRESS ENTER TO CONTINUE AND REACH SERVICE DESK")
+								 readLine()  
 								request("movetoCell", "movetoCell($X_barman,$Y_barman)" ,"waiterwalker" )  
 						}
 					}
@@ -347,57 +364,70 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				state("serveClient") { //this:State
 					action { //it:State
 						println("---------------------------------------")
-						forward("tea_served", "tea_served($CurrentClientId)" ,"client_simulator" ) 
+						if(  CurrentSelectedTable == 1  
+						 ){forward("tea_served", "tea_served($CurrentClientId)" ,"client_simulator1" ) 
+						}
+						else
+						 {forward("tea_served", "tea_served($CurrentClientId)" ,"client_simulator2" ) 
+						 }
 						CurrentTime = getCurrentTime()
 						emit("local_consuming", "local_consuming($CurrentClientId,$CurrentTime)" ) 
 					}
 					 transition( edgeName="goto",targetState="waitForRequest", cond=doswitch() )
 				}	 
-				state("collectPayment") { //this:State
+				state("reachTableToCollect") { //this:State
 					action { //it:State
 						println("---------------------------------------")
-							
-						 			CurrentClientId = payloadArg(0).toString().toInt()
-						 		 	WaiterState 	= "serving_client($CurrentClientId)"
-						updateResourceRep( WaiterState  
-						)
-						solve("replaceRule(waiter(S),waiter($WaiterState))","") //set resVar	
 						if( checkMsgContent( Term.createTerm("readyToPay(CID)"), Term.createTerm("readyToPay(CID)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
+									
+								 				CurrentClientId = payloadArg(0).toString().toInt()
+								 		 		WaiterState 	= "serving_client($CurrentClientId)"
 								println("&&&&& waiter | I'm going to the table of client $CurrentClientId and collect the payment.")
-								emit("local_leaving", "local_leaving($CurrentClientId)" ) 
-								delay(2000) 
+								delay(3000) 
 						}
 						if( checkMsgContent( Term.createTerm("maxStayTime(CID,CSTATE)"), Term.createTerm("maxStayTime(CID,STATE)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
-								 CSituationAtTimeout = payloadArg(1).toString()  
+								  maxst = true
+								 				CSituationAtTimeout = payloadArg(1).toString()
+								 				CurrentClientId = payloadArg(0).toString().toInt()
+								 		 		WaiterState 	= "serving_client($CurrentClientId)"
 								if(  CSituationAtTimeout == "consulting" 
-								 ){println("&&&&& waiter | MAX STAY TIME FOR CLIENT $CurrentClientId is OVER while he's $CSituationAtTimeout the menù! No need to collect the payment.")
+								 ){println("&&&&& waiter | MAX STAY TIME FOR CLIENT $CurrentClientId is OVER while he's $CSituationAtTimeout the menu! No need to collect the payment.")
 								}
 								else
 								 {println("&&&&& waiter | MAX STAY TIME FOR CLIENT $CurrentClientId is OVER while he's $CSituationAtTimeout! I'm going to collect the payment.")
 								 }
-								delay(2000) 
 						}
+						updateResourceRep( WaiterState  
+						)
+						solve("replaceRule(waiter(S),waiter($WaiterState))","") //set resVar	
 						solve("teatable(N,busy($CurrentClientId))","") //set resVar	
 						if( currentSolution.isSuccess() ) { CurrentSelectedTable = getCurSol("N").toString().toInt()  
 						}
 						else
 						{}
 						if(  CurrentSelectedTable == 1  
-						 ){request("movetoCell", "movetoCell($X_teatable1,$Y_teatable1)" ,"waiterwalker" )  
+						 ){if(  maxst  
+						 ){forward("maxStayTime", "maxStayTime($CurrentClientId,$CSituationAtTimeout)" ,"client_simulator1" ) 
+						 maxst = false  
+						}
+						request("movetoCell", "movetoCell($X_teatable1,$Y_teatable1)" ,"waiterwalker" )  
 						}
 						else
-						 {request("movetoCell", "movetoCell($X_teatable2,$Y_teatable2)" ,"waiterwalker" )  
+						 {if(  maxst  
+						  ){forward("maxStayTime", "maxStayTime($CurrentClientId,$CSituationAtTimeout)" ,"client_simulator2" ) 
+						  maxst = false  
+						 }
+						 request("movetoCell", "movetoCell($X_teatable2,$Y_teatable2)" ,"waiterwalker" )  
 						 }
 					}
-					 transition(edgeName="t024",targetState="convoyToExit",cond=whenReply("atcell"))
+					 transition(edgeName="t024",targetState="collectAndConvoyToExit",cond=whenReply("atcell"))
 					transition(edgeName="t025",targetState="unexpected",cond=whenReply("walkbreak"))
 				}	 
-				state("convoyToExit") { //this:State
+				state("collectAndConvoyToExit") { //this:State
 					action { //it:State
 						println("---------------------------------------")
-						delay(2000) 
 						println("&&&&& waiter | Thank you! Follow me to the exit door...Bye,Bye!")
 						solve("replaceRule(teatable($CurrentSelectedTable,busy($CurrentClientId)),teatable($CurrentSelectedTable,dirty(1)))","") //set resVar	
 						solve("stateOfTeatables(ST)","") //set resVar	
@@ -407,7 +437,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 						{}
 						println("State of Tables: $ST ")
 						request("movetoCell", "movetoCell($X_exitdoor,$Y_exitdoor)" ,"waiterwalker" )  
-						delay(3000) 
+						delay(4000) 
 					}
 					 transition(edgeName="t026",targetState="waitForRequest",cond=whenReply("atcell"))
 					transition(edgeName="t027",targetState="unexpected",cond=whenReply("walkbreak"))
@@ -436,9 +466,10 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 						{}
 						if(  TotalCleanRequired  
 						 ){println("&&&&& waiter | Totally cleaning the table $CurrentSelectedTable...")
-						 var TimeToClean = 4000*(4-CurrentDirtyLevel)  
+						 var TimeToClean = 4000L*(4-CurrentDirtyLevel)  
 						delay(TimeToClean)
-						solve("replaceRule(teatable($CurrentSelectedTable,dirty($CurrentDirtyLevel)),teatable($CurrentSelectedTable,tableclean))","") //set resVar	
+						println("&&&&& waiter | Occupy the table $CurrentSelectedTable for client $CurrentClientId.")
+						solve("replaceRule(teatable($CurrentSelectedTable,dirty($CurrentDirtyLevel)),teatable($CurrentSelectedTable,busy($CurrentClientId)))","") //set resVar	
 						}
 						else
 						 {println("&&&&& waiter | Cleaning the table $CurrentSelectedTable that is dirty($CurrentDirtyLevel)...")
@@ -449,7 +480,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 						 else
 						  {delay(4000) 
 						   NewDirtyLevel = CurrentDirtyLevel+1  
-						  solve("replaceRule(teatable($CurrentSelectedTable,dirty($CurrentDirtyLevel)),teatable($CurrentSelectedTable,$NewDirtyLevel))","") //set resVar	
+						  solve("replaceRule(teatable($CurrentSelectedTable,dirty($CurrentDirtyLevel)),teatable($CurrentSelectedTable,dirty($NewDirtyLevel)))","") //set resVar	
 						  }
 						 }
 						solve("stateOfTeatables(ST)","") //set resVar	
@@ -459,7 +490,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 						{}
 						println("State of Tables: $ST ")
 					}
-					 transition( edgeName="goto",targetState="accept", cond=doswitchGuarded({ TotalCleanRequired  
+					 transition( edgeName="goto",targetState="reachEntranceDoor", cond=doswitchGuarded({ TotalCleanRequired  
 					}) )
 					transition( edgeName="goto",targetState="waitForRequest", cond=doswitchGuarded({! ( TotalCleanRequired  
 					) }) )
@@ -484,15 +515,15 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 						solve("replaceRule(waiter(S),waiter($WaiterState))","") //set resVar	
 						solve("stateOfTeatables(ST)","") //set resVar	
 						 ST = getCurSol("ST").toString()  
-						println("__ROOM STATE__ waiter: $SW $ST")
+						println("__ROOM STATE__ waiter: $WaiterState $ST")
 						updateResourceRep( WaiterState  
 						)
 					}
 					 transition(edgeName="t032",targetState="evaluateEntrance",cond=whenRequest("enterRequest"))
 					transition(edgeName="t033",targetState="reachTableToOrder",cond=whenDispatch("readyToOrder"))
 					transition(edgeName="t034",targetState="reachServiceDesk",cond=whenDispatch("orderReady"))
-					transition(edgeName="t035",targetState="collectPayment",cond=whenDispatch("readyToPay"))
-					transition(edgeName="t036",targetState="collectPayment",cond=whenDispatch("maxStayTime"))
+					transition(edgeName="t035",targetState="reachTableToCollect",cond=whenDispatch("readyToPay"))
+					transition(edgeName="t036",targetState="reachTableToCollect",cond=whenDispatch("maxStayTime"))
 				}	 
 				state("unexpected") { //this:State
 					action { //it:State

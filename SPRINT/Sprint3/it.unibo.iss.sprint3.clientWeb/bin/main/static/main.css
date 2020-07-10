@@ -1,0 +1,66 @@
+body {
+    background-color: #f5f5f5;
+}
+
+#main-content {
+    padding: 2em 3em;
+    margin: 0px 10px 0px px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#backgroundDiv {
+  height: 250px;	
+  margin: 0px 30px 0px 30px;
+  background-image: url('teabackground1.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1{
+	padding-top: 15px;
+	margin: 0px;
+}
+
+.content_button {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    padding: 40px 20px 20px 20px;
+    box-sizing: border-box;
+}
+.content{
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.h-flex-container {
+	display: flex;
+	padding: 0 10px;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.h-flex-container2 {
+	display: flex;
+	padding: 0 10px;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.ringButton{
+	margin-top: 30px;
+	float: left;
+}

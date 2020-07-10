@@ -1,0 +1,2 @@
+item(caoproute11,nostate,msg(local_tout_basicrobot_doStep,event,timer_doStep,none,local_tout_basicrobot_doStep,111)).
+item(caoproute11,nostate,msg(stepdone,reply,basicrobot,caoproute11,stepdone(ok),115)).

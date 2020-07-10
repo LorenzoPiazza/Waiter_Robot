@@ -29,6 +29,11 @@ numfreetables(N) :-
 	%% stdout <- println( tearoomkb_numfreetables(NList) ),
 	length(NList,N).
 
+numbusytables(N) :- 
+	findall( N,teatable( N,busy(_)), NList),
+	%% stdout <- println( tearoomkb_numbusytables(NList) ),
+	length(NList,N).
+
 stateOfTeatables( [teatable1(V1),teatable2(V2)] ) :-
 	teatable( 1, V1 ),
 	teatable( 2, V2 ).
@@ -53,7 +58,23 @@ cleanTable(N)	 :-
 	retract( teatable( N, dirty ) ),
 	!,
 	assert( teatable( N, tableclean ) ).
-cleanTable(N).	
+cleanTable(N).
+
+getMax([[A1,B1]], TABLE, LV) :-
+	TABLE is A1,
+	LV is B1.
+getMax([[A1,B1],[_,B2]], TABLE, LV) :- 
+	B1 >=B2,
+	TABLE is A1,
+	LV is B1,
+	!.
+getMax([[_,_],[A2,B2]], TABLE, LV) :- 
+	TABLE is A2,
+	LV is B2.
+    
+getMostCleanTable(TABLE, LV) :- 
+	findall([N,M], teatable(N, dirty(M)), L),
+	getMax(L, TABLE, LV).
 
 %% ------------------------------------------ 
 %% Waiter

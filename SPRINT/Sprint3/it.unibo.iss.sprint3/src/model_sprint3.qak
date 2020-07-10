@@ -1,6 +1,6 @@
 /*
- * SPRINT_2: "GESTIONE DI UN SOLO CLIENTE"
- * Modello derivante dall'analisi del Problema fatta nello Sprint2.
+ * SPRINT_3: "GESTIONE DI PIU' CLIENTI CONCORRENTI"
+ * Revisione del modello dello Sprint2 a seguito dell'analisi del Problema fatta nello Sprint3.
  */
 
  System tearoom_covid19_sprint2
@@ -11,6 +11,7 @@
  /*--------waiterlogic <-> smartbell -------- */
  Request enterRequest : enterRequest(CID)
  Reply 	 answer 	  : answer(TIME)	// TIME = 0 significa che la richiesta del cliente viene accettata e il waiter sta arrivando ad accoglierlo altrimenti TIME rappresenta il maxWaitingTime da aspettare perchï¿½ la sala ï¿½ piena
+ Reply 	 answer		  : cleanFirst(ARG)
 
  /*--------waiterlogic <-> barman ----------- */
  Dispatch order 	 : order(CID, TEA)
@@ -42,11 +43,14 @@
  Event local_leaving				  : local_leaving	 (CID)
  Event local_startMaxstaytimeObserver : local_startMaxstaytimeObserver(MAXSTAYTIME)
  
+ /*--------Messaggi dal browser <-> clientSimulator------- */
+ Dispatch proceed	:	proceed(ARG)
+ 
  
  Context ctxwaiter			ip [ host="localhost"  port=8050 ]   // Non considero i ctxsmartbell e ctxbarman per semplicità
 //Context ctxwaiterwalker	ip [ host= "127.0.0.1" port=8060 ]
-// Context ctxsmartbell 	ip	[ host='localhost' port=8051 ]
-// Context ctxservicedesk	ip	[ host='somehost3' port=8052 ]
+// Context ctxsmartbell 	ip [ host='localhost'  port=8051 ]
+// Context ctxservicedesk	ip [ host='somehost3'  port=8052 ]
 
  /* Attori */
  
@@ -80,9 +84,9 @@
 		var X_teatable2     = "0"
 		var Y_teatable2     = "0"
 		
- 	 	val MaxStayTime 	= 20000L
+ 	 	val MaxStayTime 	= 40000L
  	 	val TimeToRest  	= 20000L
- 	 	val TimeToClean		= 5000L
+ 	 	val TimeToClean		= 2000L
  	 	val MaxWaitingTime 	= MaxStayTime + 5000L 	//Assuming PreparationTime = 5000L
  	 	var CurrentTime 	= 0L
  	 	
@@ -91,6 +95,7 @@
  	 	var TotalCleanRequired 	= false
  	 	var CurrentDirtyLevel   = 0
  	 	var NewDirtyLevel 		= 0
+ 	 	var maxst				= false
  	 #]
 
  	State s0 initial{
@@ -139,21 +144,21 @@
 		solve( replaceRule( waiter(S), waiter($WaiterState)) )
  		solve( stateOfTeatables(ST) )
  		[# ST = getCurSol("ST").toString() #]
- 		println("__ROOM STATE__ waiter: $SW $ST")
+ 		println("__ROOM STATE__ waiter: $WaiterState $ST")
  		updateResource [# WaiterState #]
  	}
  	Transition t0 	whenTimeVar  TimeToClean  -> checkClean 
  					whenRequest  enterRequest -> evaluateEntrance
  					whenMsg		 readyToOrder -> reachTableToOrder	
  					whenMsg		 orderReady	  -> reachServiceDesk
- 					whenMsg		 readyToPay   -> collectPayment
- 					whenMsg 	 maxStayTime  -> collectPayment
+ 					whenMsg		 readyToPay   -> reachTableToCollect
+ 					whenMsg 	 maxStayTime  -> reachTableToCollect
 	
 	State checkClean{
 		//Prima di andare a riposare controlla se ci sono dei tavoli dirty e in tal caso li pulisce.
-		solve( teatable(N, dirty(LV)))
+		solve( teatable(N, dirty(LV)) )
 		ifSolved{
-			[# CurrentSelectedTable = getCurSol("N"); CurrentDirtyLevel = getCurSol("LV") #]
+			[# CurrentSelectedTable = getCurSol("N").toString().toInt(); CurrentDirtyLevel = getCurSol("LV").toString().toInt() #]
 			println("&&&&& waiter | The teatable $CurrentSelectedTable is dirty($CurrentDirtyLevel)!")
 			[#	WaiterState = "cleaning(table($CurrentSelectedTable))"	#]
  			solve( replaceRule( waiter(S), waiter($WaiterState)) )
@@ -163,14 +168,15 @@
 	Goto reachTableToClean if [# CurrentSelectedTable != 0 #] else waitForRequestNoCleanNeeded
 	
 	State waitForRequestNoCleanNeeded{
+		println("---------------------------------------")
 		println("&&&&& waiter | NO need of cleaning tables. Waiting for any kind of requests...")
 	}
 	Transition t0 	whenTimeVar  TimeToRest	  -> rest 					//Ora posso valutare di andare a riposare alla HOME
  					whenRequest  enterRequest -> evaluateEntrance
  					whenMsg		 readyToOrder -> reachTableToOrder	
  					whenMsg		 orderReady	  -> reachServiceDesk
- 					whenMsg		 readyToPay   -> collectPayment
- 					whenMsg 	 maxStayTime  -> collectPayment
+ 					whenMsg		 readyToPay   -> reachTableToCollect
+ 					whenMsg 	 maxStayTime  -> reachTableToCollect
 	
  	State evaluateEntrance{
  		println("---------------------------------------")
@@ -192,15 +198,19 @@
  	Goto accept if [# NTableAvailable >= 1 #] else maybeInform		//NTableAvailable >=1 significa che siamo nello scenario 1-2 o 3
  	
  	State maybeInform{
- 		//TODO: check the number of busy tables.
+ 		//check the number of busy tables.
+ 		solve( numbusytables(N) )
+ 		ifSolved{[# NTableBusy = getCurSol("N").toString().toInt() #]}
+ 		println("&&&&& waiter | There are $NTableBusy table busy.")
  	}
  	Goto inform if[# NTableBusy == 2 #] /*Siamo nello scenario 4*/ else acceptButCleanFirst /*Siamo nello scenario 5 o 6*/
  	
  	State acceptButCleanFirst{
  		replyTo enterRequest with answer : cleanFirst(0)
- 		//TODO: locate the most clean tables between the dirty(N) ones
- 
- 		println("&&&&& waiter | Enter Request accepted! Before reaching the client I have to totally clean the table $CurrentSelectedTable")
+ 		//locate the most clean tables between the dirty(N) ones
+ 		solve( getMostCleanTable(T, L) )
+ 		ifSolved{[#	CurrentSelectedTable = getCurSol("T").toString().toInt() #]}
+ 		println("&&&&& waiter | Enter Request accepted! But before reaching the client I have to totally clean the table $CurrentSelectedTable")
  		//and move to it
  		if [# CurrentSelectedTable == 1 #]{
  			request waiterwalker -m movetoCell : movetoCell($X_teatable1, $Y_teatable1)
@@ -214,21 +224,19 @@
  	
  	State inform{
  		println("---------------------------------------")
- 		println("&&&&& waiter | Sorry, at the moment the TeaRoom is full. Retry in ${MaxStayTime/1000} seconds.")
+ 		println("&&&&& waiter | Sorry, at the moment the TeaRoom is full. Retry in ${MaxWaitingTime/1000} seconds.")
  		replyTo enterRequest with answer : answer($MaxWaitingTime)
  	}
  	Goto waitForRequest
 
  	State accept{
  		println("---------------------------------------")
- 		if [# !TotalCleanRequired #]{		//Se è false significa che non ho fatto la acceptButCleanFirst, quindi devo ancora rispondere al cliente e selezionare il tavolo
- 			println("&&&&& waiter | Enter Request Accepted.")
- 			replyTo enterRequest with answer : answer(0) 			
-	 		//Select a table and occupy it with the Current CID: busy(CID)
-	 		solve( teatable(N, tableclean) )
-	 		ifSolved {[# CurrentSelectedTable = getCurSol("N").toString().toInt() #]}
- 		}
- 		[# TotalCleanRequired = false #]
+ 		//devo rispondere al cliente e selezionare il tavolo
+ 		println("&&&&& waiter | Enter Request Accepted.")
+ 		replyTo enterRequest with answer : answer(0) 			
+	 	//Select a table and occupy it with the Current CID: busy(CID)
+	 	solve( teatable(N, tableclean) )
+	 	ifSolved {[# CurrentSelectedTable = getCurSol("N").toString().toInt() #]}	
  		println("&&&&& waiter | Occupy the table $CurrentSelectedTable for client $CurrentClientId.")
  		solve (replaceRule( teatable($CurrentSelectedTable, tableclean), teatable($CurrentSelectedTable, busy($CurrentClientId)) ))
  		solve( stateOfTeatables( ST ) )
@@ -238,6 +246,7 @@
  	Goto reachEntranceDoor
 
  	State reachEntranceDoor{
+ 		[# TotalCleanRequired = false #]
  		println("---------------------------------------")
  		delay 3000
  		println("&&&&& waiter | I'm going to the entrance door...")
@@ -251,6 +260,8 @@
  		println("---------------------------------------")
  		delay 4000
  		println("&&&&& waiter | Follow me to the table $CurrentSelectedTable...")
+ 		println("PRESS ENTER TO CONTINUE AND REACH THE TABLE")
+ 		[# readLine() #]
  		//MOVE TO SELECTED TABLE
  		if [# CurrentSelectedTable == 1 #]{
  			request waiterwalker -m movetoCell : movetoCell($X_teatable1, $Y_teatable1)
@@ -263,7 +274,12 @@
  	
  	State startCountdown{
  		println("---------------------------------------")
- 		forward client_simulator -m table_reached : table_reached($CurrentClientId)
+ 		if [# CurrentSelectedTable == 1 #]{
+ 			forward client_simulator1 -m table_reached : table_reached($CurrentClientId)
+ 		} else{
+ 			forward client_simulator2 -m table_reached : table_reached($CurrentClientId)
+ 		}
+ 	
  		//Start the maxStayTime countdown for the CurrentClientId
 		memoCurrentTime CurrentTime
 		emit local_consulting : local_consulting($CurrentClientId, $CurrentTime)
@@ -297,12 +313,10 @@
  	State takeOrder{
  		println("---------------------------------------")
  		println("&&&&& waiter | Taking the order of client $CurrentClientId and transmitting it to barman.")
-		delay 2000
+		println("PRESS ENTER TO CONTINUE AND TRASMIT THE ORDER TO THE BARMAN")
+ 		[# readLine() #]
  		forward barman -m order : order( $payloadArg(0), LemonTea)
- 		//Interrupt the maxStayTime countdown for the CurrentClientId
- 		memoCurrentTime CurrentTime
-		emit local_preparation : local_preparation($CurrentClientId, $CurrentTime)
-		delay 4000
+
  	}
  	Goto waitForRequest
  	
@@ -315,7 +329,8 @@
  			solve( replaceRule( waiter(S), waiter($WaiterState)) )
 			updateResource [# WaiterState #]
 			println("&&&&& waiter | The order for Client $CurrentClientId is ready! I'm going to service desk")
- 			delay 3000
+ 			println("PRESS ENTER TO CONTINUE AND REACH SERVICE DESK")
+ 			[# readLine() #]
 	 		//MOVE TO SERVICE DESK
 	 		request waiterwalker -m movetoCell : movetoCell($X_barman, $Y_barman)			
 		}
@@ -341,60 +356,73 @@
 
 	State serveClient{
 		println("---------------------------------------")
-		forward client_simulator -m tea_served : tea_served($CurrentClientId)
+		if [# CurrentSelectedTable == 1 #]{
+ 			forward client_simulator1 -m tea_served : tea_served($CurrentClientId)
+ 		} else{
+ 			forward client_simulator2 -m tea_served : tea_served($CurrentClientId)
+ 		}		
 		//Resume the maxStayTime countdown for the CurrentClientId
  		memoCurrentTime CurrentTime
 		emit local_consuming : local_consuming($CurrentClientId, $CurrentTime)	
 	}
     Goto waitForRequest
  				  
- 	State collectPayment{
+ 	State reachTableToCollect{
  		println("---------------------------------------")
- 		[#	
- 			CurrentClientId = payloadArg(0).toString().toInt()
- 		 	WaiterState 	= "serving_client($CurrentClientId)"
- 		#]
- 		updateResource [# WaiterState #]
- 		solve( replaceRule( waiter(S), waiter($WaiterState)) )
  		onMsg(readyToPay : readyToPay(CID)){
+ 			[#	
+ 				CurrentClientId = payloadArg(0).toString().toInt()
+ 		 		WaiterState 	= "serving_client($CurrentClientId)"
+ 			#]
  			println("&&&&& waiter | I'm going to the table of client $CurrentClientId and collect the payment.")
- 			emit local_leaving : local_leaving($CurrentClientId)
- 			delay 2000
+ 			delay 3000
  		}
  		onMsg(maxStayTime : maxStayTime(CID,STATE)){
- 			[# CSituationAtTimeout = payloadArg(1).toString() #]
+ 			[#  maxst = true
+ 				CSituationAtTimeout = payloadArg(1).toString()
+ 				CurrentClientId = payloadArg(0).toString().toInt()
+ 		 		WaiterState 	= "serving_client($CurrentClientId)"
+ 			#]
  			if[# CSituationAtTimeout == "consulting"#]{
- 				println("&&&&& waiter | MAX STAY TIME FOR CLIENT $CurrentClientId is OVER while he's $CSituationAtTimeout the menù! No need to collect the payment.")
+ 				println("&&&&& waiter | MAX STAY TIME FOR CLIENT $CurrentClientId is OVER while he's $CSituationAtTimeout the menu! No need to collect the payment.")
  			} else{
  				println("&&&&& waiter | MAX STAY TIME FOR CLIENT $CurrentClientId is OVER while he's $CSituationAtTimeout! I'm going to collect the payment.")
  			}
- 			delay 2000
  		}
+ 		updateResource [# WaiterState #]
+ 		solve( replaceRule( waiter(S), waiter($WaiterState)) )
  		//locate the table of the current CID
  		solve( teatable(N, busy($CurrentClientId)) )
  		ifSolved {[# CurrentSelectedTable = getCurSol("N").toString().toInt() #]}
 		//and move to it
  		if [# CurrentSelectedTable == 1 #]{
- 			request waiterwalker -m movetoCell : movetoCell($X_teatable1, $Y_teatable1)
+ 			if[# maxst #]{
+ 				forward client_simulator1 -m maxStayTime : maxStayTime($CurrentClientId, $CSituationAtTimeout)
+ 				[# maxst = false #]
+ 			}
+ 			request waiterwalker -m movetoCell  : movetoCell($X_teatable1, $Y_teatable1)
  		} else{
- 			request waiterwalker -m movetoCell : movetoCell($X_teatable2, $Y_teatable2)
+ 			if[# maxst #]{
+ 				forward client_simulator2 -m maxStayTime : maxStayTime($CurrentClientId, $CSituationAtTimeout)
+ 				[# maxst = false #]
+ 			}
+ 			request waiterwalker -m movetoCell  : movetoCell($X_teatable2, $Y_teatable2)
  		}	
  	}
- 	Transition t0 whenReply atcell 	  -> convoyToExit 
+ 	Transition t0 whenReply atcell 	  -> collectAndConvoyToExit 
  				  whenReply walkbreak -> unexpected
 
- 	State convoyToExit{
+ 	State collectAndConvoyToExit{
  		println("---------------------------------------")
- 		delay 2000
  		println("&&&&& waiter | Thank you! Follow me to the exit door...Bye,Bye!")
  		//Update the table state: dirty(1)
- 		solve (replaceRule( teatable($CurrentSelectedTable, busy($CurrentClientId)), teatable($CurrentSelectedTable, dirty(1)) ))
+ 		solve ( replaceRule( teatable($CurrentSelectedTable, busy($CurrentClientId)), teatable($CurrentSelectedTable, dirty(1)) ) )
  		solve( stateOfTeatables( ST ) )
  		ifSolved { [# ST = getCurSol("ST").toString() #]}
  		println("State of Tables: $ST ")
  		//MOVE TO EXIT DOOR
  		request waiterwalker -m movetoCell : movetoCell($X_exitdoor, $Y_exitdoor)
- 		delay 3000
+ 		delay 4000
  	}
  	 Transition t0 whenReply atcell 	-> waitForRequest 
  	 			   whenReply walkbreak 	-> unexpected
@@ -417,11 +445,12 @@
  		//Get the dirty level of the current table
  		solve( teatable($CurrentSelectedTable, dirty(LV)) )
  		ifSolved{[# CurrentDirtyLevel = getCurSol("LV").toString().toInt() #]}	
- 		if[# TotalCleanRequired #]{	//Significa che arrivo dallo State acceptButCleanFirst
+ 		if[# TotalCleanRequired #]{	//Significa che arrivo dallo State acceptButCleanFirst. Devo pulire totalmente il tavolo e settarlo a busy
  			println("&&&&& waiter | Totally cleaning the table $CurrentSelectedTable...")
- 			[# var TimeToClean = 4000*(4-CurrentDirtyLevel) #]
- 			delayVar TimeToClean 
- 			solve( replaceRule( teatable($CurrentSelectedTable, dirty($CurrentDirtyLevel)), teatable($CurrentSelectedTable, tableclean) )) 		
+ 			[# var TimeToClean = 4000L*(4-CurrentDirtyLevel) #] //Supponiamo che un sottotask clean duri 4000ms
+ 			delayVar TimeToClean
+			println("&&&&& waiter | Occupy the table $CurrentSelectedTable for client $CurrentClientId.") 
+ 			solve( replaceRule( teatable($CurrentSelectedTable, dirty($CurrentDirtyLevel)), teatable($CurrentSelectedTable, busy($CurrentClientId)) )) 		
  		} else {
  			println("&&&&& waiter | Cleaning the table $CurrentSelectedTable that is dirty($CurrentDirtyLevel)...")
  			if[# CurrentDirtyLevel == 3 #]{
@@ -430,14 +459,14 @@
  			}else{
  				delay 4000
  				[# NewDirtyLevel = CurrentDirtyLevel+1 #]
- 				solve( replaceRule( teatable($CurrentSelectedTable, dirty($CurrentDirtyLevel)), teatable($CurrentSelectedTable, $NewDirtyLevel) ))
+ 				solve( replaceRule( teatable($CurrentSelectedTable, dirty($CurrentDirtyLevel)), teatable($CurrentSelectedTable, dirty($NewDirtyLevel)) ))
  			}
  		}
  		solve( stateOfTeatables( ST ) )
  		ifSolved { [# ST = getCurSol("ST").toString() #]}
  		println("State of Tables: $ST ")
  	}
- 	Goto accept if [# TotalCleanRequired #] else waitForRequest
+ 	Goto reachEntranceDoor if [# TotalCleanRequired #] else waitForRequest
 	
  	State rest{
  		println("---------------------------------------")
@@ -459,14 +488,14 @@
 		solve( replaceRule( waiter(S), waiter($WaiterState)) )
  		solve( stateOfTeatables(ST) )
  		[# ST = getCurSol("ST").toString() #]
- 		println("__ROOM STATE__ waiter: $SW $ST")
+ 		println("__ROOM STATE__ waiter: $WaiterState $ST")
  		updateResource [# WaiterState #]
 	 }
 	 Transition t0	whenRequest  enterRequest -> evaluateEntrance
  					whenMsg		 readyToOrder -> reachTableToOrder	
  					whenMsg		 orderReady	  -> reachServiceDesk
- 					whenMsg		 readyToPay   -> collectPayment
- 					whenMsg 	 maxStayTime  -> collectPayment
+ 					whenMsg		 readyToPay   -> reachTableToCollect
+ 					whenMsg 	 maxStayTime  -> reachTableToCollect
  	 
  	 State unexpected{
  	 	println("---------------------------------------")
@@ -480,37 +509,41 @@
  /* SMARTBELL */
  QActor smartbell context ctxwaiter{
  	[#
- 		var CurrentBodyTemperature = 36.0
- 		var CurrentClientId = 0
+ 		var CurrentBodyTemperature = 35.0
+ 		var CurrentClientId 	   = 0
  	#]
  	 State s0 initial{
  		println("&&&&& smartbell | starts")
- 		println("PRESS ENTER TO SIMULATE THE ARRIVE OF A CLIENT")
-		[# readLine() #]
+ 		//println("PRESS ENTER TO SIMULATE THE ARRIVE OF A CLIENT")
+		//[# readLine() #]
  		//TODO: generate a TemperatureValue
- 		forward smartbell -m ring : ring($CurrentBodyTemperature)
+ 		//forward smartbell -m ring : ring($CurrentBodyTemperature)
 		//forward smartbell -m ring : ring(38)
  	}
  	Goto listening
 
  	State listening{
- 		println("&&&&& smartbell | listening to ringing...")
- 		delay 2000
+ 		//println("&&&&& smartbell | listening to ringing...")
+ 		updateResource[# "smartbell | listening to ringing..." #]
+ 		
  	}
  	Transition t0 	whenMsg ring -> checkClient
 
  	State checkClient{
  		onMsg(ring : ring(TEMPERATURE) ){
- 			println("&&&&& smartbell | DRIIN !! Let's control the body temperature...")
- 			delay 5000
+ 			//println("&&&&& smartbell | DRIIN !! Let's control the body temperature...")
+	 		updateResource[# "smartbell | DRIIN !! Let's control the body temperature..." #]
+ 			delay 4000
  			[# CurrentBodyTemperature = payloadArg(0).toString().toDouble() #]
+ 			//println("&&&&& smartbell | Body temperature is $CurrentBodyTemperature.")
  		}
  	}
  	Goto doEnterReq if [# CurrentBodyTemperature < 37.5 #] else refuseClient
 
  	State doEnterReq{
  		[# CurrentClientId ++ #]
- 		println("&&&&& smartbell | Forward the entranceRequest for client $CurrentClientId.")
+ 		//println("&&&&& smartbell | Forward the entranceRequest for client $CurrentClientId.")
+ 		updateResource[# "smartbell | Forward the entranceRequest for client $CurrentClientId." #]
  		request waiterlogic -m enterRequest : enterRequest($CurrentClientId)
  		delay 5000
  	}
@@ -519,18 +552,22 @@
 	State checkAnswer{
 		onMsg(answer : answer(TIME)){
 			if [# payloadArg(0).toString().toInt() == 0 #]{
-				println("WELCOME! You're the Client $CurrentClientId. The waiter is coming to you. ")
+				//println("WELCOME! You're the Client $CurrentClientId. The waiter is coming to you. ")
+				updateResource[# "smartbell | WELCOME! You're the Client $CurrentClientId. The waiter is coming to you." #]
 			}else{
-				println("The Room is full. Retry in ${payloadArg(0)} millisec")
+				//println("The Room is full. Retry in ${payloadArg(0)} millisec")
+				updateResource[# "smartbell | The Room is full. Retry in ${payloadArg(0)} millisec" #]
 			}
 		}
 		onMsg(answer : cleanFirst(TIME)){
-			println("WELCOME! You're the Client $CurrentClientId. The waiter has to clean first a table and then will come to you. ")
+			//println("WELCOME! You're the Client $CurrentClientId. The waiter has to clean first a table and then will come to you. ")
+			updateResource[# "smartbell | WELCOME! You're the Client $CurrentClientId. The waiter has to clean first a table and then will come to you." #]
 		}
 	} Goto listening
 
  	State refuseClient{
- 		println("&&&&& smartbell | I'm sorry! You're not allowed to enter cause your body temperature is too high.")
+ 		//println("&&&&& smartbell | I'm sorry! You're not allowed to enter cause your body temperature is too high.")
+ 		updateResource[# "smartbell | I'm sorry! You're not allowed to enter cause your body temperature is too high." #]
  	}
  	Goto listening
  }
@@ -578,43 +615,178 @@
 */
 
 
- QActor client_simulator context ctxwaiter{
- 	[#
+// QActor client_simulator context ctxwaiter{
+// 	[#
+//		var CurrentClientId		 = 0
+// 	#]
+// 	State s0 initial{
+// 		println("&&&&& CLIENT SIMULATOR | starts")
+// 		delay 1000
+// 	}
+// 	Goto listening
+//
+// 	State listening{
+// 		
+// 	}
+// 	Transition t0 whenMsg table_reached	   ->  	consultMenu
+// 				  whenMsg tea_served       ->	consume
+//
+// 	State consultMenu{
+// 		onMsg(table_reached : table_reached(CID)){
+// 			[#
+//				CurrentClientId	 = payloadArg(0).toInt()
+// 			#]
+// 			println("&&&&& CLIENT | I consult the menu...")
+// 			delay 5000 		//WARNING: Blocking: not suitable to simulate multiple client
+// 			forward waiterlogic -m readyToOrder : readyToOrder($CurrentClientId)
+// 		}
+// 	}
+// 	Goto listening
+//
+// 	State consume{
+// 		onMsg(tea_served : tea_served(CID)){
+// 			[#
+//				CurrentClientId	 = payloadArg(0).toInt()
+// 			#]
+// 			println("&&&&& CLIENT | I drink the tea...")
+// 			delay 5000		//WARNING: Blocking: not suitable to simulate multiple client
+// 			forward waiterlogic -m readyToPay : readyToPay($CurrentClientId) //WARNING: Se il cliente è già stato 'cacciato' questo messaggio non va inviato
+// 		}
+// 	}
+// 	Goto listening
+// }
+
+ /*SIMULATOR OF THE CLIENT THAT IS SITTED AT TABLE1 */
+ QActor client_simulator1 context ctxwaiter{
+	[#
 		var CurrentClientId		 = 0
+		var CurrentTime 		 = 0L
  	#]
  	State s0 initial{
- 		println("&&&&& CLIENT SIMULATOR | starts")
+ 		println("&&&&& CLIENT SIMULATOR 1 | starts")
+ 		discardMsg On
  		delay 1000
  	}
  	Goto listening
 
  	State listening{
- 		
- 	}
- 	Transition t0 whenMsg table_reached	   	   ->  	consultMenu
- 				  whenMsg tea_served       ->	consume
-
- 	State consultMenu{
- 		onMsg(table_reached : table_reached(CID)){
+ 		onMsg(maxStayTime : maxStayTime(CID, CSTATE)){
  			[#
 				CurrentClientId	 = payloadArg(0).toInt()
  			#]
- 			println("&&&&& CLIENT | I consult the menù...")
- 			delay 5000 		//WARNING: Blocking: not suitable to simulate multiple client
- 			forward waiterlogic -m readyToOrder : readyToOrder($CurrentClientId)
+ 			updateResource[#"MAX STAY TIME OVER!"#]
+ 			delay 14000		//Time to show on the GUI
  		}
+	 	updateResource[#""#]
  	}
- 	Goto listening
+ 	Transition t0 whenMsg table_reached	   ->  	consultMenu
+
+	State consultMenu{
+		onMsg(table_reached : table_reached(CID)){
+ 			[#
+				CurrentClientId	 = payloadArg(0).toInt()
+ 			#]
+ 			println("&&&&& CLIENT $CurrentClientId at table 1 | I consult the menu...")
+ 			updateResource[#"CLIENT at table 1 | I consult the menu..."#]
+ 		}
+	}
+	Transition t0 whenMsg proceed 		-> order
+				  whenMsg maxStayTime 	-> listening
+	
+ 	State order{
+ 		forward waiterlogic -m readyToOrder : readyToOrder($CurrentClientId)
+ 		//Interrupt the maxStayTime countdown for the CurrentClientId
+ 		memoCurrentTime CurrentTime
+		emit local_preparation : local_preparation($CurrentClientId, $CurrentTime)
+		updateResource[#"CLIENT at table 1 | I'm ready to order..."#]
+ 	}
+ 	Transition t0 whenMsg tea_served -> consume
 
  	State consume{
  		onMsg(tea_served : tea_served(CID)){
  			[#
 				CurrentClientId	 = payloadArg(0).toInt()
  			#]
- 			println("&&&&& CLIENT | I drink the tea...")
- 			delay 5000		//WARNING: Blocking: not suitable to simulate multiple client
- 			forward waiterlogic -m readyToPay : readyToPay($CurrentClientId) //WARNING: Se il cliente è già stato 'cacciato' questo messaggio non va inviato
+ 			println("&&&&& CLIENT $CurrentClientId | I drink the tea...")
+ 			updateResource[#"CLIENT at table 1 | I drink the tea..."#]
  		}
+ 	}
+ 	Transition t0 whenMsg proceed 		-> pay
+ 				  whenMsg maxStayTime 	-> listening
+ 	
+ 	State pay{
+ 			forward waiterlogic -m readyToPay : readyToPay($CurrentClientId) //WARNING: Se il cliente è già stato 'cacciato' questo messaggio non va inviato
+ 			emit local_leaving : local_leaving($CurrentClientId)
+ 			updateResource[#"CLIENT at table 1 | I'm ready to pay..."#]
+ 			delay 10000	//time to show on the GUI
+ 	}
+ 	Goto listening
+ }
+ 
+ 
+ /*SIMULATOR OF THE CLIENT THAT IS SITTED AT TABLE2 */
+  QActor client_simulator2 context ctxwaiter{
+  	[#
+		var CurrentClientId		 = 0
+		var CurrentTime 		 = 0L
+ 	#]
+ 	State s0 initial{
+ 		println("&&&&& CLIENT SIMULATOR 2 | starts")
+ 		discardMsg On
+ 		delay 1000
+ 	}
+ 	Goto listening
+
+ 	State listening{
+ 		onMsg(maxStayTime : maxStayTime(CID, CSTATE)){
+ 			[#
+				CurrentClientId	 = payloadArg(0).toInt()
+ 			#]
+ 			updateResource[#"MAX STAY TIME OVER!"#]
+ 			delay 14000		//Time to show on the GUI
+ 		}
+	 	updateResource[#""#]
+ 	}
+ 	Transition t0 whenMsg table_reached	   ->  	consultMenu
+
+	State consultMenu{
+		onMsg(table_reached : table_reached(CID)){
+ 			[#
+				CurrentClientId	 = payloadArg(0).toInt()
+ 			#]
+ 			println("&&&&& CLIENT $CurrentClientId at table 2 | I consult the menu...")
+ 			updateResource[#"CLIENT at table 2 | I consult the menu..."#]
+ 		}
+	}
+	Transition t0 whenMsg proceed 		-> order
+				  whenMsg maxStayTime 	-> listening
+	
+ 	State order{
+ 		forward waiterlogic -m readyToOrder : readyToOrder($CurrentClientId)
+ 		//Interrupt the maxStayTime countdown for the CurrentClientId
+ 		memoCurrentTime CurrentTime
+		emit local_preparation : local_preparation($CurrentClientId, $CurrentTime)
+		updateResource[#"CLIENT at table 2 | I'm ready to order..."#]
+ 	}
+ 	Transition t0 whenMsg tea_served -> consume
+
+ 	State consume{
+ 		onMsg(tea_served : tea_served(CID)){
+ 			[#
+				CurrentClientId	 = payloadArg(0).toInt()
+ 			#]
+ 			println("&&&&& CLIENT $CurrentClientId | I drink the tea...")
+ 			updateResource[#"CLIENT at table 2 | I drink the tea..."#]
+ 		}
+ 	}
+ 	Transition t0 whenMsg proceed 		-> pay
+ 				  whenMsg maxStayTime 	-> listening
+ 	
+ 	State pay{
+ 			forward waiterlogic -m readyToPay : readyToPay($CurrentClientId) //WARNING: Se il cliente è già stato 'cacciato' questo messaggio non va inviato
+ 			emit local_leaving : local_leaving($CurrentClientId)
+ 			updateResource[#"CLIENT at table 2 | I'm ready to pay..."#]
+ 			delay 10000	//time to show on the GUI
  	}
  	Goto listening
  }

@@ -17,22 +17,19 @@ class Smartbell ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, 
 	@kotlinx.coroutines.ExperimentalCoroutinesApi			
 	override fun getBody() : (ActorBasicFsm.() -> Unit){
 		
-		 		var CurrentBodyTemperature = 36.0
-		 		var CurrentClientId = 0
+		 		var CurrentBodyTemperature = 35.0
+		 		var CurrentClientId 	   = 0
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
 						println("&&&&& smartbell | starts")
-						println("PRESS ENTER TO SIMULATE THE ARRIVE OF A CLIENT")
-						 readLine()  
-						forward("ring", "ring($CurrentBodyTemperature)" ,"smartbell" ) 
 					}
 					 transition( edgeName="goto",targetState="listening", cond=doswitch() )
 				}	 
 				state("listening") { //this:State
 					action { //it:State
-						println("&&&&& smartbell | listening to ringing...")
-						delay(2000) 
+						updateResourceRep( "smartbell | listening to ringing..."  
+						)
 					}
 					 transition(edgeName="t037",targetState="checkClient",cond=whenDispatch("ring"))
 				}	 
@@ -40,8 +37,9 @@ class Smartbell ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, 
 					action { //it:State
 						if( checkMsgContent( Term.createTerm("ring(TEMPERATURE)"), Term.createTerm("ring(TEMPERATURE)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
-								println("&&&&& smartbell | DRIIN !! Let's control the body temperature...")
-								delay(5000) 
+								updateResourceRep( "smartbell | DRIIN !! Let's control the body temperature..."  
+								)
+								delay(4000) 
 								 CurrentBodyTemperature = payloadArg(0).toString().toDouble()  
 						}
 					}
@@ -53,7 +51,8 @@ class Smartbell ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, 
 				state("doEnterReq") { //this:State
 					action { //it:State
 						 CurrentClientId ++  
-						println("&&&&& smartbell | Forward the entranceRequest for client $CurrentClientId.")
+						updateResourceRep( "smartbell | Forward the entranceRequest for client $CurrentClientId."  
+						)
 						request("enterRequest", "enterRequest($CurrentClientId)" ,"waiterlogic" )  
 						delay(5000) 
 					}
@@ -64,22 +63,26 @@ class Smartbell ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, 
 						if( checkMsgContent( Term.createTerm("answer(TIME)"), Term.createTerm("answer(TIME)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								if(  payloadArg(0).toString().toInt() == 0  
-								 ){println("WELCOME! You're the Client $CurrentClientId. The waiter is coming to you. ")
+								 ){updateResourceRep( "smartbell | WELCOME! You're the Client $CurrentClientId. The waiter is coming to you."  
+								)
 								}
 								else
-								 {println("The Room is full. Retry in ${payloadArg(0)} millisec")
+								 {updateResourceRep( "smartbell | The Room is full. Retry in ${payloadArg(0)} millisec"  
+								 )
 								 }
 						}
 						if( checkMsgContent( Term.createTerm("answer(TIME)"), Term.createTerm("cleanFirst(TIME)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
-								println("WELCOME! You're the Client $CurrentClientId. The waiter has to clean first a table and then will come to you. ")
+								updateResourceRep( "smartbell | WELCOME! You're the Client $CurrentClientId. The waiter has to clean first a table and then will come to you."  
+								)
 						}
 					}
 					 transition( edgeName="goto",targetState="listening", cond=doswitch() )
 				}	 
 				state("refuseClient") { //this:State
 					action { //it:State
-						println("&&&&& smartbell | I'm sorry! You're not allowed to enter cause your body temperature is too high.")
+						updateResourceRep( "smartbell | I'm sorry! You're not allowed to enter cause your body temperature is too high."  
+						)
 					}
 					 transition( edgeName="goto",targetState="listening", cond=doswitch() )
 				}	 

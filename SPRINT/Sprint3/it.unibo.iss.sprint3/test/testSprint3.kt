@@ -165,7 +165,42 @@ suspend fun simulateSickClient(){
 			assertTrue(itunibo.planner.plannerUtil.atPos(0,0))
 			delay(1000)
 		}									
-	}		
+	}
+	
+@kotlinx.coroutines.ObsoleteCoroutinesApi
+@kotlinx.coroutines.ExperimentalCoroutinesApi
+	suspend fun testScenario5_6(){
+		var S=""
+		println("=========== testScenario 5 (1 table dirty-1 busy)=========== ")
+		delay(4000)		//Time to set up
+		//TODO: set teatable(1, busy(1)) and teatable(2,dirty(1)) on tearoomkb.pl
+		waiterLogic!!.solve("replaceRule(teatable(1, tableclean), teatable(1,dirty(1)))", "")
+		waiterLogic!!.solve("replaceRule(teatable(2, tableclean), teatable(2,dirty(1)))", "")
+		// MANDO UNA RICHIESTA DI INGRESSO AL WAITERLOGIC
+		requestToWaiterLogic("enterRequest", "enterRequest(3)")	
+		delay(3000)
+		
+		/*---Verrà eseguito il task inform---*/
+		// CONTROLLO LO STATO DEL WAITERLOGIC
+		checkResourceWaiterLogic("serving_client(3)")
+		//... CHE SI RECHI AL TAVOLO 2 PER PULIRLO
+		while(!itunibo.planner.plannerUtil.atPos(4,2) ){
+			delay(500)
+		}
+		assertTrue(itunibo.planner.plannerUtil.atPos(4,2) )
+		//... CHE IL TAVOLO SIA PULITO
+		delay(12500)	//Ci vogliono 12000ms per pulire un tavolo in stato dirty(1)
+		waiterLogic!!.solve("teatable(2, S)","")
+		S = waiterLogic!!.getCurSol("S").toString()
+		assertTrue(S.equals("busy(3)"))
+		//... E CHE RAGGIUNGA L'ENTRANCE DOOR
+		while(!itunibo.planner.plannerUtil.atPos(1,4) ){
+			delay(1000)
+		}
+		assertTrue(itunibo.planner.plannerUtil.atPos(1,4) )
+	
+				
+	}				
 	
 @kotlinx.coroutines.ObsoleteCoroutinesApi
 @kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -182,17 +217,18 @@ suspend fun simulateSickClient(){
 			
 			
 			 
-			testAccept()
-			testReachEntranceDoor()
-			testConvoyToTable()
+//			testAccept()
+//			testReachEntranceDoor()
+//			testConvoyToTable()
 //			testTake()
 //			testServe()
 //			testCollect()
 //			testConvoyToExit()
 //			testClean()
-//			testRest()	
+//			testRest()		
+			testScenario5_6()
+			waiterLogic!!.waitTermination()
 		}
-	 	
 	 	println("testSprint3 BYE  ")
 	}
 }
