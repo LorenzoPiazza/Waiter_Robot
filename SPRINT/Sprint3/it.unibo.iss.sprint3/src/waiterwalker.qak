@@ -7,7 +7,7 @@
  * 	"mqtt.eclipse.org:  mosquitto.org mqtt.fluux.io  broker.hivemq.com
  * ================================================================================
  */ 
-System tearoom_covid19_sprint2
+System tearoom_covid19_sprint3
  mqttBroker "localhost" : 1883 eventTopic "unibo/polar" 
 
 Event    walkerstarted   : walkerstarted(X)
@@ -32,7 +32,7 @@ QActor waiterwalker context ctxwaiter{
 	var XT = "0"
 	var YT = "0"
 	var CurrentPlannedMove = ""
-	var StepTime    	   = 356L	//was 355L
+	var StepTime    	   = 360L
 	val PauseTime          = 250L
 	val BackTime           = 2 * StepTime / 3
 	var obstacleFound      = false 

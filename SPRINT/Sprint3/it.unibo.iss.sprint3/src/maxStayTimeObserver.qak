@@ -1,4 +1,4 @@
-System tearoom_covid19_sprint2
+System tearoom_covid19_sprint3
 mqttBroker "localhost" : 1883 eventTopic "unibo/polar" 
 
  /* Messaggi */

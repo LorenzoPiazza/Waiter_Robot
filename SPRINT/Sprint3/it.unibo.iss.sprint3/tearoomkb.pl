@@ -60,21 +60,21 @@ cleanTable(N)	 :-
 	assert( teatable( N, tableclean ) ).
 cleanTable(N).
 
-getMax([[A1,B1]], TABLE, LV) :-
-	TABLE is A1,
-	LV is B1.
-getMax([[A1,B1],[_,B2]], TABLE, LV) :- 
-	B1 >=B2,
-	TABLE is A1,
-	LV is B1,
-	!.
-getMax([[_,_],[A2,B2]], TABLE, LV) :- 
-	TABLE is A2,
-	LV is B2.
-    
-getMostCleanTable(TABLE, LV) :- 
-	findall([N,M], teatable(N, dirty(M)), L),
-	getMax(L, TABLE, LV).
+%%	calcolamax([[A1,B1]], TABLE, LV) :-
+%%		TABLE is A1,
+%%		LV is B1.
+%%	calcolamax([[A1,B1],[_,B2]], TABLE, LV) :- 
+%%		B1 >=B2,
+%%		TABLE is A1,
+%%		LV is B1,
+%%		!.
+%%	calcolamax([[_,_],[A2,B2]], TABLE, LV) :- 
+%%		TABLE is A2,
+%%		LV is B2.
+	    
+%%	getMostCleanTable(TABLE, LV) :- 
+%%		findall( [N,M],teatable( N, dirty(M) ), L),
+%%		calcolamax( L, TABLE, LV).
 
 %% ------------------------------------------ 
 %% Waiter

@@ -29,8 +29,8 @@ class Client_simulator ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 				state("listening") { //this:State
 					action { //it:State
 					}
-					 transition(edgeName="t040",targetState="consultMenu",cond=whenDispatch("table_reached"))
-					transition(edgeName="t041",targetState="consume",cond=whenDispatch("tea_served"))
+					 transition(edgeName="t027",targetState="consultMenu",cond=whenDispatch("table_reached"))
+					transition(edgeName="t028",targetState="consume",cond=whenDispatch("tea_served"))
 				}	 
 				state("consultMenu") { //this:State
 					action { //it:State

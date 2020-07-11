@@ -43,7 +43,7 @@
  Event local_startMaxstaytimeObserver : local_startMaxstaytimeObserver(MAXSTAYTIME)
  
  
- Context ctxwaiter			ip [ host="localhost"  port=8050 ]   // Non considero i ctxsmartbell e ctxbarman per semplicità
+ Context ctxwaiter		ip [ host="localhost"  port=8050 ]   // Non considero i ctxsmartbell e ctxbarman per semplicità
 //Context ctxwaiterwalker	ip [ host= "127.0.0.1" port=8060 ]
 // Context ctxsmartbell 	ip [ host='localhost'  port=8051 ]
 // Context ctxservicedesk	ip [ host='somehost3'  port=8052 ]

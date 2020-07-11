@@ -196,19 +196,27 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				}	 
 				state("acceptButCleanFirst") { //this:State
 					action { //it:State
+						 var LV1 = 0; var LV2 = 0  
 						answer("enterRequest", "answer", "cleanFirst(0)"   )  
-						solve("getMostCleanTable(T,L)","") //set resVar	
-						if( currentSolution.isSuccess() ) {	CurrentSelectedTable = getCurSol("T").toString().toInt()  
+						solve("teatable(1,dirty(LV1))","") //set resVar	
+						if( currentSolution.isSuccess() ) { LV1 = getCurSol("LV1").toString().toInt()  
 						}
 						else
 						{}
-						println("&&&&& waiter | Enter Request accepted! But before reaching the client I have to totally clean the table $CurrentSelectedTable")
-						if(  CurrentSelectedTable == 1  
-						 ){request("movetoCell", "movetoCell($X_teatable1,$Y_teatable1)" ,"waiterwalker" )  
+						solve("teatable(2,dirty(LV2))","") //set resVar	
+						if( currentSolution.isSuccess() ) { LV2 = getCurSol("LV2").toString().toInt()  
 						}
 						else
-						 {request("movetoCell", "movetoCell($X_teatable2,$Y_teatable2)" ,"waiterwalker" )  
+						{}
+						if(  LV1>=LV2  
+						 ){ CurrentSelectedTable = 1  
+						request("movetoCell", "movetoCell($X_teatable1,$Y_teatable1)" ,"waiterwalker" )  
+						}
+						else
+						 { CurrentSelectedTable = 2  
+						 request("movetoCell", "movetoCell($X_teatable2,$Y_teatable2)" ,"waiterwalker" )  
 						 }
+						println("&&&&& waiter | Enter Request accepted! But before reaching the client I have to totally clean the table $CurrentSelectedTable")
 						 TotalCleanRequired = true  
 					}
 					 transition(edgeName="t012",targetState="clean",cond=whenReply("atcell"))

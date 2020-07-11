@@ -20,7 +20,7 @@ class Waiterwalker ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( nam
 			var XT = "0"
 			var YT = "0"
 			var CurrentPlannedMove = ""
-			var StepTime    	   = 356L	//was 355L
+			var StepTime    	   = 360L
 			val PauseTime          = 250L
 			val BackTime           = 2 * StepTime / 3
 			var obstacleFound      = false 

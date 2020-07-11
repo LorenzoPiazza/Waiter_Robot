@@ -79,7 +79,7 @@ class Maxstaytimeobserver ( name: String, scope: CoroutineScope  ) : ActorBasicF
 				}	 
 				state("updateKb") { //this:State
 					action { //it:State
-						if( checkMsgContent( Term.createTerm("local_consulting(CID,TIME)"), Term.createTerm("local_consulting(CID,TIME)"), 
+						if( checkMsgContent( Term.createTerm("local_consulting(CID,CUR_TIME)"), Term.createTerm("local_consulting(CID,CURTIME)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								 
 												CurrentClientId = payloadArg(0).toString().toInt()
@@ -87,7 +87,7 @@ class Maxstaytimeobserver ( name: String, scope: CoroutineScope  ) : ActorBasicF
 								solve("addRule(client($CurrentClientId,consulting,$CurrentTime))","") //set resVar	
 								solve("showClientSituation(L1,L2)","") //set resVar	
 						}
-						if( checkMsgContent( Term.createTerm("local_preparation(CID,TIME)"), Term.createTerm("local_preparation(CID,TIME)"), 
+						if( checkMsgContent( Term.createTerm("local_preparation(CID,CUR_TIME)"), Term.createTerm("local_preparation(CID,CURTIME)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								 
 												CurrentClientId = payloadArg(0).toString().toInt()
@@ -101,7 +101,7 @@ class Maxstaytimeobserver ( name: String, scope: CoroutineScope  ) : ActorBasicF
 								solve("addRule(elapsed($CurrentClientId,$Elapsed))","") //set resVar	
 								solve("showClientSituation(L1,L2)","") //set resVar	
 						}
-						if( checkMsgContent( Term.createTerm("local_consuming(CID,TIME)"), Term.createTerm("local_consuming(CID,TIME)"), 
+						if( checkMsgContent( Term.createTerm("local_consuming(CID,CUR_TIME)"), Term.createTerm("local_consuming(CID,CURTIME)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								 
 												CurrentClientId = payloadArg(0).toString().toInt()

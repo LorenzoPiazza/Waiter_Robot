@@ -3,7 +3,7 @@
  * Revisione del modello dello Sprint2 a seguito dell'analisi del Problema fatta nello Sprint3.
  */
 
- System tearoom_covid19_sprint2
+ System tearoom_covid19_sprint3
  mqttBroker "localhost" : 1883 eventTopic "unibo/polar" 
  
  /* Messaggi */
@@ -206,17 +206,23 @@
  	Goto inform if[# NTableBusy == 2 #] /*Siamo nello scenario 4*/ else acceptButCleanFirst /*Siamo nello scenario 5 o 6*/
  	
  	State acceptButCleanFirst{
+ 		[# var LV1 = 0; var LV2 = 0 #]
  		replyTo enterRequest with answer : cleanFirst(0)
- 		//locate the most clean tables between the dirty(N) ones
- 		solve( getMostCleanTable(T, L) )
- 		ifSolved{[#	CurrentSelectedTable = getCurSol("T").toString().toInt() #]}
- 		println("&&&&& waiter | Enter Request accepted! But before reaching the client I have to totally clean the table $CurrentSelectedTable")
- 		//and move to it
- 		if [# CurrentSelectedTable == 1 #]{
+ 		//locate the most clean tables between the dirty(N) ones and MOVE to it
+		//solve( getMostCleanTable(T, L) ) //NON FUNZIONA :(
+ 		//ifSolved{[#	CurrentSelectedTable = getCurSol("T").toString().toInt() #]}
+ 		solve( teatable(1,dirty(LV1)) )
+ 		ifSolved{[# LV1 = getCurSol("LV1").toString().toInt() #]}
+		solve( teatable(2,dirty(LV2)) )
+		ifSolved{[# LV2 = getCurSol("LV2").toString().toInt() #]}
+		if[# LV1>=LV2 #]{
+			[# CurrentSelectedTable = 1 #]
  			request waiterwalker -m movetoCell : movetoCell($X_teatable1, $Y_teatable1)
- 		} else{
+		}else{
+			[# CurrentSelectedTable = 2 #]
  			request waiterwalker -m movetoCell : movetoCell($X_teatable2, $Y_teatable2)
- 		}
+		}
+ 		println("&&&&& waiter | Enter Request accepted! But before reaching the client I have to totally clean the table $CurrentSelectedTable")
  		[# TotalCleanRequired = true #]	
  	}
  	Transition t0 whenReply atcell 		-> clean
