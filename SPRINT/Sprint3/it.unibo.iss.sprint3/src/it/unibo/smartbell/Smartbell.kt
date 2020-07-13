@@ -39,7 +39,7 @@ class Smartbell ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								updateResourceRep( "smartbell | DRIIN !! Let's control the body temperature..."  
 								)
-								delay(4000) 
+								delay(3500) 
 								 CurrentBodyTemperature = payloadArg(0).toString().toDouble()  
 						}
 					}

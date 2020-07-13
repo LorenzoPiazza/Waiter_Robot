@@ -41,7 +41,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				var X_teatable2     = "0"
 				var Y_teatable2     = "0"
 				
-		 	 	val MaxStayTime 	= 40000L
+		 	 	val MaxStayTime 	= 50000L
 		 	 	val TimeToRest  	= 20000L
 		 	 	val TimeToClean		= 2000L
 		 	 	val MaxWaitingTime 	= MaxStayTime + 5000L 	//Assuming PreparationTime = 5000L
@@ -255,8 +255,8 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 					action { //it:State
 						 TotalCleanRequired = false  
 						println("---------------------------------------")
-						delay(3000) 
 						println("&&&&& waiter | I'm going to the entrance door...")
+						delay(2000) 
 						request("movetoCell", "movetoCell($X_entrancedoor,$Y_entrancedoor)" ,"waiterwalker" )  
 					}
 					 transition(edgeName="t014",targetState="convoyToTable",cond=whenReply("atcell"))
@@ -265,8 +265,8 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 				state("convoyToTable") { //this:State
 					action { //it:State
 						println("---------------------------------------")
-						delay(4000) 
 						println("&&&&& waiter | Follow me to the table $CurrentSelectedTable...")
+						delay(500) 
 						println("PRESS ENTER TO CONTINUE AND REACH THE TABLE")
 						 readLine()  
 						if(  CurrentSelectedTable == 1  

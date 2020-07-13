@@ -62,7 +62,7 @@ class Client_simulator1 ( name: String, scope: CoroutineScope  ) : ActorBasicFsm
 						forward("readyToOrder", "readyToOrder($CurrentClientId)" ,"waiterlogic" ) 
 						CurrentTime = getCurrentTime()
 						emit("local_preparation", "local_preparation($CurrentClientId,$CurrentTime)" ) 
-						updateResourceRep("CLIENT at table 1 | I'm ready to order..." 
+						updateResourceRep("CLIENT at table 1 | Ordering phase..." 
 						)
 					}
 					 transition(edgeName="t043",targetState="consume",cond=whenDispatch("tea_served"))
@@ -85,9 +85,9 @@ class Client_simulator1 ( name: String, scope: CoroutineScope  ) : ActorBasicFsm
 					action { //it:State
 						forward("readyToPay", "readyToPay($CurrentClientId)" ,"waiterlogic" ) 
 						emit("local_leaving", "local_leaving($CurrentClientId)" ) 
-						updateResourceRep("CLIENT at table 1 | I'm ready to pay..." 
+						updateResourceRep("CLIENT at table 1 | Payment phase..." 
 						)
-						delay(10000) 
+						delay(12000) 
 					}
 					 transition( edgeName="goto",targetState="listening", cond=doswitch() )
 				}	 

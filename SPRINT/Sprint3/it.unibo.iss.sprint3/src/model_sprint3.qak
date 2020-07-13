@@ -84,7 +84,7 @@
 		var X_teatable2     = "0"
 		var Y_teatable2     = "0"
 		
- 	 	val MaxStayTime 	= 40000L
+ 	 	val MaxStayTime 	= 50000L
  	 	val TimeToRest  	= 20000L
  	 	val TimeToClean		= 2000L
  	 	val MaxWaitingTime 	= MaxStayTime + 5000L 	//Assuming PreparationTime = 5000L
@@ -127,7 +127,7 @@
 		
 		emit local_startMaxstaytimeObserver : local_startMaxstaytimeObserver($MaxStayTime)
  	}
- 	Goto waitForRequest
+ 	Goto waitForRequest //NOTE: AT START THERE IS NO NEED TO CHECKCLEAN
 
  	State waitForRequest{
  		//RESETTIAMO LE VARIABILI
@@ -156,7 +156,7 @@
 	
 	State checkClean{
 		//Prima di andare a riposare controlla se ci sono dei tavoli dirty e in tal caso li pulisce.
-		solve( teatable(N, dirty(LV)) )
+		solve( teatable(N,dirty(LV)) )
 		ifSolved{
 			[# CurrentSelectedTable = getCurSol("N").toString().toInt(); CurrentDirtyLevel = getCurSol("LV").toString().toInt() #]
 			println("&&&&& waiter | The teatable $CurrentSelectedTable is dirty($CurrentDirtyLevel)!")
@@ -254,8 +254,8 @@
  	State reachEntranceDoor{
  		[# TotalCleanRequired = false #]
  		println("---------------------------------------")
- 		delay 3000
  		println("&&&&& waiter | I'm going to the entrance door...")
+ 		delay 2000
  		//MOVE TO THE ENTRANCE DOOR
  		request waiterwalker -m movetoCell : movetoCell($X_entrancedoor, $Y_entrancedoor)
  	}
@@ -264,8 +264,8 @@
 
  	State convoyToTable{
  		println("---------------------------------------")
- 		delay 4000
  		println("&&&&& waiter | Follow me to the table $CurrentSelectedTable...")
+ 		delay 500
  		println("PRESS ENTER TO CONTINUE AND REACH THE TABLE")
  		[# readLine() #]
  		//MOVE TO SELECTED TABLE
@@ -539,7 +539,7 @@
  		onMsg(ring : ring(TEMPERATURE) ){
  			//println("&&&&& smartbell | DRIIN !! Let's control the body temperature...")
 	 		updateResource[# "smartbell | DRIIN !! Let's control the body temperature..." #]
- 			delay 4000
+ 			delay 3500
  			[# CurrentBodyTemperature = payloadArg(0).toString().toDouble() #]
  			//println("&&&&& smartbell | Body temperature is $CurrentBodyTemperature.")
  		}
@@ -704,7 +704,7 @@
  		//Interrupt the maxStayTime countdown for the CurrentClientId
  		memoCurrentTime CurrentTime
 		emit local_preparation : local_preparation($CurrentClientId, $CurrentTime)
-		updateResource[#"CLIENT at table 1 | I'm ready to order..."#]
+		updateResource[#"CLIENT at table 1 | Ordering phase..."#]
  	}
  	Transition t0 whenMsg tea_served -> consume
 
@@ -723,8 +723,8 @@
  	State pay{
  			forward waiterlogic -m readyToPay : readyToPay($CurrentClientId) //WARNING: Se il cliente è già stato 'cacciato' questo messaggio non va inviato
  			emit local_leaving : local_leaving($CurrentClientId)
- 			updateResource[#"CLIENT at table 1 | I'm ready to pay..."#]
- 			delay 10000	//time to show on the GUI
+ 			updateResource[#"CLIENT at table 1 | Payment phase..."#]
+ 			delay 12000	//time to show on the GUI
  	}
  	Goto listening
  }
@@ -772,7 +772,7 @@
  		//Interrupt the maxStayTime countdown for the CurrentClientId
  		memoCurrentTime CurrentTime
 		emit local_preparation : local_preparation($CurrentClientId, $CurrentTime)
-		updateResource[#"CLIENT at table 2 | I'm ready to order..."#]
+		updateResource[#"CLIENT at table 2 | Ordering phase..."#]
  	}
  	Transition t0 whenMsg tea_served -> consume
 
@@ -791,8 +791,8 @@
  	State pay{
  			forward waiterlogic -m readyToPay : readyToPay($CurrentClientId) //WARNING: Se il cliente è già stato 'cacciato' questo messaggio non va inviato
  			emit local_leaving : local_leaving($CurrentClientId)
- 			updateResource[#"CLIENT at table 2 | I'm ready to pay..."#]
- 			delay 10000	//time to show on the GUI
+ 			updateResource[#"CLIENT at table 2 | Payment phase..."#]
+ 			delay 12000	//time to show on the GUI
  	}
  	Goto listening
  }
