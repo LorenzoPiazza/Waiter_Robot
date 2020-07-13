@@ -31,15 +31,15 @@ Open a terminal on it.unibo.virtualRobot2020\node\WEnv\server and execute
 `<npm install>`  
 In the directory it.unibo.virtualRobot2020\node\WEnv\WebGLScene execute  
 `<npm install>`  
-In the directory it.unibo.virtualRobot2020\node\WEnv\server\src execute  
+* In the directory it.unibo.virtualRobot2020\node\WEnv\server\src execute  
 `<node main 8999>`  
-Open a browser on  
+* Open a browser on  
 localhost:8090
 
 #### 2. launch the basicrobot ####
 The executable file is _it.unibo.qak20.basicrobot.bat_
 
-Open a terminal on Sprint4\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin and execute
+* Open a terminal on Sprint4\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin and execute
 `<./it.unibo.qak20.basicrobot.bat>`
 
 #### 3. launch the context of ctxwaiter ####
