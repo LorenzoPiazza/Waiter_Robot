@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tearoom WebApp</title>
+    
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <link href="/main.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/app.js"></script>
+    
+     
+
+    <script>connect()</script>
+    
+    
+</head>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div id="main-content" class="container">
+
+    <div id="backgroundDiv">
+  		<h1 style="color:white; font-family: Snell Roundhand, cursive;" align="center"> TEAROOM </h1>
+	</div>
+
+ <div class="h-flex-container">
+ 	<div class="content" style="flex-basis:40%">
+	 	<div class="h-flex-container2"><img class="center" src="smartbell.jpg" alt="smartbell.jpg" width="80%"></div>
+	 	<div id="ringButton_div" class="h-flex-container2">
+	 		<div class="ringButton"><form class="form-inline"><button id="ringOk"   class="btn btn-default" type="submit"> ring(36) </button></form></div>
+	 		<div class="ringButton"><form class="form-inline"><button id="ringSick" class="btn btn-default" type="submit"> ring(38) </button></form></div>
+	 	</div>
+	</div>
+	<div id="smartbell_div" class="content" style="flex-basis:60%">
+	   	<h3>Smartbell state</h3>
+	   	<p id="applmsgs">...</p>
+	    <div class="row">
+	        <div class="col-md-12">
+	            <table id="conversation" class="table table-striped">
+	                <thead>
+	                <tr>
+	                    <th>Message history</th>
+	                </tr>
+	                </thead>
+	                <tbody id="previousapplmsg">
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	</div>
+			
+  	<br> 	  
+ </div>
+ <div class="h-flex-container2">
+	 	<div id="currentSituation" class="content">
+	 		<div>
+	   			<h3 align="center">Current Situation of the TeaRoom</h3>
+	   			<p id="currentSituationMsg" align="center">...</p>     
+			</div>
+	 	</div>
+	 </div>	
+	 <div class="h-flex-container2">
+	 	<div id="client1" class="content">
+	 		<div>
+	   			<h3>Client at table 1:</h3>
+	   			<p id="client1msg">...</p>     
+			</div>
+	 		<form class="form-inline"><button id="proceed1"   class="btn btn-default" type="submit"> Client 1 proceed </button></form>
+	 	</div>
+	 	
+	 	<div id="client2" class="content">
+	 		 <div>
+	   			<h3>Client at table 2:</h3>
+	   			<p id="client2msg">...</p>
+			</div>
+	 		<form class="form-inline"><button id="proceed2"   class="btn btn-default" type="submit"> Client 2 proceed </button></form>
+	 	</div> 	
+	 </div>	
+ 
+ </div>		  
+
+
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+{"page":"tearoomGuiSocket", "host":"localhost", "port":"8050", 
+	"qakwaiterlogic":"waiterlogic", "qaksmartbell":"smartbell",
+	"qakclient_sim_1":"client_simulator1", "qakclient_sim_2":"client_simulator2", "ctxqadest":"ctxwaiter"} 
+
+ 
