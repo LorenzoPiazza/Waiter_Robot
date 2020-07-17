@@ -37,7 +37,7 @@ It will automatically launch the entire application!
 
 #### 3. have fun! ####      
 
-#### OTHERWISE launch the single process individually... ####
+#### OTHERWISE launch the single processes individually... ####
 #### 1. launch the virtualrobot ####
 * In the directory it.unibo.virtualRobot2020\node\WEnv\server\src execute  
 `<node main 8999>`  
