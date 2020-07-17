@@ -1,0 +1,373 @@
+2020-07-03 23:04:17 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint2\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-03 23:04:18 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-03 23:04:18 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-03 23:04:18 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-03 23:04:18 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-03 23:04:18 INFO  CoapServer:207 - Starting server
+2020-07-03 23:04:18 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-03 23:04:18 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-03 23:04:18 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-03 23:04:43 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint2\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-03 23:04:44 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-03 23:04:44 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-03 23:04:44 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-03 23:04:44 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-03 23:04:44 INFO  CoapServer:207 - Starting server
+2020-07-03 23:04:44 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-03 23:04:44 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-03 23:04:44 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-03 23:53:03 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint2\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-03 23:53:03 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-03 23:53:03 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-03 23:53:03 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-03 23:53:03 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-03 23:53:03 INFO  CoapServer:207 - Starting server
+2020-07-03 23:53:03 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-03 23:53:03 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-03 23:53:03 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-04 09:33:42 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint2\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-04 09:33:43 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-04 09:33:43 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-04 09:33:43 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-04 09:33:43 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-04 09:33:43 INFO  CoapServer:207 - Starting server
+2020-07-04 09:33:43 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-04 09:33:43 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-04 09:33:43 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-04 09:49:16 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint2\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-04 09:49:17 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-04 09:49:17 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-04 09:49:17 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-04 09:49:17 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-04 09:49:17 INFO  CoapServer:207 - Starting server
+2020-07-04 09:49:17 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-04 09:49:17 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-04 09:49:17 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-04 11:43:49 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint2\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-04 11:43:51 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-04 11:43:51 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-04 11:43:51 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-04 11:43:51 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-04 11:43:51 INFO  CoapServer:207 - Starting server
+2020-07-04 11:43:51 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-04 11:43:51 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-04 11:43:51 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-04 14:53:56 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint2\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-04 14:53:57 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-04 14:53:58 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-04 14:53:58 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-04 14:53:58 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-04 14:53:58 INFO  CoapServer:207 - Starting server
+2020-07-04 14:53:58 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-04 14:53:58 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-04 14:53:58 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-04 15:35:14 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint2\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-04 15:35:15 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-04 15:35:15 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-04 15:35:15 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-04 15:35:15 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-04 15:35:15 INFO  CoapServer:207 - Starting server
+2020-07-04 15:35:15 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-04 15:35:15 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-04 15:35:15 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-05 22:27:06 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint2\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-05 22:27:08 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-05 22:27:08 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-05 22:27:08 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-05 22:27:08 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-05 22:27:08 INFO  CoapServer:207 - Starting server
+2020-07-05 22:27:08 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-05 22:27:08 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-05 22:27:08 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-07 11:41:39 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-07 11:41:40 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-07 11:41:40 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-07 11:41:40 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-07 11:41:40 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-07 11:41:40 INFO  CoapServer:207 - Starting server
+2020-07-07 11:41:40 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-07 11:41:40 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-07 11:41:40 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-07 17:38:21 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (Exchange[R2], size 1)
+2020-07-07 17:39:23 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R3], size 1)
+2020-07-07 17:40:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R4], size 1)
+2020-07-07 17:41:27 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R5], size 1)
+2020-07-07 17:41:36 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-07 17:41:37 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-07 17:41:37 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-07 17:41:37 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-07 17:41:37 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-07 17:41:37 INFO  CoapServer:207 - Starting server
+2020-07-07 17:41:37 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-07 17:41:37 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-07 17:41:37 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-07 17:42:29 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (Exchange[R1], size 1)
+2020-07-07 17:43:31 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R2], size 1)
+2020-07-07 17:44:33 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R3], size 1)
+2020-07-07 17:45:35 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R4], size 1)
+2020-07-07 17:46:37 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R5], size 1)
+2020-07-07 17:47:39 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R6], size 1)
+2020-07-07 17:48:41 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R7], size 1)
+2020-07-07 17:49:43 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R8], size 1)
+2020-07-07 17:50:01 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59402#[87381d09896bae36] and resource /ctxbasicrobot/basicrobot (Exchange[R10], size 2)
+2020-07-07 17:50:13 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59402#[3956619984ff59e1] and resource /ctxbasicrobot/basicrobot (Exchange[R11], size 3)
+2020-07-07 17:50:33 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59402#[2111dafe4963885a] and resource /ctxbasicrobot/basicrobot (Exchange[R12], size 4)
+2020-07-07 17:50:45 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R13], size 4)
+2020-07-07 17:51:03 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[87381d09896bae36] and resource /ctxbasicrobot/basicrobot (new Exchange[R14], size 4)
+2020-07-07 17:51:15 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[3956619984ff59e1] and resource /ctxbasicrobot/basicrobot (new Exchange[R15], size 4)
+2020-07-07 17:51:35 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[2111dafe4963885a] and resource /ctxbasicrobot/basicrobot (new Exchange[R16], size 4)
+2020-07-07 17:51:47 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R18], size 4)
+2020-07-07 17:51:50 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59402#[2175722509693343] and resource /ctxbasicrobot/basicrobot (Exchange[R19], size 5)
+2020-07-07 17:51:54 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59402#[337e63440f4d508e] and resource /ctxbasicrobot/basicrobot (Exchange[R20], size 6)
+2020-07-07 17:52:05 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[87381d09896bae36] and resource /ctxbasicrobot/basicrobot (new Exchange[R21], size 6)
+2020-07-07 17:52:17 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[3956619984ff59e1] and resource /ctxbasicrobot/basicrobot (new Exchange[R22], size 6)
+2020-07-07 17:52:37 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[2111dafe4963885a] and resource /ctxbasicrobot/basicrobot (new Exchange[R23], size 6)
+2020-07-07 17:52:49 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[43e9e6f30cbe7088] and resource /ctxbasicrobot/basicrobot (new Exchange[R24], size 6)
+2020-07-07 17:52:52 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[2175722509693343] and resource /ctxbasicrobot/basicrobot (new Exchange[R25], size 6)
+2020-07-07 17:52:56 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[337e63440f4d508e] and resource /ctxbasicrobot/basicrobot (new Exchange[R26], size 6)
+2020-07-07 17:53:07 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59402#[87381d09896bae36] and resource /ctxbasicrobot/basicrobot (new Exchange[R27], size 6)
+2020-07-07 17:54:19 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64401#[bfb4a3e58d08175c] and resource /ctxbasicrobot/basicrobot (Exchange[R29], size 7)
+2020-07-07 17:55:21 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64401#[bfb4a3e58d08175c] and resource /ctxbasicrobot/basicrobot (new Exchange[R30], size 7)
+2020-07-07 17:56:23 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64401#[bfb4a3e58d08175c] and resource /ctxbasicrobot/basicrobot (new Exchange[R31], size 7)
+2020-07-07 17:57:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64401#[bfb4a3e58d08175c] and resource /ctxbasicrobot/basicrobot (new Exchange[R32], size 7)
+2020-07-07 17:58:27 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64401#[bfb4a3e58d08175c] and resource /ctxbasicrobot/basicrobot (new Exchange[R33], size 7)
+2020-07-07 17:59:29 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64401#[bfb4a3e58d08175c] and resource /ctxbasicrobot/basicrobot (new Exchange[R34], size 7)
+2020-07-07 18:00:31 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64401#[bfb4a3e58d08175c] and resource /ctxbasicrobot/basicrobot (new Exchange[R35], size 7)
+2020-07-07 18:01:33 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64401#[bfb4a3e58d08175c] and resource /ctxbasicrobot/basicrobot (new Exchange[R36], size 7)
+2020-07-07 18:15:03 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64399#[d3c145741ed1b510] and resource /ctxbasicrobot/basicrobot (Exchange[R40], size 8)
+2020-07-07 18:16:05 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64399#[d3c145741ed1b510] and resource /ctxbasicrobot/basicrobot (new Exchange[R41], size 8)
+2020-07-07 18:16:12 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64399#[5353e97978ce5ddc] and resource /ctxbasicrobot/basicrobot (Exchange[R42], size 9)
+2020-07-07 18:16:35 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64399#[c3a030ca0745621c] and resource /ctxbasicrobot/basicrobot (Exchange[R43], size 10)
+2020-07-07 18:17:07 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64399#[d3c145741ed1b510] and resource /ctxbasicrobot/basicrobot (new Exchange[R44], size 10)
+2020-07-07 18:17:14 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64399#[5353e97978ce5ddc] and resource /ctxbasicrobot/basicrobot (new Exchange[R45], size 10)
+2020-07-07 18:17:37 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64399#[c3a030ca0745621c] and resource /ctxbasicrobot/basicrobot (new Exchange[R46], size 10)
+2020-07-07 18:18:09 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64399#[d3c145741ed1b510] and resource /ctxbasicrobot/basicrobot (new Exchange[R47], size 10)
+2020-07-07 18:18:39 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64399#[c3a030ca0745621c] and resource /ctxbasicrobot/basicrobot (new Exchange[R48], size 10)
+2020-07-07 18:19:11 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64399#[d3c145741ed1b510] and resource /ctxbasicrobot/basicrobot (new Exchange[R49], size 10)
+2020-07-07 18:19:41 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64399#[c3a030ca0745621c] and resource /ctxbasicrobot/basicrobot (new Exchange[R50], size 10)
+2020-07-07 18:25:11 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:60664#[191d24ad70d4a2c2] and resource /ctxbasicrobot/basicrobot (Exchange[R55], size 11)
+2020-07-07 18:25:49 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:60664#[33626d9ebe756201] and resource /ctxbasicrobot/basicrobot (Exchange[R56], size 12)
+2020-07-07 18:26:13 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[191d24ad70d4a2c2] and resource /ctxbasicrobot/basicrobot (new Exchange[R57], size 12)
+2020-07-07 18:26:51 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[33626d9ebe756201] and resource /ctxbasicrobot/basicrobot (new Exchange[R58], size 12)
+2020-07-07 18:27:15 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[191d24ad70d4a2c2] and resource /ctxbasicrobot/basicrobot (new Exchange[R59], size 12)
+2020-07-07 18:27:46 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:60664#[d7f434b6da7bd540] and resource /ctxbasicrobot/basicrobot (Exchange[R60], size 13)
+2020-07-07 18:27:53 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[33626d9ebe756201] and resource /ctxbasicrobot/basicrobot (new Exchange[R61], size 13)
+2020-07-07 18:28:17 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[191d24ad70d4a2c2] and resource /ctxbasicrobot/basicrobot (new Exchange[R62], size 13)
+2020-07-07 18:28:48 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[d7f434b6da7bd540] and resource /ctxbasicrobot/basicrobot (new Exchange[R63], size 13)
+2020-07-07 18:28:55 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[33626d9ebe756201] and resource /ctxbasicrobot/basicrobot (new Exchange[R64], size 13)
+2020-07-07 18:29:19 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[191d24ad70d4a2c2] and resource /ctxbasicrobot/basicrobot (new Exchange[R65], size 13)
+2020-07-07 18:29:50 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[d7f434b6da7bd540] and resource /ctxbasicrobot/basicrobot (new Exchange[R66], size 13)
+2020-07-07 18:29:57 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[33626d9ebe756201] and resource /ctxbasicrobot/basicrobot (new Exchange[R67], size 13)
+2020-07-07 18:30:21 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[191d24ad70d4a2c2] and resource /ctxbasicrobot/basicrobot (new Exchange[R68], size 13)
+2020-07-07 18:30:52 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[d7f434b6da7bd540] and resource /ctxbasicrobot/basicrobot (new Exchange[R69], size 13)
+2020-07-07 18:30:53 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:60664#[893c27d4d71ff75e] and resource /ctxbasicrobot/basicrobot (Exchange[R70], size 14)
+2020-07-07 18:30:59 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60664#[33626d9ebe756201] and resource /ctxbasicrobot/basicrobot (new Exchange[R71], size 14)
+2020-07-07 18:32:30 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:55588#[3fa01552b363e01f] and resource /ctxbasicrobot/basicrobot (Exchange[R73], size 15)
+2020-07-07 18:35:15 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:55588#[3fa01552b363e01f] and resource /ctxbasicrobot/basicrobot (new Exchange[R187], size 15)
+2020-07-07 18:36:59 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-07 18:37:00 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-07 18:37:00 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-07 18:37:00 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-07 18:37:00 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-07 18:37:00 INFO  CoapServer:207 - Starting server
+2020-07-07 18:37:00 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-07 18:37:00 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-07 18:37:00 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-08 10:47:34 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-08 10:47:35 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-08 10:47:35 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-08 10:47:35 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-08 10:47:35 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-08 10:47:35 INFO  CoapServer:207 - Starting server
+2020-07-08 10:47:35 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-08 10:47:35 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-08 10:47:35 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-08 15:53:59 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-08 15:53:59 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-08 15:53:59 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-08 15:53:59 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-08 15:53:59 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-08 15:53:59 INFO  CoapServer:207 - Starting server
+2020-07-08 15:53:59 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-08 15:53:59 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-08 15:53:59 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-08 16:01:00 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-08 16:01:01 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-08 16:01:01 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-08 16:01:01 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-08 16:01:01 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-08 16:01:01 INFO  CoapServer:207 - Starting server
+2020-07-08 16:01:01 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-08 16:01:01 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-08 16:01:01 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-09 10:07:35 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-09 10:07:36 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-09 10:07:36 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-09 10:07:36 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-09 10:07:36 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-09 10:07:36 INFO  CoapServer:207 - Starting server
+2020-07-09 10:07:36 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-09 10:07:36 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-09 10:07:36 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-09 23:08:27 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-09 23:08:29 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-09 23:08:29 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-09 23:08:29 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-09 23:08:29 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-09 23:08:29 INFO  CoapServer:207 - Starting server
+2020-07-09 23:08:29 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-09 23:08:29 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-09 23:08:29 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-10 09:43:51 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-10 09:43:51 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-10 09:43:51 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-10 09:43:51 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-10 09:43:51 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-10 09:43:51 INFO  CoapServer:207 - Starting server
+2020-07-10 09:43:51 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-10 09:43:51 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-10 09:43:51 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-10 15:54:10 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-10 15:54:11 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-10 15:54:11 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-10 15:54:11 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-10 15:54:11 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-10 15:54:11 INFO  CoapServer:207 - Starting server
+2020-07-10 15:54:11 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-10 15:54:11 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-10 15:54:11 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-10 19:02:38 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-10 19:02:40 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-10 19:02:40 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-10 19:02:40 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-10 19:02:40 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-10 19:02:40 INFO  CoapServer:207 - Starting server
+2020-07-10 19:02:40 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-10 19:02:40 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-10 19:02:40 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-11 15:19:15 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-11 15:19:16 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-11 15:19:16 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-11 15:19:16 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-11 15:19:16 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-11 15:19:16 INFO  CoapServer:207 - Starting server
+2020-07-11 15:19:16 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-11 15:19:16 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-11 15:19:16 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-11 15:19:30 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-11 15:19:31 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-11 15:19:31 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-11 15:19:31 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-11 15:19:31 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-11 15:19:31 INFO  CoapServer:207 - Starting server
+2020-07-11 15:19:31 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-11 15:19:31 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-11 15:19:31 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-11 19:09:31 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-11 19:09:31 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-11 19:09:31 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-11 19:09:31 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-11 19:09:31 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-11 19:09:31 INFO  CoapServer:207 - Starting server
+2020-07-11 19:09:31 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-11 19:09:31 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-11 19:09:31 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-11 19:09:44 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-11 19:09:45 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-11 19:09:45 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-11 19:09:45 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-11 19:09:45 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-11 19:09:45 INFO  CoapServer:207 - Starting server
+2020-07-11 19:09:45 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-11 19:09:45 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-11 19:09:45 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-12 22:52:55 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-12 22:52:56 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-12 22:52:56 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-12 22:52:56 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-12 22:52:56 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-12 22:52:56 INFO  CoapServer:207 - Starting server
+2020-07-12 22:52:56 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-12 22:52:56 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-12 22:52:56 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-13 10:51:48 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint3\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-13 10:51:48 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-13 10:51:48 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-13 10:51:48 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-13 10:51:48 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-13 10:51:48 INFO  CoapServer:207 - Starting server
+2020-07-13 10:51:48 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-13 10:51:48 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-13 10:51:48 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-15 15:08:59 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint4\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-15 15:08:59 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-15 15:08:59 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-15 15:08:59 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-15 15:08:59 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-15 15:08:59 INFO  CoapServer:207 - Starting server
+2020-07-15 15:08:59 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-15 15:08:59 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-15 15:08:59 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-15 15:31:07 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint4\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-15 15:31:08 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-15 15:31:09 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-15 15:31:09 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-15 15:31:09 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-15 15:31:09 INFO  CoapServer:207 - Starting server
+2020-07-15 15:31:09 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-15 15:31:09 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-15 15:31:09 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-17 00:16:08 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint4\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-17 00:16:10 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 00:16:10 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 00:16:10 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 00:16:10 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 00:16:10 INFO  CoapServer:207 - Starting server
+2020-07-17 00:16:10 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 00:16:10 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 00:16:10 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-17 09:45:37 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint4\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-17 09:45:38 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 09:45:38 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 09:45:38 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 09:45:38 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 09:45:38 INFO  CoapServer:207 - Starting server
+2020-07-17 09:45:38 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 09:45:38 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 09:45:38 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-17 16:27:33 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Sprint4\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-17 16:27:34 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 16:27:34 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 16:27:34 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 16:27:34 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 16:27:34 INFO  CoapServer:207 - Starting server
+2020-07-17 16:27:34 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 16:27:34 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 16:27:34 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-17 17:26:45 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-17 17:26:46 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 17:26:46 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 17:26:46 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 17:26:46 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 17:26:46 INFO  CoapServer:207 - Starting server
+2020-07-17 17:26:46 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 17:26:46 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 17:26:46 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-17 18:13:41 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-17 18:13:41 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 18:13:41 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 18:13:41 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 18:13:41 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 18:13:41 INFO  CoapServer:207 - Starting server
+2020-07-17 18:13:41 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 18:13:41 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 18:13:41 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020
+2020-07-17 18:16:39 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin\Californium.properties
+2020-07-17 18:16:40 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 18:16:40 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 18:16:40 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 18:16:40 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 18:16:40 INFO  CoapServer:207 - Starting server
+2020-07-17 18:16:40 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 18:16:40 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8020, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 18:16:40 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8020

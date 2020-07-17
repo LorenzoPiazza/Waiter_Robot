@@ -117,7 +117,7 @@ function sendProceed(clientN){
 }*/
 
 function showMsgSmartbell(message) {
-	console.log(message );
+	console.log(message);
 	if(message.startsWith("smartbell")){	//Defensive programming...
 		if(message === "smartbell | listening to ringing..."){
 			$("#ringOk").attr("disabled", false);
@@ -134,38 +134,33 @@ function showMsgSmartbell(message) {
 }
 
 function showMsgClient1(message) {
-	console.log(message);
-	if(message == "CLIENT at table 1 | I consult the menu..." || message == "CLIENT at table 1 | I drink the tea..."){
-		$("#proceed1").attr("disabled", false);
+	if(message.startsWith("CLIENT at table 1")){ //Defensive programming
+		console.log(message);
+		if(message == "CLIENT at table 1 | I consult the menu..." || message == "CLIENT at table 1 | I drink the tea..."){
+			$("#proceed1").attr("disabled", false);
+		}
+		if(message == "CLIENT at table 1 | MAX STAY TIME OVER!" || message == "CLIENT at table 1 | NO client"){
+			$("#proceed1").attr("disabled", true);
+		}
+		$("#client1msg").html( "<pre>"+message.replace(/\n/g,"<br/>")+"</pre>" );
 	}
-	if(message == "MAX STAY TIME OVER!" || message == ""){
-		$("#proceed1").attr("disabled", true);
-	}
-	$("#client1msg").html( "<pre>"+message.replace(/\n/g,"<br/>")+"</pre>" );
 }
 function showMsgClient2(message) {
-	console.log(message);
-	if(message == "CLIENT at table 2 | I consult the menu..." || message == "CLIENT at table 2 | I drink the tea..."){
-		$("#proceed2").attr("disabled", false);
+	if(message.startsWith("CLIENT at table 2")){ //Defensive programming
+		console.log(message);
+		if(message == "CLIENT at table 2 | I consult the menu..." || message == "CLIENT at table 2 | I drink the tea..."){
+			$("#proceed2").attr("disabled", false);
+		}
+		if(message == "CLIENT at table 2 | MAX STAY TIME OVER!" || message == "CLIENT at table 2 | NO client"){
+			$("#proceed2").attr("disabled", true);
+		}
+		$("#client2msg").html( "<pre>"+message.replace(/\n/g,"<br/>")+"</pre>" );
 	}
-	if(message == "MAX STAY TIME OVER!" || message == ""){
-		$("#proceed2").attr("disabled", true);
-	}
-    $("#client2msg").html( "<pre>"+message.replace(/\n/g,"<br/>")+"</pre>" );
 }
 
 function showMsgWaiterLogic(message) {
-	//TODO:
-	/*console.log(message );
-		if(message == "smartbell | listening to ringing..."){
-			$("#ringOk").attr("disabled", false);
-			$("#ringSick").attr("disabled", false);
-		}
-	    $("#applmsgs").html( "<pre>"+message.replace(/\n/g,"<br/>")+"</pre>" );
-	    if( $("#conversation tr").length >= 5){
-	    	$("#conversation tr").last().remove();
-	    }
-	    $("#previousapplmsg").prepend("<tr><td>" + message + "</td></tr>");*/
+	console.log(message );
+	$("#currentSituationMsg").html( "<pre id='situationPre'>"+message.replace(/\n/g,"<br/>")+"</pre>" );
 	}
 
 $(function () {

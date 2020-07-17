@@ -54,7 +54,7 @@ class Smartbell ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, 
 						updateResourceRep( "smartbell | Forward the entranceRequest for client $CurrentClientId."  
 						)
 						request("enterRequest", "enterRequest($CurrentClientId)" ,"waiterlogic" )  
-						delay(5000) 
+						delay(4000) 
 					}
 					 transition(edgeName="t038",targetState="checkAnswer",cond=whenReply("answer"))
 				}	 
@@ -70,19 +70,22 @@ class Smartbell ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, 
 								 {updateResourceRep( "smartbell | The Room is full. Retry in ${payloadArg(0)} millisec"  
 								 )
 								 }
+								delay(3000) 
 						}
 						if( checkMsgContent( Term.createTerm("answer(TIME)"), Term.createTerm("cleanFirst(TIME)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								updateResourceRep( "smartbell | WELCOME! You're the Client $CurrentClientId. The waiter has to clean first a table and then will come to you."  
 								)
+								delay(3000) 
 						}
 					}
 					 transition( edgeName="goto",targetState="listening", cond=doswitch() )
 				}	 
 				state("refuseClient") { //this:State
 					action { //it:State
-						updateResourceRep( "smartbell | I'm sorry! You're not allowed to enter cause your body temperature is too high."  
+						updateResourceRep( "smartbell | Not allowed! Your body temperature is too high!"  
 						)
+						delay(3000) 
 					}
 					 transition( edgeName="goto",targetState="listening", cond=doswitch() )
 				}	 

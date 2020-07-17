@@ -29,6 +29,9 @@ body {
   margin-right: auto;
 }
 
+#situationPre{
+	margin-bottom: 0px;
+}
 h1{
 	padding-top: 15px;
 	margin: 0px;
@@ -63,4 +66,9 @@ h1{
 .ringButton{
 	margin-top: 30px;
 	float: left;
+}
+
+#currentSituationMsg{
+	border-style: groove none groove none;
+	border-color: hsl(0, 80%, 60%); /* red */
 }

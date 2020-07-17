@@ -389,7 +389,7 @@
  		 		WaiterState 	= "serving_client($CurrentClientId)"
  			#]
  			println("&&&&& waiter | I'm going to the table of client $CurrentClientId and collect the payment.")
- 			delay 3000
+ 			delay 2000
  		}
  		onMsg(maxStayTime : maxStayTime(CID,STATE)){
  			[#  maxst = true
@@ -439,7 +439,7 @@
  		updateResource [# RoomState #]
  		//MOVE TO EXIT DOOR
  		request waiterwalker -m movetoCell : movetoCell($X_exitdoor, $Y_exitdoor)
- 		delay 4000
+ 		delay 3000
  	}
  	 Transition t0 whenReply atcell 	-> waitForRequest 
  	 			   whenReply walkbreak 	-> unexpected
@@ -565,7 +565,7 @@
  		//println("&&&&& smartbell | Forward the entranceRequest for client $CurrentClientId.")
  		updateResource[# "smartbell | Forward the entranceRequest for client $CurrentClientId." #]
  		request waiterlogic -m enterRequest : enterRequest($CurrentClientId)
- 		delay 5000
+ 		delay 4000
  	}
 	Transition t0 whenReply answer -> checkAnswer
 	
@@ -578,16 +578,19 @@
 				//println("The Room is full. Retry in ${payloadArg(0)} millisec")
 				updateResource[# "smartbell | The Room is full. Retry in ${payloadArg(0)} millisec" #]
 			}
+			delay 3000
 		}
 		onMsg(answer : cleanFirst(TIME)){
 			//println("WELCOME! You're the Client $CurrentClientId. The waiter has to clean first a table and then will come to you. ")
 			updateResource[# "smartbell | WELCOME! You're the Client $CurrentClientId. The waiter has to clean first a table and then will come to you." #]
+			delay 3000
 		}
 	} Goto listening
 
  	State refuseClient{
- 		//println("&&&&& smartbell | I'm sorry! You're not allowed to enter cause your body temperature is too high.")
- 		updateResource[# "smartbell | I'm sorry! You're not allowed to enter cause your body temperature is too high." #]
+ 		//println("&&&&& smartbell | Not allowed! Your body temperature is too high!")
+ 		updateResource[# "smartbell | Not allowed! Your body temperature is too high!" #]
+ 		delay 3000
  	}
  	Goto listening
  }
@@ -624,57 +627,7 @@
 
   /* CLIENT SIMULATOR */
  
-/*
-  * Un client_simulator molto semplice:
-  * Questo attore non fa altro che stare in ascolto di messaggi provenienti dal waiterlogic dove viene detto:
-  * -table_reached(CID): quando lo riceve, dopo tot manda un messaggio readyToOrder(CID).
-  * -tea_served(CID): quando lo riceve, dopo tot manda un messaggio readyToPay(CID).
-  * 
-  * ATTENZIONE1: Non viene controllato che il cliente non sia già stato cacciato per aver superato maxstaytime, e readyToPay viene mandato in ogni caso. 
-  * ATTENZIONE2: Non è adatto a simulare più clienti contemporaneamente.
-*/
 
-
-// QActor client_simulator context ctxwaiter{
-// 	[#
-//		var CurrentClientId		 = 0
-// 	#]
-// 	State s0 initial{
-// 		println("&&&&& CLIENT SIMULATOR | starts")
-// 		delay 1000
-// 	}
-// 	Goto listening
-//
-// 	State listening{
-// 		
-// 	}
-// 	Transition t0 whenMsg table_reached	   ->  	consultMenu
-// 				  whenMsg tea_served       ->	consume
-//
-// 	State consultMenu{
-// 		onMsg(table_reached : table_reached(CID)){
-// 			[#
-//				CurrentClientId	 = payloadArg(0).toInt()
-// 			#]
-// 			println("&&&&& CLIENT | I consult the menu...")
-// 			delay 5000 		//WARNING: Blocking: not suitable to simulate multiple client
-// 			forward waiterlogic -m readyToOrder : readyToOrder($CurrentClientId)
-// 		}
-// 	}
-// 	Goto listening
-//
-// 	State consume{
-// 		onMsg(tea_served : tea_served(CID)){
-// 			[#
-//				CurrentClientId	 = payloadArg(0).toInt()
-// 			#]
-// 			println("&&&&& CLIENT | I drink the tea...")
-// 			delay 5000		//WARNING: Blocking: not suitable to simulate multiple client
-// 			forward waiterlogic -m readyToPay : readyToPay($CurrentClientId) //WARNING: Se il cliente è già stato 'cacciato' questo messaggio non va inviato
-// 		}
-// 	}
-// 	Goto listening
-// }
 
  /*SIMULATOR OF THE CLIENT THAT IS SITTED AT TABLE1 */
  QActor client_simulator1 context ctxwaiter{
@@ -810,3 +763,56 @@
  	}
  	Goto listening
  }
+ 
+ 
+ /* FROM INITIAL OVERVIEW MODEL
+  * Un client_simulator molto semplice:
+  * Questo attore non fa altro che stare in ascolto di messaggi provenienti dal waiterlogic dove viene detto:
+  * -table_reached(CID): quando lo riceve, dopo tot manda un messaggio readyToOrder(CID).
+  * -tea_served(CID): quando lo riceve, dopo tot manda un messaggio readyToPay(CID).
+  * 
+  * ATTENZIONE1: Non viene controllato che il cliente non sia già stato cacciato per aver superato maxstaytime, e readyToPay viene mandato in ogni caso. 
+  * ATTENZIONE2: Non è adatto a simulare più clienti contemporaneamente.
+*/
+
+
+// QActor client_simulator context ctxwaiter{
+// 	[#
+//		var CurrentClientId		 = 0
+// 	#]
+// 	State s0 initial{
+// 		println("&&&&& CLIENT SIMULATOR | starts")
+// 		delay 1000
+// 	}
+// 	Goto listening
+//
+// 	State listening{
+// 		
+// 	}
+// 	Transition t0 whenMsg table_reached	   ->  	consultMenu
+// 				  whenMsg tea_served       ->	consume
+//
+// 	State consultMenu{
+// 		onMsg(table_reached : table_reached(CID)){
+// 			[#
+//				CurrentClientId	 = payloadArg(0).toInt()
+// 			#]
+// 			println("&&&&& CLIENT | I consult the menu...")
+// 			delay 5000 		//WARNING: Blocking: not suitable to simulate multiple client
+// 			forward waiterlogic -m readyToOrder : readyToOrder($CurrentClientId)
+// 		}
+// 	}
+// 	Goto listening
+//
+// 	State consume{
+// 		onMsg(tea_served : tea_served(CID)){
+// 			[#
+//				CurrentClientId	 = payloadArg(0).toInt()
+// 			#]
+// 			println("&&&&& CLIENT | I drink the tea...")
+// 			delay 5000		//WARNING: Blocking: not suitable to simulate multiple client
+// 			forward waiterlogic -m readyToPay : readyToPay($CurrentClientId) //WARNING: Se il cliente è già stato 'cacciato' questo messaggio non va inviato
+// 		}
+// 	}
+// 	Goto listening
+// }

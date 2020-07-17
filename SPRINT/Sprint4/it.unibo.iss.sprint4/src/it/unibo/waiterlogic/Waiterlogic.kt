@@ -399,7 +399,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 								 				CurrentClientId = payloadArg(0).toString().toInt()
 								 		 		WaiterState 	= "serving_client($CurrentClientId)"
 								println("&&&&& waiter | I'm going to the table of client $CurrentClientId and collect the payment.")
-								delay(3000) 
+								delay(2000) 
 						}
 						if( checkMsgContent( Term.createTerm("maxStayTime(CID,CSTATE)"), Term.createTerm("maxStayTime(CID,STATE)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
@@ -456,7 +456,7 @@ class Waiterlogic ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name
 						updateResourceRep( RoomState  
 						)
 						request("movetoCell", "movetoCell($X_exitdoor,$Y_exitdoor)" ,"waiterwalker" )  
-						delay(4000) 
+						delay(3000) 
 					}
 					 transition(edgeName="t026",targetState="waitForRequest",cond=whenReply("atcell"))
 					transition(edgeName="t027",targetState="unexpected",cond=whenReply("walkbreak"))
