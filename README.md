@@ -30,7 +30,19 @@ The reference project is _it.unibo.virtualRobot2020_.
 Open a terminal on it.unibo.virtualRobot2020\node\WEnv\server and execute  
 `<npm install>`  
 In the directory it.unibo.virtualRobot2020\node\WEnv\WebGLScene execute  
-`<npm install>`  
+`<npm install>`
+
+#### 2. RUN the script runApplication.bat ####
+It will automatically launch the entire application!
+
+#### 3. have fun! ####
+
+
+
+
+
+#### OTHERWISE launch the single process individually... ####
+#### 1. launch the virtualrobot ####
 * In the directory it.unibo.virtualRobot2020\node\WEnv\server\src execute  
 `<node main 8999>`  
 * Open a browser on  
@@ -39,13 +51,18 @@ localhost:8090
 #### 2. launch the basicrobot ####
 The executable file is _it.unibo.qak20.basicrobot.bat_
 
-* Open a terminal on Sprint4\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin and execute
+* Open a terminal on SPRINT\Eseguibili\it.unibo.qak20.basicrobot-1.0\bin and execute
 `<./it.unibo.qak20.basicrobot.bat>`
 
 #### 3. launch the context of ctxwaiter ####
-...
-#### 4. launch the Web Application ####
-...
+* Open a terminal on SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin and execute
+`<./it.unibo.iss.sprint4.bat>`
 
-#### 5. have fun! ####
+#### 4. launch the Web Application ####
+* Open a terminal on SPRINT\Eseguibili\it.unibo.iss.sprint4.clientWeb-boot-1.0\bin and execute
+`<./it.unibo.iss.sprint4.clientWeb.bat>`
+* Open a browser on
+localhost:7001
+
+
 
