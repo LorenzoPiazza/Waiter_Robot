@@ -31,7 +31,7 @@ ECHO LAUNCHING THE WEB APPLICATION
 ECHO ============================
 cd .\SPRINT\Eseguibili\it.unibo.iss.sprint4.clientWeb-boot-1.0\bin
 START .\it.unibo.iss.sprint4.clientWeb.bat
-SLEEP 8
+SLEEP 10
 START http://localhost:7001
 
 PAUSE

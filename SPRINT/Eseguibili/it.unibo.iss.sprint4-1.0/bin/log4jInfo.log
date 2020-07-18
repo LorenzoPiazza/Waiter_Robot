@@ -960,3 +960,495 @@ java.net.BindException: Address already in use: Cannot bind
 2020-07-17 18:21:20 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:57239#[83b70e54535a23cd] and resource /ctxwaiter/waiterlogic (new Exchange[R23], size 1)
 2020-07-17 18:21:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:57239#[1b955cb1d6adfdaf] and resource /ctxwaiter/smartbell (new Exchange[R24], size 1)
 2020-07-17 18:21:34 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:57239#[1df735745590bbc9] and resource /ctxwaiter/client_simulator1 (new Exchange[R25], size 1)
+2020-07-17 18:42:28 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 18:42:29 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 18:42:29 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 18:42:29 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 18:42:29 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 18:42:29 INFO  CoapServer:207 - Starting server
+2020-07-17 18:42:29 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 18:42:29 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 18:42:29 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 18:42:45 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62144#[59a06cd0300b76a9] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-17 18:42:45 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62144#[093a51f9de005de5] and resource /ctxwaiter/smartbell (Exchange[R6], size 1)
+2020-07-17 18:42:45 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62144#[b7f1111b9f3d025c] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-17 18:42:45 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62144#[9be919772c9483c1] and resource /ctxwaiter/waiterlogic (Exchange[R5], size 1)
+2020-07-17 18:43:47 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[b7f1111b9f3d025c] and resource /ctxwaiter/client_simulator2 (new Exchange[R20], size 1)
+2020-07-17 18:44:44 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[59a06cd0300b76a9] and resource /ctxwaiter/client_simulator1 (new Exchange[R21], size 1)
+2020-07-17 18:44:49 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[b7f1111b9f3d025c] and resource /ctxwaiter/client_simulator2 (new Exchange[R22], size 1)
+2020-07-17 18:44:53 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[9be919772c9483c1] and resource /ctxwaiter/waiterlogic (new Exchange[R23], size 1)
+2020-07-17 18:44:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[093a51f9de005de5] and resource /ctxwaiter/smartbell (new Exchange[R24], size 1)
+2020-07-17 18:45:46 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[59a06cd0300b76a9] and resource /ctxwaiter/client_simulator1 (new Exchange[R25], size 1)
+2020-07-17 18:45:51 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[b7f1111b9f3d025c] and resource /ctxwaiter/client_simulator2 (new Exchange[R26], size 1)
+2020-07-17 18:45:55 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[9be919772c9483c1] and resource /ctxwaiter/waiterlogic (new Exchange[R27], size 1)
+2020-07-17 18:46:00 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[093a51f9de005de5] and resource /ctxwaiter/smartbell (new Exchange[R28], size 1)
+2020-07-17 18:46:48 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[59a06cd0300b76a9] and resource /ctxwaiter/client_simulator1 (new Exchange[R29], size 1)
+2020-07-17 18:46:53 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[b7f1111b9f3d025c] and resource /ctxwaiter/client_simulator2 (new Exchange[R30], size 1)
+2020-07-17 18:46:57 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[9be919772c9483c1] and resource /ctxwaiter/waiterlogic (new Exchange[R31], size 1)
+2020-07-17 18:47:02 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62144#[093a51f9de005de5] and resource /ctxwaiter/smartbell (new Exchange[R32], size 1)
+2020-07-17 18:48:27 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 18:48:29 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 18:48:29 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 18:48:29 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 18:48:29 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 18:48:29 INFO  CoapServer:207 - Starting server
+2020-07-17 18:48:29 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 18:48:29 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 18:48:29 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 18:48:46 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (Exchange[R5], size 1)
+2020-07-17 18:48:46 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-17 18:48:46 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:60275#[25897562f572117c] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-17 18:48:46 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (Exchange[R6], size 1)
+2020-07-17 18:49:48 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R9], size 1)
+2020-07-17 18:49:48 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R11], size 1)
+2020-07-17 18:49:48 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[25897562f572117c] and resource /ctxwaiter/client_simulator2 (new Exchange[R10], size 1)
+2020-07-17 18:49:56 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R12], size 1)
+2020-07-17 18:50:50 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R13], size 1)
+2020-07-17 18:50:50 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R14], size 1)
+2020-07-17 18:50:50 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[25897562f572117c] and resource /ctxwaiter/client_simulator2 (new Exchange[R15], size 1)
+2020-07-17 18:50:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R16], size 1)
+2020-07-17 18:51:52 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R17], size 1)
+2020-07-17 18:51:52 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R18], size 1)
+2020-07-17 18:52:00 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R19], size 1)
+2020-07-17 18:52:54 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R20], size 1)
+2020-07-17 18:52:54 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R21], size 1)
+2020-07-17 18:53:02 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R22], size 1)
+2020-07-17 18:53:56 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R23], size 1)
+2020-07-17 18:53:56 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R24], size 1)
+2020-07-17 18:54:04 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R25], size 1)
+2020-07-17 18:54:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R26], size 1)
+2020-07-17 18:54:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R27], size 1)
+2020-07-17 18:55:06 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R28], size 1)
+2020-07-17 18:56:00 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R29], size 1)
+2020-07-17 18:56:00 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R30], size 1)
+2020-07-17 18:56:08 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R31], size 1)
+2020-07-17 18:57:02 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R32], size 1)
+2020-07-17 18:57:02 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R33], size 1)
+2020-07-17 18:57:10 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R34], size 1)
+2020-07-17 18:58:04 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R35], size 1)
+2020-07-17 18:58:04 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R36], size 1)
+2020-07-17 18:58:12 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R37], size 1)
+2020-07-17 18:59:06 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R38], size 1)
+2020-07-17 18:59:06 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R39], size 1)
+2020-07-17 18:59:14 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R40], size 1)
+2020-07-17 19:00:08 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R41], size 1)
+2020-07-17 19:00:08 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R42], size 1)
+2020-07-17 19:00:16 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R43], size 1)
+2020-07-17 19:01:10 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R44], size 1)
+2020-07-17 19:01:10 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R45], size 1)
+2020-07-17 19:01:18 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R46], size 1)
+2020-07-17 19:02:12 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R47], size 1)
+2020-07-17 19:02:12 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R48], size 1)
+2020-07-17 19:02:20 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R49], size 1)
+2020-07-17 19:03:14 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R50], size 1)
+2020-07-17 19:03:14 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R51], size 1)
+2020-07-17 19:03:22 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R52], size 1)
+2020-07-17 19:04:16 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R53], size 1)
+2020-07-17 19:04:16 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R54], size 1)
+2020-07-17 19:04:24 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R55], size 1)
+2020-07-17 19:05:18 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R56], size 1)
+2020-07-17 19:05:18 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R57], size 1)
+2020-07-17 19:05:26 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R58], size 1)
+2020-07-17 19:06:20 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R59], size 1)
+2020-07-17 19:06:20 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R60], size 1)
+2020-07-17 19:06:28 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R61], size 1)
+2020-07-17 19:07:22 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R62], size 1)
+2020-07-17 19:07:22 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R63], size 1)
+2020-07-17 19:07:30 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R64], size 1)
+2020-07-17 19:08:24 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R65], size 1)
+2020-07-17 19:08:24 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R66], size 1)
+2020-07-17 19:08:32 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R67], size 1)
+2020-07-17 19:09:26 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R68], size 1)
+2020-07-17 19:09:26 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R69], size 1)
+2020-07-17 19:09:34 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R70], size 1)
+2020-07-17 19:10:28 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R71], size 1)
+2020-07-17 19:10:28 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R72], size 1)
+2020-07-17 19:10:36 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R73], size 1)
+2020-07-17 19:11:30 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R74], size 1)
+2020-07-17 19:11:30 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R75], size 1)
+2020-07-17 19:11:38 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R76], size 1)
+2020-07-17 19:12:32 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R77], size 1)
+2020-07-17 19:12:32 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R78], size 1)
+2020-07-17 19:12:40 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R79], size 1)
+2020-07-17 19:13:34 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R80], size 1)
+2020-07-17 19:13:34 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R81], size 1)
+2020-07-17 19:13:42 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R82], size 1)
+2020-07-17 19:14:36 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R83], size 1)
+2020-07-17 19:14:36 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R84], size 1)
+2020-07-17 19:14:44 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R85], size 1)
+2020-07-17 19:15:38 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[c33e37dfc6e60415] and resource /ctxwaiter/client_simulator1 (new Exchange[R86], size 1)
+2020-07-17 19:15:38 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[1dc22932510ac18d] and resource /ctxwaiter/smartbell (new Exchange[R87], size 1)
+2020-07-17 19:15:46 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:60275#[195c4071309c2277] and resource /ctxwaiter/waiterlogic (new Exchange[R88], size 1)
+2020-07-17 19:16:30 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:16:31 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:16:31 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:16:31 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:16:31 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:16:31 INFO  CoapServer:207 - Starting server
+2020-07-17 19:16:31 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:16:31 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:16:31 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:16:59 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62994#[8d12d638b9a4fdc8] and resource /ctxwaiter/smartbell (Exchange[R5], size 1)
+2020-07-17 19:16:59 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62994#[2f0744b91ef220eb] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-17 19:16:59 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62994#[1321df3218aa6e99] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-17 19:16:59 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62994#[2b24dbf58ef41d08] and resource /ctxwaiter/waiterlogic (Exchange[R6], size 1)
+2020-07-17 19:18:01 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[8d12d638b9a4fdc8] and resource /ctxwaiter/smartbell (new Exchange[R9], size 1)
+2020-07-17 19:18:01 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[2f0744b91ef220eb] and resource /ctxwaiter/client_simulator1 (new Exchange[R10], size 1)
+2020-07-17 19:18:01 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[1321df3218aa6e99] and resource /ctxwaiter/client_simulator2 (new Exchange[R11], size 1)
+2020-07-17 19:18:01 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[2b24dbf58ef41d08] and resource /ctxwaiter/waiterlogic (new Exchange[R12], size 1)
+2020-07-17 19:19:03 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[8d12d638b9a4fdc8] and resource /ctxwaiter/smartbell (new Exchange[R13], size 1)
+2020-07-17 19:19:03 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[2f0744b91ef220eb] and resource /ctxwaiter/client_simulator1 (new Exchange[R14], size 1)
+2020-07-17 19:19:03 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[1321df3218aa6e99] and resource /ctxwaiter/client_simulator2 (new Exchange[R15], size 1)
+2020-07-17 19:19:03 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[2b24dbf58ef41d08] and resource /ctxwaiter/waiterlogic (new Exchange[R16], size 1)
+2020-07-17 19:20:05 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[2f0744b91ef220eb] and resource /ctxwaiter/client_simulator1 (new Exchange[R21], size 1)
+2020-07-17 19:20:05 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[1321df3218aa6e99] and resource /ctxwaiter/client_simulator2 (new Exchange[R22], size 1)
+2020-07-17 19:20:05 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[2b24dbf58ef41d08] and resource /ctxwaiter/waiterlogic (new Exchange[R23], size 1)
+2020-07-17 19:21:07 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[2f0744b91ef220eb] and resource /ctxwaiter/client_simulator1 (new Exchange[R28], size 1)
+2020-07-17 19:21:07 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[1321df3218aa6e99] and resource /ctxwaiter/client_simulator2 (new Exchange[R29], size 1)
+2020-07-17 19:21:28 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62994#[8b41ed387fe0b32e] and resource /ctxwaiter/waiterlogic (Exchange[R34], size 2)
+2020-07-17 19:21:28 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62994#[c1d7ff684005fc98] and resource /ctxwaiter/smartbell (Exchange[R35], size 2)
+2020-07-17 19:21:28 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62994#[81289a0c53fd47e7] and resource /ctxwaiter/client_simulator1 (Exchange[R36], size 2)
+2020-07-17 19:21:28 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62994#[4318a302e9c88c38] and resource /ctxwaiter/client_simulator2 (Exchange[R37], size 2)
+2020-07-17 19:21:34 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62994#[2b24dbf58ef41d08] and resource /ctxwaiter/waiterlogic (new Exchange[R38], size 2)
+2020-07-17 19:22:12 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:22:13 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:22:14 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:22:14 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:22:14 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:22:14 INFO  CoapServer:207 - Starting server
+2020-07-17 19:22:14 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:22:14 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:22:14 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:22:39 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[63a499b158987cfe] and resource /ctxwaiter/waiterlogic (Exchange[R5], size 1)
+2020-07-17 19:22:39 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[15467fe65877e08a] and resource /ctxwaiter/smartbell (Exchange[R6], size 1)
+2020-07-17 19:22:39 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[79f47db9987ad847] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-17 19:22:39 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[35a6a2c1dca89db9] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-17 19:23:41 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[15467fe65877e08a] and resource /ctxwaiter/smartbell (new Exchange[R9], size 1)
+2020-07-17 19:23:41 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[79f47db9987ad847] and resource /ctxwaiter/client_simulator2 (new Exchange[R10], size 1)
+2020-07-17 19:23:41 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[35a6a2c1dca89db9] and resource /ctxwaiter/client_simulator1 (new Exchange[R11], size 1)
+2020-07-17 19:23:42 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[63a499b158987cfe] and resource /ctxwaiter/waiterlogic (new Exchange[R12], size 1)
+2020-07-17 19:24:43 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[79f47db9987ad847] and resource /ctxwaiter/client_simulator2 (new Exchange[R21], size 1)
+2020-07-17 19:24:43 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[35a6a2c1dca89db9] and resource /ctxwaiter/client_simulator1 (new Exchange[R22], size 1)
+2020-07-17 19:25:45 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[79f47db9987ad847] and resource /ctxwaiter/client_simulator2 (new Exchange[R30], size 1)
+2020-07-17 19:26:48 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:26:48 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:26:49 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:26:49 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:26:49 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:26:49 INFO  CoapServer:207 - Starting server
+2020-07-17 19:26:49 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:26:49 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:26:49 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:26:50 INFO  ServerMessageDeliverer:111 - did not find resource [ctxwaiter, client_simulator2] requested by /127.0.0.1:59469
+2020-07-17 19:26:52 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[15467fe65877e08a] and resource /ctxwaiter/smartbell (Exchange[R2], size 1)
+2020-07-17 19:26:56 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[e9a926d01dd4e4f7] and resource /ctxwaiter/waiterlogic (Exchange[R3], size 1)
+2020-07-17 19:26:56 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[b1f74595cc9aaa59] and resource /ctxwaiter/smartbell (Exchange[R4], size 2)
+2020-07-17 19:26:56 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[11617354809deb64] and resource /ctxwaiter/client_simulator2 (Exchange[R6], size 1)
+2020-07-17 19:26:56 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[0b24525f570fe1a8] and resource /ctxwaiter/client_simulator1 (Exchange[R5], size 1)
+2020-07-17 19:26:56 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[35a6a2c1dca89db9] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 2)
+2020-07-17 19:27:01 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[7d331ec3d2fc8d81] and resource /ctxwaiter/waiterlogic (Exchange[R8], size 2)
+2020-07-17 19:27:01 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[83ce91a83c8bb5c6] and resource /ctxwaiter/smartbell (Exchange[R9], size 3)
+2020-07-17 19:27:01 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[4b735068f8ce998e] and resource /ctxwaiter/client_simulator1 (Exchange[R10], size 3)
+2020-07-17 19:27:01 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[5f96c29cf0770276] and resource /ctxwaiter/client_simulator2 (Exchange[R11], size 2)
+2020-07-17 19:27:02 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59469#[63a499b158987cfe] and resource /ctxwaiter/waiterlogic (Exchange[R12], size 3)
+2020-07-17 19:27:54 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[15467fe65877e08a] and resource /ctxwaiter/smartbell (new Exchange[R13], size 3)
+2020-07-17 19:27:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[b1f74595cc9aaa59] and resource /ctxwaiter/smartbell (new Exchange[R14], size 3)
+2020-07-17 19:27:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[11617354809deb64] and resource /ctxwaiter/client_simulator2 (new Exchange[R15], size 2)
+2020-07-17 19:27:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[0b24525f570fe1a8] and resource /ctxwaiter/client_simulator1 (new Exchange[R16], size 3)
+2020-07-17 19:27:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[35a6a2c1dca89db9] and resource /ctxwaiter/client_simulator1 (new Exchange[R17], size 3)
+2020-07-17 19:28:03 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[83ce91a83c8bb5c6] and resource /ctxwaiter/smartbell (new Exchange[R18], size 3)
+2020-07-17 19:28:03 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[5f96c29cf0770276] and resource /ctxwaiter/client_simulator2 (new Exchange[R19], size 2)
+2020-07-17 19:28:03 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[4b735068f8ce998e] and resource /ctxwaiter/client_simulator1 (new Exchange[R20], size 3)
+2020-07-17 19:28:16 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[7d331ec3d2fc8d81] and resource /ctxwaiter/waiterlogic (new Exchange[R21], size 3)
+2020-07-17 19:28:16 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[63a499b158987cfe] and resource /ctxwaiter/waiterlogic (new Exchange[R22], size 3)
+2020-07-17 19:28:16 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[e9a926d01dd4e4f7] and resource /ctxwaiter/waiterlogic (new Exchange[R23], size 3)
+2020-07-17 19:28:56 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[15467fe65877e08a] and resource /ctxwaiter/smartbell (new Exchange[R24], size 3)
+2020-07-17 19:29:00 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[b1f74595cc9aaa59] and resource /ctxwaiter/smartbell (new Exchange[R25], size 3)
+2020-07-17 19:29:00 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[11617354809deb64] and resource /ctxwaiter/client_simulator2 (new Exchange[R26], size 2)
+2020-07-17 19:29:00 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[0b24525f570fe1a8] and resource /ctxwaiter/client_simulator1 (new Exchange[R27], size 3)
+2020-07-17 19:29:00 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[35a6a2c1dca89db9] and resource /ctxwaiter/client_simulator1 (new Exchange[R28], size 3)
+2020-07-17 19:29:05 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[5f96c29cf0770276] and resource /ctxwaiter/client_simulator2 (new Exchange[R33], size 2)
+2020-07-17 19:29:05 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[4b735068f8ce998e] and resource /ctxwaiter/client_simulator1 (new Exchange[R34], size 3)
+2020-07-17 19:29:18 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[7d331ec3d2fc8d81] and resource /ctxwaiter/waiterlogic (new Exchange[R35], size 3)
+2020-07-17 19:29:18 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[63a499b158987cfe] and resource /ctxwaiter/waiterlogic (new Exchange[R36], size 3)
+2020-07-17 19:29:18 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59469#[e9a926d01dd4e4f7] and resource /ctxwaiter/waiterlogic (new Exchange[R37], size 3)
+2020-07-17 19:30:23 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:30:24 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:30:25 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:30:25 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:30:25 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:30:25 INFO  CoapServer:207 - Starting server
+2020-07-17 19:30:25 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:30:25 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:30:25 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:30:48 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:52606#[a77fadd85a4967e2] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-17 19:30:48 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:52606#[817b32e5096e0c2b] and resource /ctxwaiter/smartbell (Exchange[R6], size 1)
+2020-07-17 19:30:48 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:52606#[732ba001dbbc4b7b] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-17 19:30:48 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:52606#[9b55b6bf6d731bfb] and resource /ctxwaiter/waiterlogic (Exchange[R5], size 1)
+2020-07-17 19:31:50 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[a77fadd85a4967e2] and resource /ctxwaiter/client_simulator1 (new Exchange[R9], size 1)
+2020-07-17 19:31:50 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[817b32e5096e0c2b] and resource /ctxwaiter/smartbell (new Exchange[R10], size 1)
+2020-07-17 19:31:50 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[732ba001dbbc4b7b] and resource /ctxwaiter/client_simulator2 (new Exchange[R11], size 1)
+2020-07-17 19:31:55 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[9b55b6bf6d731bfb] and resource /ctxwaiter/waiterlogic (new Exchange[R12], size 1)
+2020-07-17 19:32:52 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[a77fadd85a4967e2] and resource /ctxwaiter/client_simulator1 (new Exchange[R13], size 1)
+2020-07-17 19:32:52 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[817b32e5096e0c2b] and resource /ctxwaiter/smartbell (new Exchange[R14], size 1)
+2020-07-17 19:32:52 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[732ba001dbbc4b7b] and resource /ctxwaiter/client_simulator2 (new Exchange[R15], size 1)
+2020-07-17 19:32:57 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[9b55b6bf6d731bfb] and resource /ctxwaiter/waiterlogic (new Exchange[R16], size 1)
+2020-07-17 19:33:54 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[a77fadd85a4967e2] and resource /ctxwaiter/client_simulator1 (new Exchange[R17], size 1)
+2020-07-17 19:33:54 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[817b32e5096e0c2b] and resource /ctxwaiter/smartbell (new Exchange[R18], size 1)
+2020-07-17 19:33:54 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[732ba001dbbc4b7b] and resource /ctxwaiter/client_simulator2 (new Exchange[R19], size 1)
+2020-07-17 19:33:59 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[9b55b6bf6d731bfb] and resource /ctxwaiter/waiterlogic (new Exchange[R20], size 1)
+2020-07-17 19:34:56 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[732ba001dbbc4b7b] and resource /ctxwaiter/client_simulator2 (new Exchange[R29], size 1)
+2020-07-17 19:36:43 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[817b32e5096e0c2b] and resource /ctxwaiter/smartbell (new Exchange[R41], size 1)
+2020-07-17 19:37:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[a77fadd85a4967e2] and resource /ctxwaiter/client_simulator1 (new Exchange[R42], size 1)
+2020-07-17 19:37:39 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:52606#[732ba001dbbc4b7b] and resource /ctxwaiter/client_simulator2 (new Exchange[R43], size 1)
+2020-07-17 19:38:16 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:38:19 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:38:19 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:38:19 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:38:19 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:38:19 INFO  CoapServer:207 - Starting server
+2020-07-17 19:38:19 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:38:19 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:38:19 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:39:02 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[f7d3210e64e9799d] and resource /ctxwaiter/waiterlogic (Exchange[R5], size 1)
+2020-07-17 19:39:02 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[21a452b1e24c3029] and resource /ctxwaiter/smartbell (Exchange[R6], size 1)
+2020-07-17 19:39:02 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[3b83287b75fc5474] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-17 19:39:02 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[bb071241f3d0f4df] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-17 19:39:34 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[07546a4c337bacfa] and resource /ctxwaiter/waiterlogic (Exchange[R9], size 2)
+2020-07-17 19:39:34 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[9586d687ce7a7983] and resource /ctxwaiter/smartbell (Exchange[R10], size 2)
+2020-07-17 19:39:34 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[ab95ce503addad72] and resource /ctxwaiter/client_simulator1 (Exchange[R11], size 2)
+2020-07-17 19:39:34 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[b367982cdbbdce80] and resource /ctxwaiter/client_simulator2 (Exchange[R12], size 2)
+2020-07-17 19:40:14 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:40:17 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:40:17 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:40:17 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:40:17 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:40:17 INFO  CoapServer:207 - Starting server
+2020-07-17 19:40:17 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:40:17 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:40:17 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:40:21 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[f7d3210e64e9799d] and resource /ctxwaiter/waiterlogic (Exchange[R1], size 1)
+2020-07-17 19:40:23 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[3b83287b75fc5474] and resource /ctxwaiter/client_simulator1 (Exchange[R2], size 1)
+2020-07-17 19:40:25 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[21a452b1e24c3029] and resource /ctxwaiter/smartbell (Exchange[R3], size 1)
+2020-07-17 19:40:26 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[bb071241f3d0f4df] and resource /ctxwaiter/client_simulator2 (Exchange[R4], size 1)
+2020-07-17 19:40:36 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[07546a4c337bacfa] and resource /ctxwaiter/waiterlogic (Exchange[R5], size 2)
+2020-07-17 19:40:36 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[9586d687ce7a7983] and resource /ctxwaiter/smartbell (Exchange[R6], size 2)
+2020-07-17 19:40:36 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[ab95ce503addad72] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 2)
+2020-07-17 19:40:36 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[b367982cdbbdce80] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 2)
+2020-07-17 19:41:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[3b83287b75fc5474] and resource /ctxwaiter/client_simulator1 (new Exchange[R9], size 2)
+2020-07-17 19:41:27 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[21a452b1e24c3029] and resource /ctxwaiter/smartbell (new Exchange[R10], size 2)
+2020-07-17 19:41:28 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[bb071241f3d0f4df] and resource /ctxwaiter/client_simulator2 (new Exchange[R11], size 2)
+2020-07-17 19:41:38 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[ab95ce503addad72] and resource /ctxwaiter/client_simulator1 (new Exchange[R16], size 2)
+2020-07-17 19:41:38 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[b367982cdbbdce80] and resource /ctxwaiter/client_simulator2 (new Exchange[R17], size 2)
+2020-07-17 19:41:46 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[f7d3210e64e9799d] and resource /ctxwaiter/waiterlogic (new Exchange[R18], size 2)
+2020-07-17 19:41:46 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[07546a4c337bacfa] and resource /ctxwaiter/waiterlogic (new Exchange[R19], size 2)
+2020-07-17 19:42:30 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[bb071241f3d0f4df] and resource /ctxwaiter/client_simulator2 (new Exchange[R27], size 2)
+2020-07-17 19:42:40 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[b367982cdbbdce80] and resource /ctxwaiter/client_simulator2 (new Exchange[R32], size 2)
+2020-07-17 19:44:20 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:44:22 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:44:22 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:44:23 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:44:23 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:44:23 INFO  CoapServer:207 - Starting server
+2020-07-17 19:44:23 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:44:23 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:44:23 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:44:24 INFO  ServerMessageDeliverer:111 - did not find resource [ctxwaiter, smartbell] requested by /127.0.0.1:58915
+2020-07-17 19:44:26 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[07546a4c337bacfa] and resource /ctxwaiter/waiterlogic (Exchange[R2], size 1)
+2020-07-17 19:44:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[b9263726e83f4760] and resource /ctxwaiter/waiterlogic (Exchange[R3], size 2)
+2020-07-17 19:44:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[5f974f071622a584] and resource /ctxwaiter/smartbell (Exchange[R4], size 1)
+2020-07-17 19:44:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[dbd1c78130199212] and resource /ctxwaiter/client_simulator1 (Exchange[R5], size 1)
+2020-07-17 19:44:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[9d826bf652c56dee] and resource /ctxwaiter/client_simulator2 (Exchange[R6], size 1)
+2020-07-17 19:45:00 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:45:02 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:45:02 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:45:02 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:45:02 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:45:02 INFO  CoapServer:207 - Starting server
+2020-07-17 19:45:02 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:45:02 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:45:02 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:45:22 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[9da8b6a38272d750] and resource /ctxwaiter/client_simulator2 (Exchange[R4], size 1)
+2020-07-17 19:45:23 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[b37a9acc5287c75b] and resource /ctxwaiter/smartbell (Exchange[R2], size 1)
+2020-07-17 19:45:23 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[13c762a547798fb1] and resource /ctxwaiter/client_simulator1 (Exchange[R3], size 1)
+2020-07-17 19:45:23 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[fb3ed3ab72310d38] and resource /ctxwaiter/waiterlogic (Exchange[R1], size 1)
+2020-07-17 19:45:27 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[2d9c513c676df631] and resource /ctxwaiter/waiterlogic (Exchange[R5], size 2)
+2020-07-17 19:45:27 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[6f44d3259a843ee5] and resource /ctxwaiter/smartbell (Exchange[R6], size 2)
+2020-07-17 19:45:27 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[7f8faa2b7186f131] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 2)
+2020-07-17 19:45:27 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[afce88aafec77024] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 2)
+2020-07-17 19:45:29 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[07546a4c337bacfa] and resource /ctxwaiter/waiterlogic (Exchange[R9], size 3)
+2020-07-17 19:45:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[a554ef2f08caa28a] and resource /ctxwaiter/client_simulator2 (Exchange[R13], size 3)
+2020-07-17 19:45:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[fd2abe6642db7fa6] and resource /ctxwaiter/client_simulator1 (Exchange[R12], size 3)
+2020-07-17 19:45:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[cd366a82cec032aa] and resource /ctxwaiter/waiterlogic (Exchange[R10], size 4)
+2020-07-17 19:45:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[695884a663e06b40] and resource /ctxwaiter/smartbell (Exchange[R11], size 3)
+2020-07-17 19:45:34 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[b9263726e83f4760] and resource /ctxwaiter/waiterlogic (Exchange[R14], size 5)
+2020-07-17 19:45:34 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[5f974f071622a584] and resource /ctxwaiter/smartbell (Exchange[R15], size 4)
+2020-07-17 19:45:34 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[dbd1c78130199212] and resource /ctxwaiter/client_simulator1 (Exchange[R16], size 4)
+2020-07-17 19:45:34 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:58915#[9d826bf652c56dee] and resource /ctxwaiter/client_simulator2 (Exchange[R17], size 4)
+2020-07-17 19:46:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[b37a9acc5287c75b] and resource /ctxwaiter/smartbell (new Exchange[R18], size 4)
+2020-07-17 19:46:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[13c762a547798fb1] and resource /ctxwaiter/client_simulator1 (new Exchange[R19], size 4)
+2020-07-17 19:46:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[9da8b6a38272d750] and resource /ctxwaiter/client_simulator2 (new Exchange[R20], size 4)
+2020-07-17 19:46:29 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[6f44d3259a843ee5] and resource /ctxwaiter/smartbell (new Exchange[R21], size 4)
+2020-07-17 19:46:29 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[7f8faa2b7186f131] and resource /ctxwaiter/client_simulator1 (new Exchange[R22], size 4)
+2020-07-17 19:46:29 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[afce88aafec77024] and resource /ctxwaiter/client_simulator2 (new Exchange[R23], size 4)
+2020-07-17 19:46:30 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[fb3ed3ab72310d38] and resource /ctxwaiter/waiterlogic (new Exchange[R24], size 5)
+2020-07-17 19:46:30 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[2d9c513c676df631] and resource /ctxwaiter/waiterlogic (new Exchange[R25], size 5)
+2020-07-17 19:46:31 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[07546a4c337bacfa] and resource /ctxwaiter/waiterlogic (new Exchange[R26], size 5)
+2020-07-17 19:46:34 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[fd2abe6642db7fa6] and resource /ctxwaiter/client_simulator1 (new Exchange[R27], size 4)
+2020-07-17 19:46:34 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[a554ef2f08caa28a] and resource /ctxwaiter/client_simulator2 (new Exchange[R28], size 4)
+2020-07-17 19:46:34 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[cd366a82cec032aa] and resource /ctxwaiter/waiterlogic (new Exchange[R29], size 5)
+2020-07-17 19:46:34 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[695884a663e06b40] and resource /ctxwaiter/smartbell (new Exchange[R30], size 4)
+2020-07-17 19:46:36 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[b9263726e83f4760] and resource /ctxwaiter/waiterlogic (new Exchange[R31], size 5)
+2020-07-17 19:46:36 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[5f974f071622a584] and resource /ctxwaiter/smartbell (new Exchange[R32], size 4)
+2020-07-17 19:46:36 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[dbd1c78130199212] and resource /ctxwaiter/client_simulator1 (new Exchange[R33], size 4)
+2020-07-17 19:46:36 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:58915#[9d826bf652c56dee] and resource /ctxwaiter/client_simulator2 (new Exchange[R34], size 4)
+2020-07-17 19:47:28 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:47:29 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:47:29 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:47:29 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:47:29 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:47:29 INFO  CoapServer:207 - Starting server
+2020-07-17 19:47:29 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:47:29 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:47:29 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:48:09 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[77246b5978c899f0] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-17 19:48:09 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[c37e3b4b0ac58a81] and resource /ctxwaiter/waiterlogic (Exchange[R5], size 1)
+2020-07-17 19:48:09 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[5589742b015bea06] and resource /ctxwaiter/smartbell (Exchange[R6], size 1)
+2020-07-17 19:48:09 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[774b3302c82cccd2] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-17 19:48:39 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[531943565189ba9a] and resource /ctxwaiter/waiterlogic (Exchange[R9], size 2)
+2020-07-17 19:48:39 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[3f9b6ac01c1cf19d] and resource /ctxwaiter/client_simulator1 (Exchange[R10], size 2)
+2020-07-17 19:48:39 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[5f9923bef7352503] and resource /ctxwaiter/smartbell (Exchange[R11], size 2)
+2020-07-17 19:48:39 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[a1939de54383f0ad] and resource /ctxwaiter/client_simulator2 (Exchange[R12], size 2)
+2020-07-17 19:49:48 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:49:50 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:49:51 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:49:51 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:49:51 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:49:51 INFO  CoapServer:207 - Starting server
+2020-07-17 19:49:51 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:49:51 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:49:51 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:49:51 INFO  ServerMessageDeliverer:111 - did not find resource [ctxwaiter, waiterlogic] requested by /127.0.0.1:64705
+2020-07-17 19:49:52 INFO  ServerMessageDeliverer:111 - did not find resource [ctxwaiter, client_simulator1] requested by /127.0.0.1:64705
+2020-07-17 19:49:56 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[a1939de54383f0ad] and resource /ctxwaiter/client_simulator2 (Exchange[R3], size 1)
+2020-07-17 19:49:57 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[531943565189ba9a] and resource /ctxwaiter/waiterlogic (Exchange[R4], size 1)
+2020-07-17 19:50:00 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[3f9b6ac01c1cf19d] and resource /ctxwaiter/client_simulator1 (Exchange[R5], size 1)
+2020-07-17 19:50:00 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:64705#[5f9923bef7352503] and resource /ctxwaiter/smartbell (Exchange[R6], size 1)
+2020-07-17 19:50:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64705#[a1939de54383f0ad] and resource /ctxwaiter/client_simulator2 (new Exchange[R7], size 1)
+2020-07-17 19:51:02 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64705#[3f9b6ac01c1cf19d] and resource /ctxwaiter/client_simulator1 (new Exchange[R8], size 1)
+2020-07-17 19:51:02 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64705#[5f9923bef7352503] and resource /ctxwaiter/smartbell (new Exchange[R9], size 1)
+2020-07-17 19:51:19 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64705#[531943565189ba9a] and resource /ctxwaiter/waiterlogic (new Exchange[R14], size 1)
+2020-07-17 19:52:00 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:64705#[a1939de54383f0ad] and resource /ctxwaiter/client_simulator2 (new Exchange[R22], size 1)
+2020-07-17 19:57:33 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 19:57:37 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 19:57:37 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 19:57:37 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 19:57:37 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 19:57:37 INFO  CoapServer:207 - Starting server
+2020-07-17 19:57:38 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 19:57:38 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 19:57:38 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 19:58:19 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[b1a288db51df27f2] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-17 19:58:19 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[17947e22c1509b84] and resource /ctxwaiter/smartbell (Exchange[R5], size 1)
+2020-07-17 19:58:19 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[2d40223d1258c33f] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-17 19:58:19 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[9330903080d28ed6] and resource /ctxwaiter/waiterlogic (Exchange[R6], size 1)
+2020-07-17 19:59:21 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59878#[b1a288db51df27f2] and resource /ctxwaiter/client_simulator1 (new Exchange[R13], size 1)
+2020-07-17 19:59:23 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59878#[2d40223d1258c33f] and resource /ctxwaiter/client_simulator2 (new Exchange[R14], size 1)
+2020-07-17 20:01:30 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[dddb613211df92a1] and resource /ctxwaiter/waiterlogic (Exchange[R34], size 2)
+2020-07-17 20:01:30 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[5312a21cf37c7cc1] and resource /ctxwaiter/smartbell (Exchange[R35], size 2)
+2020-07-17 20:01:30 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[65c8382518bbd4fb] and resource /ctxwaiter/client_simulator1 (Exchange[R36], size 2)
+2020-07-17 20:01:30 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[bd5b5e057322c79c] and resource /ctxwaiter/client_simulator2 (Exchange[R37], size 2)
+2020-07-17 20:01:51 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59878#[b1a288db51df27f2] and resource /ctxwaiter/client_simulator1 (new Exchange[R38], size 2)
+2020-07-17 20:01:57 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:59878#[2d40223d1258c33f] and resource /ctxwaiter/client_simulator2 (new Exchange[R39], size 2)
+2020-07-17 20:02:10 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-17 20:02:12 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-17 20:02:12 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-17 20:02:12 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-17 20:02:12 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-17 20:02:12 INFO  CoapServer:207 - Starting server
+2020-07-17 20:02:12 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-17 20:02:12 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-17 20:02:12 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-17 20:02:14 INFO  ServerMessageDeliverer:111 - did not find resource [ctxwaiter, smartbell] requested by /127.0.0.1:59878
+2020-07-17 20:02:16 INFO  ServerMessageDeliverer:111 - did not find resource [ctxwaiter, client_simulator2] requested by /127.0.0.1:59878
+2020-07-17 20:02:19 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[9330903080d28ed6] and resource /ctxwaiter/waiterlogic (Exchange[R6], size 1)
+2020-07-17 20:02:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[dddb613211df92a1] and resource /ctxwaiter/waiterlogic (Exchange[R7], size 2)
+2020-07-17 20:02:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[5312a21cf37c7cc1] and resource /ctxwaiter/smartbell (Exchange[R8], size 1)
+2020-07-17 20:02:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[65c8382518bbd4fb] and resource /ctxwaiter/client_simulator1 (Exchange[R9], size 1)
+2020-07-17 20:02:32 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[bd5b5e057322c79c] and resource /ctxwaiter/client_simulator2 (Exchange[R10], size 1)
+2020-07-17 20:02:53 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[b1a288db51df27f2] and resource /ctxwaiter/client_simulator1 (Exchange[R15], size 2)
+2020-07-17 20:02:59 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:59878#[2d40223d1258c33f] and resource /ctxwaiter/client_simulator2 (Exchange[R16], size 2)
+2020-07-18 09:09:59 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-18 09:10:03 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-18 09:10:03 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-18 09:10:03 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-18 09:10:03 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-18 09:10:03 INFO  CoapServer:207 - Starting server
+2020-07-18 09:10:03 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-18 09:10:03 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-18 09:10:03 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-18 09:10:22 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62003#[d7f8ac6379171d5e] and resource /ctxwaiter/waiterlogic (Exchange[R6], size 1)
+2020-07-18 09:10:22 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-18 09:10:22 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-18 09:10:22 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (Exchange[R5], size 1)
+2020-07-18 09:11:24 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R9], size 1)
+2020-07-18 09:11:24 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R10], size 1)
+2020-07-18 09:11:24 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R11], size 1)
+2020-07-18 09:11:33 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[d7f8ac6379171d5e] and resource /ctxwaiter/waiterlogic (new Exchange[R12], size 1)
+2020-07-18 09:12:26 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R13], size 1)
+2020-07-18 09:12:26 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R14], size 1)
+2020-07-18 09:12:27 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R15], size 1)
+2020-07-18 09:12:35 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[d7f8ac6379171d5e] and resource /ctxwaiter/waiterlogic (new Exchange[R16], size 1)
+2020-07-18 09:13:28 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R25], size 1)
+2020-07-18 09:13:29 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R26], size 1)
+2020-07-18 09:14:55 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R37], size 1)
+2020-07-18 09:16:14 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R45], size 1)
+2020-07-18 09:16:21 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R46], size 1)
+2020-07-18 09:17:16 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R50], size 1)
+2020-07-18 09:17:23 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R51], size 1)
+2020-07-18 09:17:38 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R52], size 1)
+2020-07-18 09:18:18 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R53], size 1)
+2020-07-18 09:18:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R54], size 1)
+2020-07-18 09:18:25 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[d7f8ac6379171d5e] and resource /ctxwaiter/waiterlogic (new Exchange[R55], size 1)
+2020-07-18 09:18:40 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R56], size 1)
+2020-07-18 09:19:20 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R57], size 1)
+2020-07-18 09:19:27 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R58], size 1)
+2020-07-18 09:19:27 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[d7f8ac6379171d5e] and resource /ctxwaiter/waiterlogic (new Exchange[R59], size 1)
+2020-07-18 09:19:42 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R60], size 1)
+2020-07-18 09:20:22 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R61], size 1)
+2020-07-18 09:20:29 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R62], size 1)
+2020-07-18 09:20:29 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[d7f8ac6379171d5e] and resource /ctxwaiter/waiterlogic (new Exchange[R63], size 1)
+2020-07-18 09:20:44 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R64], size 1)
+2020-07-18 09:21:24 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R65], size 1)
+2020-07-18 09:21:31 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R66], size 1)
+2020-07-18 09:21:31 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[d7f8ac6379171d5e] and resource /ctxwaiter/waiterlogic (new Exchange[R67], size 1)
+2020-07-18 09:21:46 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R68], size 1)
+2020-07-18 09:22:26 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[293146e19a3e36d4] and resource /ctxwaiter/client_simulator2 (new Exchange[R69], size 1)
+2020-07-18 09:22:33 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R70], size 1)
+2020-07-18 09:22:33 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[d7f8ac6379171d5e] and resource /ctxwaiter/waiterlogic (new Exchange[R71], size 1)
+2020-07-18 09:22:48 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R72], size 1)
+2020-07-18 09:23:35 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R73], size 1)
+2020-07-18 09:23:50 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R74], size 1)
+2020-07-18 09:24:37 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R75], size 1)
+2020-07-18 09:24:52 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R76], size 1)
+2020-07-18 09:25:39 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[050366ba2f937fc3] and resource /ctxwaiter/smartbell (new Exchange[R77], size 1)
+2020-07-18 09:25:54 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R78], size 1)
+2020-07-18 09:26:56 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R79], size 1)
+2020-07-18 09:27:58 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:62003#[2759a6c2af5cea16] and resource /ctxwaiter/client_simulator1 (new Exchange[R80], size 1)
+2020-07-18 09:30:13 INFO  NetworkConfig:372 - loading properties from file C:\Users\Lorenzo\Documents\LORI\UNIVERSITA'\Magistrale\2°Anno\II Ciclo\Ingegneria dei Sistemi Software\Waiter_Robot\SPRINT\Eseguibili\it.unibo.iss.sprint4-1.0\bin\Californium.properties
+2020-07-18 09:30:15 INFO  RandomTokenGenerator:55 - using tokens of 8 bytes in length
+2020-07-18 09:30:16 INFO  CoapEndpoint:423 - CoapEndpoint uses udp plain
+2020-07-18 09:30:16 INFO  BlockwiseLayer:207 - BlockwiseLayer uses MAX_MESSAGE_SIZE=1024, PREFERRED_BLOCK_SIZE=512, BLOCKWISE_STATUS_LIFETIME=300000 and MAX_RESOURCE_BODY_SIZE=8192
+2020-07-18 09:30:16 INFO  ReliabilityLayer:83 - ReliabilityLayer uses ACK_TIMEOUT=2000, ACK_RANDOM_FACTOR=1.5, and ACK_TIMEOUT_SCALE=2.0
+2020-07-18 09:30:16 INFO  CoapServer:207 - Starting server
+2020-07-18 09:30:16 INFO  UDPConnector:161 - UDPConnector starts up 4 sender threads and 4 receiver threads
+2020-07-18 09:30:16 INFO  UDPConnector:187 - UDPConnector listening on 0.0.0.0/0.0.0.0:8050, recv buf = 65536, send buf = 65536, recv packet size = 2048
+2020-07-18 09:30:16 INFO  CoapEndpoint:485 - Started endpoint at coap://0.0.0.0:8050
+2020-07-18 09:30:38 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:54838#[9f1b644b6a63ae0f] and resource /ctxwaiter/waiterlogic (Exchange[R5], size 1)
+2020-07-18 09:30:38 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:54838#[7312c901a9c614d5] and resource /ctxwaiter/client_simulator2 (Exchange[R8], size 1)
+2020-07-18 09:30:38 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:54838#[6f38aff3f277fddc] and resource /ctxwaiter/client_simulator1 (Exchange[R7], size 1)
+2020-07-18 09:30:38 INFO  CoapResource:722 - successfully established observe relation between /127.0.0.1:54838#[abbb92729a7c71b6] and resource /ctxwaiter/smartbell (Exchange[R6], size 1)
+2020-07-18 09:31:40 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:54838#[6f38aff3f277fddc] and resource /ctxwaiter/client_simulator1 (new Exchange[R10], size 1)
+2020-07-18 09:31:40 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:54838#[7312c901a9c614d5] and resource /ctxwaiter/client_simulator2 (new Exchange[R9], size 1)
+2020-07-18 09:31:40 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:54838#[abbb92729a7c71b6] and resource /ctxwaiter/smartbell (new Exchange[R11], size 1)
+2020-07-18 09:31:49 INFO  CoapResource:719 - replacing observe relation between /127.0.0.1:54838#[9f1b644b6a63ae0f] and resource /ctxwaiter/waiterlogic (new Exchange[R12], size 1)

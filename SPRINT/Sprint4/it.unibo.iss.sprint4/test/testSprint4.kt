@@ -172,7 +172,7 @@ val mqttbrokerAddr    = "tcp://localhost"
 		delay(200)
 		checkResourceWaiterLogic("waiter(serving_client(2)) \n [teatable1(busy(1)),teatable2(busy(2))]")
 		delay(5000)		//time to reach table 2 and take the order
-		delay(15000) 	//time to serve order 1 and order 2
+		delay(20000) 	//time to serve order 1 and order 2
 	}
 	
 @kotlinx.coroutines.ObsoleteCoroutinesApi
@@ -235,7 +235,7 @@ suspend fun testBusyRoom(){
 				clientSimulator1	= it.unibo.kactor.sysUtil.getActor("client_simulator1")
 				clientSimulator2	= it.unibo.kactor.sysUtil.getActor("client_simulator2")
 			}
-
+		delay(3000)	
 		testSickRing() 				// test di una richiesta di cliente con febbre.
 		test2ClientsEnterRequest()	// test sull'arrivo di due clienti in sequenza, uno dopo l'altro.
 		testClientSimulation()		// i due clienti ordinano
